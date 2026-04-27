@@ -1,462 +1,453 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DaYi — Backend Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --cream: #f5f0e8;
-      --paper: #faf7f2;
-      --ink: #1a1a1a;
-      --ink-light: #555;
-      --ink-muted: #999;
-      --border: #d8d0c4;
-      --tag-bg: #ede8df;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--cream);
-      color: var(--ink);
-      font-family: 'Noto Sans TC', sans-serif;
-      font-weight: 300;
-      line-height: 1.8;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 99;
-      background: rgba(245,240,232,0.93);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 60px;
-    }
-    .nav-logo {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.2rem; letter-spacing: .12em;
-      color: var(--ink); text-decoration: none;
-    }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a {
-      font-size: .75rem; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--ink-muted); text-decoration: none; transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--ink); }
-
-    /* ── CONTAINER ── */
-    .container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 80px;
-      padding: 120px 60px 80px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .hero-eyebrow {
-      font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--ink-muted); margin-bottom: 20px;
-    }
-    .hero-name {
-      font-family: 'EB Garamond', serif;
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 400; line-height: 1.1; margin-bottom: 24px;
-    }
-    .hero-name em { font-style: italic; }
-    .hero-desc {
-      font-size: .93rem; color: var(--ink-light);
-      line-height: 1.9; margin-bottom: 36px;
-      border-left: 2px solid var(--border); padding-left: 20px;
-    }
-    .hero-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    .hero-links a {
-      font-size: .75rem; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--ink); text-decoration: none;
-      border-bottom: 1px solid var(--ink); padding-bottom: 2px;
-      transition: opacity .2s;
-    }
-    .hero-links a:hover { opacity: .45; }
-    .hero-visual {
-      display: flex; flex-direction: column; align-items: center; gap: 28px;
-    }
-    .hero-avatar {
-      width: 150px; height: 150px; border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--border);
-      filter: grayscale(15%);
-    }
-    .hero-stats {
-      width: 100%; background: var(--paper);
-      border: 1px solid var(--border); padding: 20px;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-    }
-    .stat { text-align: center; }
-    .stat-num {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.7rem; display: block;
-    }
-    .stat-label {
-      font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--ink-muted);
-    }
-
-    /* ── DIVIDER ── */
-    .divider { border: none; border-top: 1px solid var(--border); }
-
-    /* ── SECTION ── */
-    .section { padding: 80px 0; }
-    .section-header {
-      display: flex; align-items: baseline; gap: 16px; margin-bottom: 48px;
-    }
-    .section-num {
-      font-family: 'EB Garamond', serif; font-style: italic;
-      font-size: .95rem; color: var(--ink-muted);
-    }
-    .section-title {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.55rem; font-weight: 400; letter-spacing: .04em;
-    }
-
-    /* ── PROJECTS ── */
-    .project-item {
-      display: grid; grid-template-columns: 60px 1fr 24px;
-      align-items: start; gap: 20px;
-      padding: 26px 0; border-bottom: 1px solid var(--border);
-      text-decoration: none; color: inherit;
-    }
-    .project-item:first-child { border-top: 1px solid var(--border); }
-    .project-item:hover .proj-name { text-decoration: underline; text-underline-offset: 4px; }
-    .proj-index {
-      font-family: 'EB Garamond', serif; font-style: italic;
-      font-size: .88rem; color: var(--ink-muted); padding-top: 2px;
-    }
-    .proj-name { font-size: .97rem; font-weight: 400; margin-bottom: 6px; }
-    .proj-desc { font-size: .86rem; color: var(--ink-light); line-height: 1.75; }
-    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-    .tag {
-      font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
-      background: var(--tag-bg); color: var(--ink-muted);
-      padding: 3px 9px;
-    }
-    .proj-arrow { font-size: .95rem; color: var(--ink-muted); padding-top: 2px; }
-
-    /* ── WORK ── */
-    .work-card {
-      background: var(--paper);
-      border: 1px solid var(--border);
-      padding: 32px; margin-bottom: 20px;
-    }
-    .work-header {
-      display: flex; justify-content: space-between;
-      align-items: baseline; flex-wrap: wrap; gap: 8px;
-      margin-bottom: 8px;
-    }
-    .work-role { font-size: .97rem; font-weight: 400; }
-    .work-period { font-size: .75rem; color: var(--ink-muted); letter-spacing: .1em; }
-    .work-org { font-size: .8rem; color: var(--ink-muted); margin-bottom: 14px; }
-    .work-desc { font-size: .86rem; color: var(--ink-light); line-height: 1.85; }
-    .work-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-
-    /* ── SKILLS ── */
-    .skills-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: var(--border);
-    }
-    .skill-block { background: var(--paper); padding: 26px 22px; }
-    .skill-category {
-      font-size: .68rem; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--ink-muted); margin-bottom: 12px;
-    }
-    .skill-items { font-size: .86rem; color: var(--ink-light); line-height: 2.1; }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 36px 60px;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .footer-brand {
-      font-family: 'EB Garamond', serif;
-      font-size: .97rem; letter-spacing: .1em;
-    }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a {
-      font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--ink-muted); text-decoration: none; transition: color .2s;
-    }
-    .footer-links a:hover { color: var(--ink); }
-
-    /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* ── RWD ── */
-    @media (max-width: 768px) {
-      nav { padding: 14px 24px; }
-      .nav-links { gap: 18px; }
-      .nav-links a { font-size: .68rem; }
-
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 90px 24px 60px;
-        gap: 40px;
-        text-align: center;
-      }
-      .hero-desc { text-align: left; }
-      .hero-links { justify-content: center; }
-      .hero-visual { flex-direction: row; align-items: center; gap: 24px; }
-      .hero-avatar { width: 100px; height: 100px; flex-shrink: 0; }
-      .hero-stats {
-        grid-template-columns: repeat(2, 1fr);
-        flex: 1;
-      }
-
-      .container { padding: 0 24px; }
-      .section { padding: 60px 0; }
-
-      .project-item { grid-template-columns: 40px 1fr; }
-      .proj-arrow { display: none; }
-
-      .skills-grid { grid-template-columns: 1fr; }
-
-      footer {
-        flex-direction: column; gap: 16px;
-        text-align: center; padding: 28px 24px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-visual { flex-direction: column; }
-      .hero-stats { grid-template-columns: repeat(2, 1fr); width: 100%; }
-      .nav-links { gap: 12px; }
-    }
-  </style>
-</head>
-<body>
-
-<nav>
-  <a class="nav-logo" href="#">DaYi</a>
-  <ul class="nav-links">
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#skills">Skills</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
-    <p class="hero-eyebrow">Backend Engineer · AI Systems</p>
-    <h1 class="hero-name">Da<em>Yi</em><br/>大益</h1>
-    <p class="hero-desc">
-      後端工程師，專注於系統架構設計、微服務開發與醫療 AI 應用。
-      擅長以 Java、Python、Go、C# 打造可靠、高效能的後端服務，
-      並整合 LLM 技術解決實際場景需求。
-    </p>
-    <div class="hero-links">
-      <a href="https://github.com/DaYi-TW" target="_blank">GitHub →</a>
-      <a href="#projects">Projects →</a>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <img class="hero-avatar" src="https://avatars.githubusercontent.com/u/6985419?v=4" alt="DaYi" />
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num">6</span><span class="stat-label">Years</span></div>
-      <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Repos</span></div>
-      <div class="stat"><span class="stat-num">6</span><span class="stat-label">Languages</span></div>
-      <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Coffee</span></div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- PROJECTS -->
-<div class="container">
-  <section class="section" id="projects">
-    <div class="section-header reveal">
-      <span class="section-num">01.</span>
-      <h2 class="section-title">Selected Projects</h2>
-    </div>
-
-    <a class="project-item reveal" href="https://github.com/DaYi-TW/go-payment-gateway" target="_blank">
-      <span class="proj-index">i.</span>
-      <div class="proj-body">
-        <div class="proj-name">Go Payment Gateway</div>
-        <div class="proj-desc">以 Go 語言實作的支付閘道服務，著重高效能、低延遲的 API 設計與錯誤處理。</div>
-        <div class="proj-tags"><span class="tag">Go</span><span class="tag">API</span><span class="tag">Backend</span></div>
-      </div>
-      <span class="proj-arrow">↗</span>
-    </a>
-
-    <a class="project-item reveal" href="https://github.com/DaYi-TW/Baseball-RL-Pitching-System" target="_blank">
-      <span class="proj-index">ii.</span>
-      <div class="proj-body">
-        <div class="proj-name">Baseball RL Pitching System</div>
-        <div class="proj-desc">強化學習棒球投球策略模擬系統，訓練 Agent 於複雜狀態空間中找出最優決策。</div>
-        <div class="proj-tags"><span class="tag">Python</span><span class="tag">RL</span><span class="tag">Deep Learning</span></div>
-      </div>
-      <span class="proj-arrow">↗</span>
-    </a>
-
-    <a class="project-item reveal" href="https://github.com/DaYi-TW/Pepper-market-allocation-rl" target="_blank">
-      <span class="proj-index">iii.</span>
-      <div class="proj-body">
-        <div class="proj-name">Pepper Market Allocation RL</div>
-        <div class="proj-desc">以強化學習解決市場資源分配問題，研究 Multi-Armed Bandit 的 Explore / Exploit 平衡。</div>
-        <div class="proj-tags"><span class="tag">Python</span><span class="tag">RL</span><span class="tag">MAB</span></div>
-      </div>
-      <span class="proj-arrow">↗</span>
-    </a>
-
-    <a class="project-item reveal" href="https://github.com/DaYi-TW/DiabRetina" target="_blank">
-      <span class="proj-index">iv.</span>
-      <div class="proj-body">
-        <div class="proj-name">DiabRetina</div>
-        <div class="proj-desc">糖尿病視網膜病變 AI 辨識，應用深度學習於醫療影像分析，後端整合推論服務。</div>
-        <div class="proj-tags"><span class="tag">Python</span><span class="tag">Medical AI</span><span class="tag">CV</span></div>
-      </div>
-      <span class="proj-arrow">↗</span>
-    </a>
-
-    <a class="project-item reveal" href="https://github.com/DaYi-TW/wenyan-news-transcriber" target="_blank">
-      <span class="proj-index">v.</span>
-      <div class="proj-body">
-        <div class="proj-name">Wenyan News Transcriber</div>
-        <div class="proj-desc">將現代新聞轉換為文言文風格的 NLP 應用，探索 LLM Prompt Engineering 與文體轉換。</div>
-        <div class="proj-tags"><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">NLP</span></div>
-      </div>
-      <span class="proj-arrow">↗</span>
-    </a>
-
-    <a class="project-item reveal" href="https://github.com/DaYi-TW/ShortenURL" target="_blank">
-      <span class="proj-index">v.</span>
-      <div class="proj-body">
-        <div class="proj-name">ShortenURL</div>
-        <div class="proj-desc">短網址服務，以 Vue.js 打造前端介面，後端負責網址映射與重導向邏輯設計。</div>
-        <div class="proj-tags"><span class="tag">Vue</span><span class="tag">API</span><span class="tag">Backend</span></div>
-      </div>
-      <span class="proj-arrow">↗</span>
-    </a>
-
-    <a class="project-item reveal" href="https://github.com/DaYi-TW/gmail-batch-mailer" target="_blank">
-      <span class="proj-index">vi.</span>
-      <div class="proj-body">
-        <div class="proj-name">Gmail Batch Mailer</div>
-        <div class="proj-desc">Gmail 批次寄信工具，整合 Google API 實現大量個人化郵件發送，支援範本與收件人清單管理。</div>
-        <div class="proj-tags"><span class="tag">JavaScript</span><span class="tag">Google API</span><span class="tag">Automation</span></div>
-      </div>
-      <span class="proj-arrow">↗</span>
-    </a>
-
-    <a class="project-item reveal" href="https://github.com/DaYi-TW/wenyan-news-transcriber" target="_blank">
-      <span class="proj-index">vii.</span>
-      <div class="proj-body">
-        <div class="proj-name">Wenyan News Transcriber</div>
-        <div class="proj-desc">將現代新聞轉換為文言文風格的 NLP 應用，探索 LLM Prompt Engineering 與文體轉換。</div>
-        <div class="proj-tags"><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">NLP</span></div>
-      </div>
-      <span class="proj-arrow">↗</span>
-    </a>
-
-  </section>
-</div>
-
-<hr class="divider">
-
-<!-- WORK -->
-<div class="container">
-  <section class="section" id="work">
-    <div class="section-header reveal">
-      <span class="section-num">02.</span>
-      <h2 class="section-title">Work Experience</h2>
-    </div>
-
-    <div class="work-card reveal">
-      <div class="work-header">
-        <span class="work-role">Backend Engineer — Medical AI Platform</span>
-        <span class="work-period">2023 — Present</span>
-      </div>
-      <div class="work-org">醫療機構 AI 研發部門</div>
-      <div class="work-desc">
-        主導醫療 AI 後端系統設計，建立基於 Message Queue 的 LLM 推論管線，支援高並發醫療場景。
-        負責乳房超音波 AI 輔助診斷、院內 ChatGPT 平台、逐字稿 AI 等多項產品的後端架構。
-        設計微服務架構，整合 HIS（醫院資訊系統），串接 Azure OpenAI 服務。
-      </div>
-      <div class="work-tech">
-        <span class="tag">Java</span><span class="tag">Python</span><span class="tag">C#</span>
-        <span class="tag">Go</span><span class="tag">Azure OpenAI</span>
-        <span class="tag">Microservice</span><span class="tag">Docker</span><span class="tag">Message Queue</span>
-      </div>
-    </div>
-
-    <div class="work-card reveal">
-      <div class="work-header">
-        <span class="work-role">Frontend / Full-Stack Developer</span>
-        <span class="work-period">2020 — 2022</span>
-      </div>
-      <div class="work-org">個人專案</div>
-      <div class="work-desc">
-        以 React、TypeScript、Vue.js 打造多項前端專案。
-        參加 iThome 鐵人賽，深化工程實力並建立技術文章習慣。
-      </div>
-      <div class="work-tech">
-        <span class="tag">React</span><span class="tag">TypeScript</span>
-        <span class="tag">Vue.js</span><span class="tag">Vite</span>
-      </div>
-    </div>
-
-  </section>
-</div>
-
-<hr class="divider">
-
-<!-- SKILLS -->
-<div class="container">
-  <section class="section" id="skills">
-    <div class="section-header reveal">
-      <span class="section-num">03.</span>
-      <h2 class="section-title">Technical Skills</h2>
-    </div>
-    <div class="skills-grid reveal">
-      <div class="skill-block">
-        <div class="skill-category">Backend</div>
-        <div class="skill-items">Java<br/>Python<br/>Go<br/>C#<br/>REST API<br/>Message Queue</div>
-      </div>
-      <div class="skill-block">
-        <div class="skill-category">AI / ML</div>
-        <div class="skill-items">LLM Integration<br/>Azure OpenAI<br/>Reinforcement Learning<br/>Computer Vision<br/>NLP</div>
-      </div>
-      <div class="skill-block">
-        <div class="skill-category">Infrastructure</div>
-        <div class="skill-items">Microservices<br/>Docker<br/>Linux / Shell<br/>TypeScript<br/>Vue / React</div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<hr class="divider">
-
-<footer>
-  <span class="footer-brand">DaYi · 大益</span>
-  <div class="footer-links">
-    <a href="https://github.com/DaYi-TW" target="_blank">GitHub</a>
-  </div>
-</footer>
-
-<script>
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
-</body>
-</html>
+     1|<!DOCTYPE html>
+     2|<html lang="zh-TW">
+     3|<head>
+     4|  <meta charset="UTF-8" />
+     5|  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     6|  <title>DaYi — Backend Engineer</title>
+     7|  <link rel="preconnect" href="https://fonts.googleapis.com">
+     8|  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+     9|  <style>
+    10|    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    11|    :root {
+    12|      --cream: #f5f0e8;
+    13|      --paper: #faf7f2;
+    14|      --ink: #1a1a1a;
+    15|      --ink-light: #555;
+    16|      --ink-muted: #999;
+    17|      --border: #d8d0c4;
+    18|      --tag-bg: #ede8df;
+    19|    }
+    20|    html { scroll-behavior: smooth; }
+    21|    body {
+    22|      background: var(--cream);
+    23|      color: var(--ink);
+    24|      font-family: 'Noto Sans TC', sans-serif;
+    25|      font-weight: 300;
+    26|      line-height: 1.8;
+    27|    }
+    28|
+    29|    /* ── NAV ── */
+    30|    nav {
+    31|      position: fixed; top: 0; left: 0; right: 0; z-index: 99;
+    32|      background: rgba(245,240,232,0.93);
+    33|      backdrop-filter: blur(8px);
+    34|      border-bottom: 1px solid var(--border);
+    35|      display: flex; align-items: center; justify-content: space-between;
+    36|      padding: 18px 60px;
+    37|    }
+    38|    .nav-logo {
+    39|      font-family: 'EB Garamond', serif;
+    40|      font-size: 1.2rem; letter-spacing: .12em;
+    41|      color: var(--ink); text-decoration: none;
+    42|    }
+    43|    .nav-links { display: flex; gap: 36px; list-style: none; }
+    44|    .nav-links a {
+    45|      font-size: .75rem; letter-spacing: .18em; text-transform: uppercase;
+    46|      color: var(--ink-muted); text-decoration: none; transition: color .2s;
+    47|    }
+    48|    .nav-links a:hover { color: var(--ink); }
+    49|
+    50|    /* ── CONTAINER ── */
+    51|    .container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+    52|
+    53|    /* ── HERO ── */
+    54|    .hero {
+    55|      min-height: 100vh;
+    56|      display: grid;
+    57|      grid-template-columns: 1fr 1fr;
+    58|      align-items: center;
+    59|      gap: 80px;
+    60|      padding: 120px 60px 80px;
+    61|      max-width: 1000px;
+    62|      margin: 0 auto;
+    63|    }
+    64|    .hero-eyebrow {
+    65|      font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+    66|      color: var(--ink-muted); margin-bottom: 20px;
+    67|    }
+    68|    .hero-name {
+    69|      font-family: 'EB Garamond', serif;
+    70|      font-size: clamp(2.8rem, 6vw, 5rem);
+    71|      font-weight: 400; line-height: 1.1; margin-bottom: 24px;
+    72|    }
+    73|    .hero-name em { font-style: italic; }
+    74|    .hero-desc {
+    75|      font-size: .93rem; color: var(--ink-light);
+    76|      line-height: 1.9; margin-bottom: 36px;
+    77|      border-left: 2px solid var(--border); padding-left: 20px;
+    78|    }
+    79|    .hero-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    80|    .hero-links a {
+    81|      font-size: .75rem; letter-spacing: .14em; text-transform: uppercase;
+    82|      color: var(--ink); text-decoration: none;
+    83|      border-bottom: 1px solid var(--ink); padding-bottom: 2px;
+    84|      transition: opacity .2s;
+    85|    }
+    86|    .hero-links a:hover { opacity: .45; }
+    87|    .hero-visual {
+    88|      display: flex; flex-direction: column; align-items: center; gap: 28px;
+    89|    }
+    90|    .hero-avatar {
+    91|      width: 150px; height: 150px; border-radius: 50%;
+    92|      object-fit: cover;
+    93|      border: 1px solid var(--border);
+    94|      filter: grayscale(15%);
+    95|    }
+    96|    .hero-stats {
+    97|      width: 100%; background: var(--paper);
+    98|      border: 1px solid var(--border); padding: 20px;
+    99|      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+   100|    }
+   101|    .stat { text-align: center; }
+   102|    .stat-num {
+   103|      font-family: 'EB Garamond', serif;
+   104|      font-size: 1.7rem; display: block;
+   105|    }
+   106|    .stat-label {
+   107|      font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+   108|      color: var(--ink-muted);
+   109|    }
+   110|
+   111|    /* ── DIVIDER ── */
+   112|    .divider { border: none; border-top: 1px solid var(--border); }
+   113|
+   114|    /* ── SECTION ── */
+   115|    .section { padding: 80px 0; }
+   116|    .section-header {
+   117|      display: flex; align-items: baseline; gap: 16px; margin-bottom: 48px;
+   118|    }
+   119|    .section-num {
+   120|      font-family: 'EB Garamond', serif; font-style: italic;
+   121|      font-size: .95rem; color: var(--ink-muted);
+   122|    }
+   123|    .section-title {
+   124|      font-family: 'EB Garamond', serif;
+   125|      font-size: 1.55rem; font-weight: 400; letter-spacing: .04em;
+   126|    }
+   127|
+   128|    /* ── PROJECTS ── */
+   129|    .project-item {
+   130|      display: grid; grid-template-columns: 60px 1fr 24px;
+   131|      align-items: start; gap: 20px;
+   132|      padding: 26px 0; border-bottom: 1px solid var(--border);
+   133|      text-decoration: none; color: inherit;
+   134|    }
+   135|    .project-item:first-child { border-top: 1px solid var(--border); }
+   136|    .project-item:hover .proj-name { text-decoration: underline; text-underline-offset: 4px; }
+   137|    .proj-index {
+   138|      font-family: 'EB Garamond', serif; font-style: italic;
+   139|      font-size: .88rem; color: var(--ink-muted); padding-top: 2px;
+   140|    }
+   141|    .proj-name { font-size: .97rem; font-weight: 400; margin-bottom: 6px; }
+   142|    .proj-desc { font-size: .86rem; color: var(--ink-light); line-height: 1.75; }
+   143|    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+   144|    .tag {
+   145|      font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+   146|      background: var(--tag-bg); color: var(--ink-muted);
+   147|      padding: 3px 9px;
+   148|    }
+   149|    .proj-arrow { font-size: .95rem; color: var(--ink-muted); padding-top: 2px; }
+   150|
+   151|    /* ── WORK ── */
+   152|    .work-card {
+   153|      background: var(--paper);
+   154|      border: 1px solid var(--border);
+   155|      padding: 32px; margin-bottom: 20px;
+   156|    }
+   157|    .work-header {
+   158|      display: flex; justify-content: space-between;
+   159|      align-items: baseline; flex-wrap: wrap; gap: 8px;
+   160|      margin-bottom: 8px;
+   161|    }
+   162|    .work-role { font-size: .97rem; font-weight: 400; }
+   163|    .work-period { font-size: .75rem; color: var(--ink-muted); letter-spacing: .1em; }
+   164|    .work-org { font-size: .8rem; color: var(--ink-muted); margin-bottom: 14px; }
+   165|    .work-desc { font-size: .86rem; color: var(--ink-light); line-height: 1.85; }
+   166|    .work-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+   167|
+   168|    /* ── SKILLS ── */
+   169|    .skills-grid {
+   170|      display: grid; grid-template-columns: repeat(3, 1fr);
+   171|      gap: 1px; background: var(--border);
+   172|    }
+   173|    .skill-block { background: var(--paper); padding: 26px 22px; }
+   174|    .skill-category {
+   175|      font-size: .68rem; letter-spacing: .18em; text-transform: uppercase;
+   176|      color: var(--ink-muted); margin-bottom: 12px;
+   177|    }
+   178|    .skill-items { font-size: .86rem; color: var(--ink-light); line-height: 2.1; }
+   179|
+   180|    /* ── FOOTER ── */
+   181|    footer {
+   182|      border-top: 1px solid var(--border);
+   183|      padding: 36px 60px;
+   184|      display: flex; justify-content: space-between; align-items: center;
+   185|    }
+   186|    .footer-brand {
+   187|      font-family: 'EB Garamond', serif;
+   188|      font-size: .97rem; letter-spacing: .1em;
+   189|    }
+   190|    .footer-links { display: flex; gap: 24px; }
+   191|    .footer-links a {
+   192|      font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+   193|      color: var(--ink-muted); text-decoration: none; transition: color .2s;
+   194|    }
+   195|    .footer-links a:hover { color: var(--ink); }
+   196|
+   197|    /* ── REVEAL ── */
+   198|    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .65s ease, transform .65s ease; }
+   199|    .reveal.visible { opacity: 1; transform: none; }
+   200|
+   201|    /* ── RWD ── */
+   202|    @media (max-width: 768px) {
+   203|      nav { padding: 14px 24px; }
+   204|      .nav-links { gap: 18px; }
+   205|      .nav-links a { font-size: .68rem; }
+   206|
+   207|      .hero {
+   208|        grid-template-columns: 1fr;
+   209|        padding: 90px 24px 60px;
+   210|        gap: 40px;
+   211|        text-align: center;
+   212|      }
+   213|      .hero-desc { text-align: left; }
+   214|      .hero-links { justify-content: center; }
+   215|      .hero-visual { flex-direction: row; align-items: center; gap: 24px; }
+   216|      .hero-avatar { width: 100px; height: 100px; flex-shrink: 0; }
+   217|      .hero-stats {
+   218|        grid-template-columns: repeat(2, 1fr);
+   219|        flex: 1;
+   220|      }
+   221|
+   222|      .container { padding: 0 24px; }
+   223|      .section { padding: 60px 0; }
+   224|
+   225|      .project-item { grid-template-columns: 40px 1fr; }
+   226|      .proj-arrow { display: none; }
+   227|
+   228|      .skills-grid { grid-template-columns: 1fr; }
+   229|
+   230|      footer {
+   231|        flex-direction: column; gap: 16px;
+   232|        text-align: center; padding: 28px 24px;
+   233|      }
+   234|    }
+   235|
+   236|    @media (max-width: 480px) {
+   237|      .hero-visual { flex-direction: column; }
+   238|      .hero-stats { grid-template-columns: repeat(2, 1fr); width: 100%; }
+   239|      .nav-links { gap: 12px; }
+   240|    }
+   241|  </style>
+   242|</head>
+   243|<body>
+   244|
+   245|<nav>
+   246|  <a class="nav-logo" href="#">DaYi</a>
+   247|  <ul class="nav-links">
+   248|    <li><a href="#projects">Projects</a></li>
+   249|    <li><a href="#work">Work</a></li>
+   250|    <li><a href="#skills">Skills</a></li>
+   251|  </ul>
+   252|</nav>
+   253|
+   254|<!-- HERO -->
+   255|<section class="hero">
+   256|  <div class="hero-text">
+   257|    <p class="hero-eyebrow">Backend Engineer · AI Systems</p>
+   258|    <h1 class="hero-name">Da<em>Yi</em><br/>大益</h1>
+   259|    <p class="hero-desc">
+   260|      後端工程師，專注於系統架構設計、微服務開發與醫療 AI 應用。
+   261|      擅長以 Java、Python、Go、C# 打造可靠、高效能的後端服務，
+   262|      並整合 LLM 技術解決實際場景需求。
+   263|    </p>
+   264|    <div class="hero-links">
+   265|      <a href="https://github.com/DaYi-TW" target="_blank">GitHub →</a>
+   266|      <a href="#projects">Projects →</a>
+   267|    </div>
+   268|  </div>
+   269|  <div class="hero-visual">
+   270|    <img class="hero-avatar" src="https://avatars.githubusercontent.com/u/6985419?v=4" alt="DaYi" />
+   271|    <div class="hero-stats">
+   272|      <div class="stat"><span class="stat-num">6</span><span class="stat-label">Years</span></div>
+   273|      <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Repos</span></div>
+   274|      <div class="stat"><span class="stat-num">6</span><span class="stat-label">Languages</span></div>
+   275|      <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Coffee</span></div>
+   276|    </div>
+   277|  </div>
+   278|</section>
+   279|
+   280|<hr class="divider">
+   281|
+   282|<!-- PROJECTS -->
+   283|<div class="container">
+   284|  <section class="section" id="projects">
+   285|    <div class="section-header reveal">
+   286|      <span class="section-num">01.</span>
+   287|      <h2 class="section-title">Selected Projects</h2>
+   288|    </div>
+   289|
+   290|    <a class="project-item reveal" href="https://github.com/DaYi-TW/go-payment-gateway" target="_blank">
+   291|      <span class="proj-index">i.</span>
+   292|      <div class="proj-body">
+   293|        <div class="proj-name">Go Payment Gateway</div>
+   294|        <div class="proj-desc">以 Go 語言實作的支付閘道服務，著重高效能、低延遲的 API 設計與錯誤處理。</div>
+   295|        <div class="proj-tags"><span class="tag">Go</span><span class="tag">API</span><span class="tag">Backend</span></div>
+   296|      </div>
+   297|      <span class="proj-arrow">↗</span>
+   298|    </a>
+   299|
+   300|    <a class="project-item reveal" href="https://github.com/DaYi-TW/Pepper-market-allocation-rl" target="_blank">
+   301|      <span class="proj-index">ii.</span>
+   302|      <div class="proj-body">
+   303|        <div class="proj-name">Pepper Market Allocation RL</div>
+   304|        <div class="proj-desc">以強化學習解決辣椒市場資源分配問題，研究 Multi-Armed Bandit 的 Explore / Exploit 平衡，應用於實際供需調配場景。</div>
+   305|        <div class="proj-tags"><span class="tag">Python</span><span class="tag">RL</span><span class="tag">MAB</span></div>
+   306|      </div>
+   307|      <span class="proj-arrow">↗</span>
+   308|    </a>
+   309|
+   310|    <a class="project-item reveal" href="https://github.com/DaYi-TW/DiabRetina" target="_blank">
+   311|      <span class="proj-index">iii.</span>
+   312|      <div class="proj-body">
+   313|        <div class="proj-name">DiabRetina</div>
+   314|        <div class="proj-desc">糖尿病視網膜病變 AI 辨識，應用深度學習於醫療影像分析，後端整合推論服務。</div>
+   315|        <div class="proj-tags"><span class="tag">Python</span><span class="tag">Medical AI</span><span class="tag">CV</span></div>
+   316|      </div>
+   317|      <span class="proj-arrow">↗</span>
+   318|    </a>
+   319|
+   320|    <a class="project-item reveal" href="https://github.com/DaYi-TW/wenyan-news-transcriber" target="_blank">
+   321|      <span class="proj-index">iv.</span>
+   322|      <div class="proj-body">
+   323|        <div class="proj-name">Wenyan News Transcriber</div>
+   324|        <div class="proj-desc">將現代新聞轉換為文言文風格的 NLP 應用，探索 LLM Prompt Engineering 與文體轉換。</div>
+   325|        <div class="proj-tags"><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">NLP</span></div>
+   326|      </div>
+   327|      <span class="proj-arrow">↗</span>
+   328|    </a>
+   329|
+   330|    <a class="project-item reveal" href="https://github.com/DaYi-TW/ShortenURL" target="_blank">
+   331|      <span class="proj-index">v.</span>
+   332|      <div class="proj-body">
+   333|        <div class="proj-name">ShortenURL</div>
+   334|        <div class="proj-desc">短網址服務，以 Vue.js 打造前端介面，後端負責網址映射與重導向邏輯設計。</div>
+   335|        <div class="proj-tags"><span class="tag">Vue</span><span class="tag">API</span><span class="tag">Backend</span></div>
+   336|      </div>
+   337|      <span class="proj-arrow">↗</span>
+   338|    </a>
+   339|
+   340|    <a class="project-item reveal" href="https://github.com/DaYi-TW/gmail-batch-mailer" target="_blank">
+   341|      <span class="proj-index">vi.</span>
+   342|      <div class="proj-body">
+   343|        <div class="proj-name">Gmail Batch Mailer</div>
+   344|        <div class="proj-desc">Gmail 批次寄信工具，整合 Google API 實現大量個人化郵件發送，支援範本與收件人清單管理。</div>
+   345|        <div class="proj-tags"><span class="tag">JavaScript</span><span class="tag">Google API</span><span class="tag">Automation</span></div>
+   346|      </div>
+   347|      <span class="proj-arrow">↗</span>
+   348|    </a>
+   349|
+   350|    <a class="project-item reveal" href="https://github.com/DaYi-TW/wenyan-news-transcriber" target="_blank">
+   351|      <span class="proj-index">vii.</span>
+   352|      <div class="proj-body">
+   353|        <div class="proj-name">Wenyan News Transcriber</div>
+   354|        <div class="proj-desc">將現代新聞轉換為文言文風格的 NLP 應用，探索 LLM Prompt Engineering 與文體轉換。</div>
+   355|        <div class="proj-tags"><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">NLP</span></div>
+   356|      </div>
+   357|      <span class="proj-arrow">↗</span>
+   358|    </a>
+   359|
+   360|  </section>
+   361|</div>
+   362|
+   363|<hr class="divider">
+   364|
+   365|<!-- WORK -->
+   366|<div class="container">
+   367|  <section class="section" id="work">
+   368|    <div class="section-header reveal">
+   369|      <span class="section-num">02.</span>
+   370|      <h2 class="section-title">Work Experience</h2>
+   371|    </div>
+   372|
+   373|    <div class="work-card reveal">
+   374|      <div class="work-header">
+   375|        <span class="work-role">Backend Engineer — Medical AI Platform</span>
+   376|        <span class="work-period">2023 — Present</span>
+   377|      </div>
+   378|      <div class="work-org">醫療機構 AI 研發部門</div>
+   379|      <div class="work-desc">
+   380|        主導醫療 AI 後端系統設計，建立基於 Message Queue 的 LLM 推論管線，支援高並發醫療場景。
+   381|        負責乳房超音波 AI 輔助診斷、院內 ChatGPT 平台、逐字稿 AI 等多項產品的後端架構。
+   382|        設計微服務架構，整合 HIS（醫院資訊系統），串接 Azure OpenAI 服務。
+   383|      </div>
+   384|      <div class="work-tech">
+   385|        <span class="tag">Java</span><span class="tag">Python</span><span class="tag">C#</span>
+   386|        <span class="tag">Go</span><span class="tag">Azure OpenAI</span>
+   387|        <span class="tag">Microservice</span><span class="tag">Docker</span><span class="tag">Message Queue</span>
+   388|      </div>
+   389|    </div>
+   390|
+   391|    <div class="work-card reveal">
+   392|      <div class="work-header">
+   393|        <span class="work-role">Frontend / Full-Stack Developer</span>
+   394|        <span class="work-period">2020 — 2022</span>
+   395|      </div>
+   396|      <div class="work-org">個人專案</div>
+   397|      <div class="work-desc">
+   398|        以 React、TypeScript、Vue.js 打造多項前端專案。
+   399|        參加 iThome 鐵人賽，深化工程實力並建立技術文章習慣。
+   400|      </div>
+   401|      <div class="work-tech">
+   402|        <span class="tag">React</span><span class="tag">TypeScript</span>
+   403|        <span class="tag">Vue.js</span><span class="tag">Vite</span>
+   404|      </div>
+   405|    </div>
+   406|
+   407|  </section>
+   408|</div>
+   409|
+   410|<hr class="divider">
+   411|
+   412|<!-- SKILLS -->
+   413|<div class="container">
+   414|  <section class="section" id="skills">
+   415|    <div class="section-header reveal">
+   416|      <span class="section-num">03.</span>
+   417|      <h2 class="section-title">Technical Skills</h2>
+   418|    </div>
+   419|    <div class="skills-grid reveal">
+   420|      <div class="skill-block">
+   421|        <div class="skill-category">Backend</div>
+   422|        <div class="skill-items">Java<br/>Python<br/>Go<br/>C#<br/>REST API<br/>Message Queue</div>
+   423|      </div>
+   424|      <div class="skill-block">
+   425|        <div class="skill-category">AI / ML</div>
+   426|        <div class="skill-items">LLM Integration<br/>Azure OpenAI<br/>Reinforcement Learning<br/>Computer Vision<br/>NLP</div>
+   427|      </div>
+   428|      <div class="skill-block">
+   429|        <div class="skill-category">Infrastructure</div>
+   430|        <div class="skill-items">Microservices<br/>Docker<br/>Linux / Shell<br/>TypeScript<br/>Vue / React</div>
+   431|      </div>
+   432|    </div>
+   433|  </section>
+   434|</div>
+   435|
+   436|<hr class="divider">
+   437|
+   438|<footer>
+   439|  <span class="footer-brand">DaYi · 大益</span>
+   440|  <div class="footer-links">
+   441|    <a href="https://github.com/DaYi-TW" target="_blank">GitHub</a>
+   442|  </div>
+   443|</footer>
+   444|
+   445|<script>
+   446|  const io = new IntersectionObserver(entries => {
+   447|    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+   448|  }, { threshold: 0.08 });
+   449|  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+   450|</script>
+   451|</body>
+   452|</html>
+   453|
