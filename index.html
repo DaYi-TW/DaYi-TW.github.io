@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>嚴大益 · Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Serif+JP:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -496,6 +496,27 @@
     }
     .contact-info-list a:hover { color: #fff; }
 
+    /* ── LANG SWITCHER ───────────────────── */
+    .lang-switcher {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--rule);
+      color: var(--gray);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      padding: 3px 8px;
+      cursor: pointer;
+      transition: all .2s;
+      font-family: inherit;
+    }
+    .lang-btn:hover { border-color: var(--ink); color: var(--ink); }
+    .lang-btn.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
     /* ── FOOTER ──────────────────────────── */
     footer {
       background: var(--ink);
@@ -535,21 +556,28 @@
   <div class="masthead-top">
     <div>Backend Engineer · Medical AI · Portfolio</div>
     <nav class="masthead-nav">
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+      <a href="#projects" data-i18n="nav_projects">Projects</a>
+      <a href="#skills" data-i18n="nav_skills">Skills</a>
+      <a href="#experience" data-i18n="nav_experience">Experience</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
     </nav>
-    <div><span class="masthead-award">🏆 GenAI Stars 全國金獎</span></div>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('zh')">中</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('ja')">日</button>
+      </div>
+      <span class="masthead-award">🏆 GenAI Stars 全國金獎</span>
+    </div>
   </div>
   <div class="masthead-title">
     <h1>Da&thinsp;·&thinsp;Yi</h1>
-    <p class="subtitle">嚴大益 &ensp;·&ensp; Software Engineer &ensp;·&ensp; Medical AI &ensp;·&ensp; LLM / RAG Specialist</p>
+    <p class="subtitle" data-i18n="masthead_subtitle">嚴大益 &ensp;·&ensp; Software Engineer &ensp;·&ensp; Medical AI &ensp;·&ensp; LLM / RAG Specialist</p>
   </div>
   <div class="masthead-meta">
-    <span>Taichung, Taiwan</span>
-    <span>中興大學 資工碩士在職專班</span>
-    <span>github.com/DaYi-TW</span>
+    <span data-i18n="masthead_meta_loc">Taichung, Taiwan</span>
+    <span data-i18n="masthead_meta_edu">中興大學 資工碩士在職專班</span>
+    <span data-i18n="masthead_meta_gh">github.com/DaYi-TW</span>
   </div>
 </header>
 
@@ -557,46 +585,45 @@
 <div class="page">
   <div class="hero-spread">
     <div class="hero-left">
-      <p class="hero-eyebrow">Cover Story</p>
-      <h2 class="hero-headline">
+      <p class="hero-eyebrow" data-i18n="hero_eyebrow">Cover Story</p>
+      <h2 class="hero-headline" data-i18n="hero_headline">
         不只懂 AI，<br />
         <em>更懂如何</em><br />
         把它交付上線
       </h2>
       <div class="hero-body">
-        <p>
+        <p data-i18n="hero_body1">
           任職於<strong>中山醫學大學附設醫院人工智慧中心</strong>，
           擁有 5+ 年醫療 AI 系統設計與後端工程實戰經驗。
         </p>
-        <p>
+        <p data-i18n="hero_body2">
           橫跨 <strong>Python · Java · C# · Go</strong> 多語言開發，
           熟悉微服務架構、Azure 雲端部署與 Docker Swarm 容器化，
           能在醫院高可靠性要求下獨立設計並落地完整系統。
         </p>
-        <p>
+        <p data-i18n="hero_body3">
           持續深耕 <strong>LLM · RAG · Agentic Workflow</strong>，
           將生成式 AI 真正整合進臨床流程，而不只是停在 Demo 階段。
         </p>
       </div>
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-filled">查看作品集</a>
-        <a href="mailto:kirito203203@gmail.com" class="btn">聯絡我</a>
+        <a href="#projects" class="btn btn-filled" data-i18n="hero_cta1">查看作品集</a>
+        <a href="mailto:kirito203203@gmail.com" class="btn" data-i18n="hero_cta2">聯絡我</a>
       </div>
     </div>
     <div class="col-divider"></div>
     <div class="hero-right">
-      <p class="hero-kicker">Editor's Note</p>
+      <p class="hero-kicker" data-i18n="hero_kicker">Editor's Note</p>
       <blockquote class="pull-quote">
-        "從需求分析、系統設計、後端開發到雲端部署，
-        我習慣對整條鏈路負責。"
+        <span data-i18n="pull_quote">"從需求分析、系統設計、後端開發到雲端部署，我習慣對整條鏈路負責。"</span>
       </blockquote>
       <div class="hero-body">
-        <p>
+        <p data-i18n="hero_right1">
           主導醫療 AI 平台「醫點家」從零到一，榮獲<strong>國科會 GenAI Stars 全國金獎</strong>，
           實際讓醫護文書工作量降低超過 <strong>50%</strong>，並有 U-Net 影像分割研究
           成果發表於 <strong>Cancer</strong> 等國際期刊。
         </p>
-        <p>
+        <p data-i18n="hero_right2">
           曾於<strong>國立臺中科技大學</strong>碩士期間，以強化學習方法優化分子分類特徵選取流程，
           將時間成本改善達 <strong>83.9%</strong>，成果獲 TSC 崇越論文大賞優良論文獎，
           並於國際研討會 ICBBB 發表。
@@ -607,15 +634,15 @@
       <div class="stats-row">
         <div class="stat-box">
           <div class="stat-num">5+</div>
-          <div class="stat-label">年後端 &<br />AI 工程經驗</div>
+          <div class="stat-label" data-i18n="stat1_label">年後端 &<br />AI 工程經驗</div>
         </div>
         <div class="stat-box">
           <div class="stat-num">50%↓</div>
-          <div class="stat-label">醫護文書<br />工作量減少</div>
+          <div class="stat-label" data-i18n="stat2_label">醫護文書<br />工作量減少</div>
         </div>
         <div class="stat-box">
           <div class="stat-num">83.9%</div>
-          <div class="stat-label">論文特徵選取<br />時間改善</div>
+          <div class="stat-label" data-i18n="stat3_label">論文特徵選取<br />時間改善</div>
         </div>
       </div>
     </div>
@@ -626,9 +653,9 @@
 <div class="page" id="projects">
   <div class="projects-section">
     <div class="section-header">
-      <h2>Projects</h2>
+      <h2 data-i18n="sec_projects">Projects</h2>
       <span class="section-rule"></span>
-      <span class="issue-tag">Selected Works</span>
+      <span class="issue-tag" data-i18n="sec_projects_tag">Selected Works</span>
     </div>
 
     <!-- Featured 2 -->
@@ -786,9 +813,9 @@
 <div class="page" id="skills">
   <div class="skills-section">
     <div class="section-header">
-      <h2>Skills</h2>
+      <h2 data-i18n="sec_skills">Skills</h2>
       <span class="section-rule"></span>
-      <span class="issue-tag">Technical Expertise</span>
+      <span class="issue-tag" data-i18n="sec_skills_tag">Technical Expertise</span>
     </div>
     <div class="skills-columns">
       <div class="skill-col">
@@ -847,9 +874,9 @@
 <div class="page" id="experience">
   <div class="experience-section">
     <div class="section-header">
-      <h2>Experience</h2>
+      <h2 data-i18n="sec_exp">Experience</h2>
       <span class="section-rule"></span>
-      <span class="issue-tag">Career Timeline</span>
+      <span class="issue-tag" data-i18n="sec_exp_tag">Career Timeline</span>
     </div>
     <div class="exp-columns">
       <div class="exp-entry">
@@ -913,47 +940,44 @@
 <div class="page" id="contact">
   <div class="contact-section">
     <div class="section-header">
-      <h2>Contact</h2>
+      <h2 data-i18n="sec_contact">Contact</h2>
       <span class="section-rule"></span>
-      <span class="issue-tag">Let's Connect</span>
+      <span class="issue-tag" data-i18n="sec_contact_tag">Let's Connect</span>
     </div>
     <div class="contact-inner">
       <div>
         <h2 class="contact-headline">
-          Ready to<br />
-          <em>build something</em><br />
-          together?
+          <span data-i18n="contact_headline">Ready to<br /><em>build something</em><br />together?</span>
         </h2>
         <p class="contact-sub">
-          有合作機會、技術交流或任何問題，歡迎直接聯絡。
-          我對醫療 AI、智慧製造、金融科技等領域的機會特別感興趣。
+          <span data-i18n="contact_sub">有合作機會、技術交流或任何問題，歡迎直接聯絡。我對醫療 AI、智慧製造、金融科技等領域的機會特別感興趣。</span>
         </p>
         <div class="contact-links">
-          <a href="mailto:kirito203203@gmail.com" class="btn btn-filled">✉ Email Me</a>
-          <a href="https://github.com/DaYi-TW" target="_blank" class="btn">GitHub →</a>
+          <a href="mailto:kirito203203@gmail.com" class="btn btn-filled" data-i18n="contact_cta1">✉ Email Me</a>
+          <a href="https://github.com/DaYi-TW" target="_blank" class="btn" data-i18n="contact_cta2">GitHub →</a>
         </div>
       </div>
       <div class="contact-aside">
-        <h3 class="contact-aside-title">Quick Info</h3>
+        <h3 class="contact-aside-title" data-i18n="contact_aside_title">Quick Info</h3>
         <ul class="contact-info-list">
           <li>
-            <strong>Email</strong>
+            <strong data-i18n="ci_email_label">Email</strong>
             <a href="mailto:kirito203203@gmail.com">kirito203203@gmail.com</a>
           </li>
           <li>
-            <strong>GitHub</strong>
+            <strong data-i18n="ci_gh_label">GitHub</strong>
             <a href="https://github.com/DaYi-TW" target="_blank">github.com/DaYi-TW</a>
           </li>
           <li>
-            <strong>Location</strong>
-            Taichung, Taiwan
+            <strong data-i18n="ci_loc_label">Location</strong>
+            <span data-i18n="ci_loc_val">Taichung, Taiwan</span>
           </li>
           <li>
-            <strong>Languages</strong>
-            中文（母語）· 日文 N2 · 英文 TOEIC 800
+            <strong data-i18n="ci_lang_label">Languages</strong>
+            <span data-i18n="ci_lang_val">中文（母語）· 日文 N2 · 英文 TOEIC 800</span>
           </li>
           <li>
-            <strong>Side Project</strong>
+            <strong data-i18n="ci_side_label">Side Project</strong>
             <a href="https://snaplink.zeabur.app" target="_blank">snaplink.zeabur.app</a>
           </li>
         </ul>
@@ -963,8 +987,199 @@
 </div>
 
 <footer>
-  <p>© 2025 嚴大益 Da-Yi Yan &ensp;·&ensp; Backend Engineer · Medical AI &ensp;·&ensp; Built with ♥</p>
+  <p data-i18n="footer_txt">© 2025 嚴大益 Da-Yi Yan &ensp;·&ensp; Backend Engineer · Medical AI &ensp;·&ensp; Built with ♥</p>
 </footer>
 
+<script>
+// ── i18n DATA ─────────────────────────────────────────────────────────
+const i18n = {
+  zh: {
+    // nav
+    nav_projects: "Projects",
+    nav_skills: "Skills",
+    nav_experience: "Experience",
+    nav_contact: "Contact",
+    // masthead
+    masthead_meta_loc: "Taichung, Taiwan",
+    masthead_meta_edu: "中興大學 資工碩士在職專班",
+    masthead_meta_gh: "github.com/DaYi-TW",
+    masthead_subtitle: "嚴大益 · Software Engineer · Medical AI · LLM / RAG Specialist",
+    // hero
+    hero_eyebrow: "Cover Story",
+    hero_headline: "不只懂 AI，<br /><em>更懂如何</em><br />把它交付上線",
+    hero_body1: "任職於<strong>中山醫學大學附設醫院人工智慧中心</strong>，擁有 5+ 年醫療 AI 系統設計與後端工程實戰經驗。",
+    hero_body2: "橫跨 <strong>Python · Java · C# · Go</strong> 多語言開發，熟悉微服務架構、Azure 雲端部署與 Docker Swarm 容器化，能在醫院高可靠性要求下獨立設計並落地完整系統。",
+    hero_body3: "持續深耕 <strong>LLM · RAG · Agentic Workflow</strong>，將生成式 AI 真正整合進臨床流程，而不只是停在 Demo 階段。",
+    hero_cta1: "查看作品集",
+    hero_cta2: "聯絡我",
+    hero_kicker: "Editor's Note",
+    pull_quote: "\"從需求分析、系統設計、後端開發到雲端部署，我習慣對整條鏈路負責。\"",
+    hero_right1: "主導醫療 AI 平台「醫點家」從零到一，榮獲<strong>國科會 GenAI Stars 全國金獎</strong>，實際讓醫護文書工作量降低超過 <strong>50%</strong>，並有 U-Net 影像分割研究成果發表於 <strong>Cancer</strong> 等國際期刊。",
+    hero_right2: "曾於<strong>國立臺中科技大學</strong>碩士期間，以強化學習方法優化分子分類特徵選取流程，將時間成本改善達 <strong>83.9%</strong>，成果獲 TSC 崇越論文大賞優良論文獎，並於國際研討會 ICBBB 發表。目前就讀<strong>國立中興大學資工碩士在職專班</strong>，持續深化 AI 系統研究能量。",
+    stat1_label: "年後端 &<br />AI 工程經驗",
+    stat2_label: "醫護文書<br />工作量減少",
+    stat3_label: "論文特徵選取<br />時間改善",
+    // sections
+    sec_projects: "Projects",
+    sec_projects_tag: "Selected Works",
+    sec_skills: "Skills",
+    sec_skills_tag: "Technical Expertise",
+    sec_exp: "Experience",
+    sec_exp_tag: "Career Timeline",
+    sec_contact: "Contact",
+    sec_contact_tag: "Let's Connect",
+    // contact
+    contact_headline: "Ready to<br /><em>build something</em><br />together?",
+    contact_sub: "有合作機會、技術交流或任何問題，歡迎直接聯絡。我對醫療 AI、智慧製造、金融科技等領域的機會特別感興趣。",
+    contact_cta1: "✉ Email Me",
+    contact_cta2: "GitHub →",
+    contact_aside_title: "Quick Info",
+    ci_email_label: "Email",
+    ci_gh_label: "GitHub",
+    ci_loc_label: "Location",
+    ci_loc_val: "Taichung, Taiwan",
+    ci_lang_label: "Languages",
+    ci_lang_val: "中文（母語）· 日文 N2 · 英文 TOEIC 800",
+    ci_side_label: "Side Project",
+    footer_txt: "© 2025 嚴大益 Da-Yi Yan · Backend Engineer · Medical AI · Built with ♥",
+  },
+  en: {
+    nav_projects: "Projects",
+    nav_skills: "Skills",
+    nav_experience: "Experience",
+    nav_contact: "Contact",
+    masthead_meta_loc: "Taichung, Taiwan",
+    masthead_meta_edu: "NCHU CS Master's (In Progress)",
+    masthead_meta_gh: "github.com/DaYi-TW",
+    masthead_subtitle: "Da-Yi Yan · Software Engineer · Medical AI · LLM / RAG Specialist",
+    hero_eyebrow: "Cover Story",
+    hero_headline: "Not Just AI—<br /><em>I Ship It</em><br />to Production",
+    hero_body1: "Research Engineer at <strong>Chung Shan Medical University Hospital AI Center</strong>, with 5+ years of hands-on experience in medical AI systems and backend engineering.",
+    hero_body2: "Multi-language expertise across <strong>Python · Java · C# · Go</strong>. Proficient in microservices, Azure cloud deployment, and Docker Swarm—capable of independently architecting and delivering end-to-end systems under hospital-grade reliability requirements.",
+    hero_body3: "Continuously deepening expertise in <strong>LLM · RAG · Agentic Workflow</strong>, integrating generative AI into real clinical workflows—not just demos.",
+    hero_cta1: "View Portfolio",
+    hero_cta2: "Contact Me",
+    hero_kicker: "Editor's Note",
+    pull_quote: "\"From requirements analysis and system design to backend development and cloud deployment—I own the entire chain.\"",
+    hero_right1: "Led the medical AI platform <em>Yī Diǎn Jiā</em> from zero to launch, winning the <strong>NSTC GenAI Stars National Gold Award</strong>. Reduced medical documentation workload by over <strong>50%</strong>. U-Net imaging research published in <strong>Cancer</strong> and other international journals.",
+    hero_right2: "During my master's at <strong>NUTC</strong>, applied reinforcement learning to optimize molecular classification feature selection, improving time cost by <strong>83.9%</strong>. Awarded TSC Outstanding Thesis Prize and presented at ICBBB. Currently pursuing a <strong>CS Master's at NCHU</strong>.",
+    stat1_label: "Years Backend &<br />AI Engineering",
+    stat2_label: "Medical Documentation<br />Workload Reduced",
+    stat3_label: "Thesis Feature Selection<br />Time Improved",
+    sec_projects: "Projects",
+    sec_projects_tag: "Selected Works",
+    sec_skills: "Skills",
+    sec_skills_tag: "Technical Expertise",
+    sec_exp: "Experience",
+    sec_exp_tag: "Career Timeline",
+    sec_contact: "Contact",
+    sec_contact_tag: "Let's Connect",
+    contact_headline: "Ready to<br /><em>build something</em><br />together?",
+    contact_sub: "Open to collaboration, technical exchange, or any opportunity. Especially interested in Medical AI, Smart Manufacturing, and FinTech.",
+    contact_cta1: "✉ Email Me",
+    contact_cta2: "GitHub →",
+    contact_aside_title: "Quick Info",
+    ci_email_label: "Email",
+    ci_gh_label: "GitHub",
+    ci_loc_label: "Location",
+    ci_loc_val: "Taichung, Taiwan",
+    ci_lang_label: "Languages",
+    ci_lang_val: "Chinese (Native) · Japanese N2 · English TOEIC 800",
+    ci_side_label: "Side Project",
+    footer_txt: "© 2025 Da-Yi Yan · Backend Engineer · Medical AI · Built with ♥",
+  },
+  ja: {
+    nav_projects: "プロジェクト",
+    nav_skills: "スキル",
+    nav_experience: "経歴",
+    nav_contact: "連絡先",
+    masthead_meta_loc: "台湾・台中",
+    masthead_meta_edu: "中興大学 情報工学修士（在学中）",
+    masthead_meta_gh: "github.com/DaYi-TW",
+    masthead_subtitle: "嚴大益（Yan Da-Yi） · ソフトウェアエンジニア · 医療AI · LLM / RAGスペシャリスト",
+    hero_eyebrow: "Cover Story",
+    hero_headline: "AIを作るだけでなく、<br /><em>本番環境へ</em><br />届ける力を持つ",
+    hero_body1: "<strong>中山医学大学附属病院・AI センター</strong>に在籍し、5年以上の医療 AI システム設計とバックエンドエンジニアリングの実務経験を持つ。",
+    hero_body2: "<strong>Python · Java · C# · Go</strong> の多言語開発に精通。マイクロサービス設計、Azure クラウド、Docker Swarm コンテナ化を活用し、病院レベルの高可用性要件のもとでシステムを一人で設計・リリースできる。",
+    hero_body3: "<strong>LLM · RAG · Agentic Workflow</strong> を継続的に深化させ、生成 AI を実際の臨床フローに統合。デモで終わらせない実装力が強み。",
+    hero_cta1: "作品集を見る",
+    hero_cta2: "お問い合わせ",
+    hero_kicker: "Editor's Note",
+    pull_quote: "「要件分析からシステム設計、バックエンド開発、クラウドデプロイまで――一気通貫で責任を持つ。」",
+    hero_right1: "医療 AI プラットフォーム「醫點家」をゼロから主導し、<strong>国科会 GenAI Stars 全国金賞</strong>を受賞。医療文書の作業量を <strong>50% 以上</strong>削減。U-Net 画像分割研究が <strong>Cancer</strong> 誌などの国際ジャーナルに掲載。",
+    hero_right2: "<strong>台中科技大学</strong>の修士課程では強化学習により分子分類の特徴選択を最適化し、時間コストを <strong>83.9% 改善</strong>。TSC 優良論文賞・ICBBB 発表。現在は<strong>中興大学 情報工学修士（在学中）</strong>。",
+    stat1_label: "年のバックエンド &<br />AI エンジニア経験",
+    stat2_label: "医療文書<br />作業量削減",
+    stat3_label: "論文特徴選択<br />時間改善",
+    sec_projects: "プロジェクト",
+    sec_projects_tag: "Selected Works",
+    sec_skills: "スキル",
+    sec_skills_tag: "Technical Expertise",
+    sec_exp: "経歴",
+    sec_exp_tag: "Career Timeline",
+    sec_contact: "連絡先",
+    sec_contact_tag: "Let's Connect",
+    contact_headline: "一緒に<br /><em>何かを作り</em><br />ませんか？",
+    contact_sub: "コラボレーション、技術交流、またはご質問があればお気軽にどうぞ。医療 AI・スマートマニュファクチャリング・FinTech 分野のご縁を歓迎します。",
+    contact_cta1: "✉ メールを送る",
+    contact_cta2: "GitHub →",
+    contact_aside_title: "基本情報",
+    ci_email_label: "メール",
+    ci_gh_label: "GitHub",
+    ci_loc_label: "所在地",
+    ci_loc_val: "台湾・台中",
+    ci_lang_label: "言語",
+    ci_lang_val: "中国語（母語）・日本語 N2 ・英語 TOEIC 800",
+    ci_side_label: "サイドプロジェクト",
+    footer_txt: "© 2025 嚴大益 Da-Yi Yan · Backend Engineer · Medical AI · Built with ♥",
+  }
+};
+
+// ── i18n ENGINE ───────────────────────────────────────────────────────
+function setLang(lang) {
+  const t = i18n[lang];
+  if (!t) return;
+
+  // Update html lang
+  document.documentElement.lang = lang === 'zh' ? 'zh-TW' : lang === 'ja' ? 'ja' : 'en';
+
+  // Update font body for JP
+  if (lang === 'ja') {
+    document.body.style.fontFamily = "'Inter', 'Noto Serif JP', sans-serif";
+  } else if (lang === 'zh') {
+    document.body.style.fontFamily = "'Inter', 'Noto Serif TC', sans-serif";
+  } else {
+    document.body.style.fontFamily = "'Inter', sans-serif";
+  }
+
+  // Replace all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // Update lang buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active',
+      (btn.textContent === '中' && lang === 'zh') ||
+      (btn.textContent === 'EN' && lang === 'en') ||
+      (btn.textContent === '日' && lang === 'ja')
+    );
+  });
+
+  // Store preference
+  localStorage.setItem('lang', lang);
+}
+
+// Auto-detect on load
+(function() {
+  const saved = localStorage.getItem('lang');
+  if (saved && i18n[saved]) { setLang(saved); return; }
+  const nav = navigator.language || '';
+  if (nav.startsWith('ja')) setLang('ja');
+  else if (nav.startsWith('zh')) setLang('zh');
+  else setLang('zh'); // default
+})();
+</script>
 </body>
 </html>
