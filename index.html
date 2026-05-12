@@ -343,6 +343,108 @@
       margin-bottom: 14px;
     }
 
+    /* ── FEATURED WIDE (single full-row card) ── */
+    .projects-featured-wide {
+      display: block;
+      margin-bottom: 40px;
+    }
+    .projects-featured-wide .project-featured-card {
+      background: var(--cream);
+      border-left: 4px solid var(--gold);
+    }
+    .featured-wide-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 28px;
+      margin-top: 6px;
+    }
+    .featured-wide-grid .meta-block {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--ink2);
+      padding-left: 20px;
+      border-left: 1px solid var(--rule);
+    }
+    .featured-wide-grid .meta-block strong {
+      display: block;
+      font-size: 10.5px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin: 10px 0 4px;
+    }
+    .featured-wide-grid .meta-block strong:first-child { margin-top: 0; }
+    @media (max-width: 900px) {
+      .featured-wide-grid { grid-template-columns: 1fr; }
+      .featured-wide-grid .meta-block {
+        padding-left: 0;
+        padding-top: 16px;
+        border-left: none;
+        border-top: 1px solid var(--rule);
+      }
+    }
+
+    /* ── SUB-SECTION (within Projects) ───── */
+    .subsection-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 44px 0 18px;
+      margin-top: 28px;
+      margin-bottom: 28px;
+      border-top: 2px solid var(--ink);
+      border-bottom: 1px solid var(--rule);
+    }
+    .subsection-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .subsection-header .issue-tag {
+      font-size: 10.5px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .subsection-rule { flex: 1; height: 1px; background: var(--rule); }
+    .subsection-lede {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--ink2);
+      margin: -12px 0 22px;
+      max-width: 820px;
+    }
+
+    /* ── TECH EXPERIMENTS (one-liners) ───── */
+    .tech-experiments {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px dashed var(--rule);
+    }
+    .tech-experiment {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--ink2);
+      padding: 10px 14px;
+      background: var(--cream);
+      border-left: 2px solid var(--gold);
+    }
+    .tech-experiment strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 13.5px;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    @media (max-width: 900px) {
+      .tech-experiments { grid-template-columns: 1fr; }
+    }
+
     /* ── SKILLS GRID ──────────────────────── */
     .skills-section { padding-bottom: 56px; border-bottom: 2px solid var(--ink); }
     .skills-columns {
@@ -658,6 +760,19 @@
       <span class="issue-tag" data-i18n="sec_projects_tag">Selected Works</span>
     </div>
 
+    <!-- ─────────────────────────────────────────────────── -->
+    <!-- Sub-section: Medical AI Platform (中山醫附院主力專案) -->
+    <!-- ─────────────────────────────────────────────────── -->
+    <div class="subsection-header" style="margin-top:0;padding-top:0;border-top:none;">
+      <h3 data-i18n="sec_medical">Medical AI Platform</h3>
+      <span class="subsection-rule"></span>
+      <span class="issue-tag" data-i18n="sec_medical_tag">中山醫附院人工智慧中心 · 主力專案</span>
+    </div>
+    <p class="subsection-lede" data-i18n="sec_medical_lede">
+      於<strong>中山醫學大學附設醫院人工智慧中心</strong>主導與全端開發的臨床 AI 系統，
+      自需求分析、後端架構、AI 整合到雲端部署一條龍負責。
+    </p>
+
     <!-- Featured 2 -->
     <div class="projects-featured">
 
@@ -745,6 +860,337 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- ─────────────────────────────────────────────────── -->
+    <!-- Sub-section: .NET / Azure Backend & Cloud Architecture -->
+    <!-- ─────────────────────────────────────────────────── -->
+    <div class="subsection-header">
+      <h3 data-i18n="sec_dotnet">Backend · Cloud Architecture</h3>
+      <span class="subsection-rule"></span>
+      <span class="issue-tag" data-i18n="sec_dotnet_tag">.NET 10 · Spring Boot 4 · Azure · LLM Integration</span>
+    </div>
+    <p class="subsection-lede" data-i18n="sec_dotnet_lede">
+      涵蓋雲端微服務、LLM Agent 平台、Web API、Java/Spring 微服務改寫、桌面工具與爬蟲，
+      跨 <strong>.NET 10 / C# 14</strong> 與 <strong>Java 17 / Spring Boot 4</strong> 兩大後端生態，
+      強調冪等性、可觀測性與整條鏈路工程化。
+    </p>
+
+    <!-- Featured 1: LLM Agent Engine -->
+    <div class="projects-featured">
+
+      <div class="project-featured-card">
+        <p class="project-issue" data-i18n="d1_issue">Cover Feature · .NET 10 Worker Service</p>
+        <h3 class="project-card-title" data-i18n="d1_title">LLM Agent 執行引擎<br />Multi-LLM × Service Bus</h3>
+        <p class="project-card-body" data-i18n="d1_body">
+          從 <strong>Azure Service Bus</strong> 接收 Agent 任務，下載 Blob 設定與資料，
+          呼叫 LLM 產生「對話樹（ConversationTree）」並寫回 Blob 與輸出佇列。
+          <strong>多 LLM 動態切換</strong>（Azure OpenAI / vLLM 自架端點 / Anthropic Claude），
+          Claude 端把 Structured Output 自動轉成 Tool Use 格式；
+          <strong>5 次重試 + 模型降級 + 指數退避</strong>，
+          <code>json_schema</code> 不支援時自動退回 <code>json_object</code>；
+          <code>TreeBuilder</code> 以 memoization 避免重複 LLM 呼叫。
+          完整工程化：xUnit、BenchmarkDotNet、Dockerfile、ACR Pipeline、App Insights / OpenTelemetry。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">.NET 10</span>
+          <span class="tech-tag">C# 14</span>
+          <span class="tech-tag">Azure Service Bus</span>
+          <span class="tech-tag">Azure OpenAI</span>
+          <span class="tech-tag">vLLM</span>
+          <span class="tech-tag">Anthropic Claude</span>
+          <span class="tech-tag">BenchmarkDotNet</span>
+          <span class="tech-tag">OpenTelemetry</span>
+        </div>
+        <div class="project-date" data-i18n="d1_date">Strategy Pattern · Memoized Tree Builder</div>
+      </div>
+
+      <div class="project-featured-card">
+        <p class="project-issue" data-i18n="d2_issue">Feature · Data Pipeline</p>
+        <h3 class="project-card-title" data-i18n="d2_title">資料過濾管線<br />Rule Engine × Idempotent Blob</h3>
+        <p class="project-card-body" data-i18n="d2_body">
+          訊息佇列之間的資料過濾中介，合併多個 Blob 設定與資料後依規則過濾並寫回輸出佇列。
+          <strong>30+ 種 FilterType</strong>（時間相對範圍、班別區間、字串包含、數值比較…），
+          規則以 <code>blockSerial</code> 分組，<strong>組內 OR、組間 AND</strong>；
+          自訂 helper 支援 <code>Items.[*].Timestamp</code> 萬用字元路徑攤平比對；
+          <strong>內容定址</strong> 輸出 Blob 以 SHA256 命名（<code>{hash}.json</code>），重送天然冪等；
+          <code>traceId</code> 由 messageId + 業務識別碼 + 時間戳組成，整條管線 log 可串聯。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">.NET 10</span>
+          <span class="tech-tag">Azure Service Bus</span>
+          <span class="tech-tag">Azure Blob</span>
+          <span class="tech-tag">xUnit · Moq</span>
+          <span class="tech-tag">SHA256 CAS</span>
+          <span class="tech-tag">Structured Logging</span>
+        </div>
+        <div class="project-date" data-i18n="d2_date">End-to-End Integration Tests</div>
+      </div>
+
+    </div>
+
+    <!-- Featured Wide: Spec-Driven Microservice (Java / Spring Boot 4) -->
+    <div class="projects-featured-wide">
+      <div class="project-featured-card">
+        <p class="project-issue" data-i18n="j1_issue">Cover Feature · Spec-Driven Dev · 2026</p>
+        <h3 class="project-card-title" data-i18n="j1_title">規格驅動微服務 —<br />Spec Kit × Spring Boot 4</h3>
+        <p class="project-card-body" data-i18n="j1_body">
+          以 <strong>GitHub Spec Kit</strong>（<code>specify → plan → tasks → implement</code>）
+          規格驅動工作流，把一支既有的 <strong>FastAPI</strong> 路由重寫為
+          <strong>Spring Boot 4 / Java 17</strong> 可獨立部署、可獨立測試的微服務。
+          <code>.specify/memory/constitution.md</code> 為 ratified 專案憲章 v1.0.0，
+          內含 5 條 principles；每個 plan 階段都必須通過 constitution check 才能進入下一階段。
+          <code>before_*</code> / <code>after_*</code> hook 在每階段自動 commit 到 feature branch，
+          <strong>spec → plan → tasks → code 完整可追溯</strong>。
+        </p>
+        <div class="featured-wide-grid">
+          <div>
+            <p class="project-card-body" style="margin-bottom:14px;" data-i18n="j1_highlights">
+              <strong>無 ORM SP 呼叫</strong>：<code>SimpleJdbcCall</code> 顯式宣告所有參數、停用 column metadata，避開 hardened DB account 沒有 metadata 讀取權限的雷區（這是 plan 階段就被 constitution 攔下的決策）。
+              <br /><br />
+              <strong>凍結錯誤封套</strong>：<code>@RestControllerAdvice</code> 統一回傳同一份中文錯誤 envelope；<code>SQLState</code> / 根因 <code>SQLException</code> 只進 log、不洩漏到回應 — 是和前端的合約，spec 中明確 lock 住。
+              <br /><br />
+              <strong>MDC 結構化日誌</strong>：請求識別碼推入 MDC，<code>finally</code> 才移除，例外情況下後續 log 都帶得到追蹤 ID；長欄位 log 時截斷至 200 字元防灌爆。
+              <br /><br />
+              <strong>分層測試（CI 友善）</strong>：MockMvc Slice + Logging Test（把日誌格式當契約 lock 住）+ Repository H2 + Testcontainers <code>mssqlserver</code> 整合；CI 預設只跑單元，整合測試以 <code>-Pintegration</code> 顯式觸發。
+            </p>
+            <div class="tech-row">
+              <span class="tech-tag">Spec Kit v0.7</span>
+              <span class="tech-tag">Java 17 · JDK 25</span>
+              <span class="tech-tag">Spring Boot 4.0</span>
+              <span class="tech-tag">Spring Security</span>
+              <span class="tech-tag">SimpleJdbcCall</span>
+              <span class="tech-tag">SQL Server SP</span>
+              <span class="tech-tag">JUnit 5 · MockMvc</span>
+              <span class="tech-tag">Testcontainers</span>
+              <span class="tech-tag">Maven · Multi-stage</span>
+            </div>
+          </div>
+          <div class="meta-block">
+            <strong data-i18n="j1_meta1">Spec Kit Workflow</strong>
+            <span><code>/speckit-specify</code><br /><code>/speckit-plan</code><br /><code>/speckit-tasks</code><br /><code>/speckit-implement</code></span>
+            <strong data-i18n="j1_meta2">Constitution</strong>
+            <span data-i18n="j1_meta2_val">v1.0.0 ratified · 5 principles · 每個 plan 階段必過 constitution check</span>
+            <strong data-i18n="j1_meta3">Endpoints</strong>
+            <span><code>POST /{service}</code><br /><code>GET /health</code><br /><code>GET /actuator/health</code></span>
+            <strong data-i18n="j1_meta4">Container</strong>
+            <span data-i18n="j1_meta4_val">Multi-stage Dockerfile（Temurin 25）· 非 root USER 1001 · UTF-8 直通 · 內部 Harbor Registry</span>
+            <strong data-i18n="j1_meta5">Auth Boundary</strong>
+            <span data-i18n="j1_meta5_val">v1 <code>permitAll()</code>、SecurityFilterChain 已就位 · <code>TODO(AUTH_BOUNDARY)</code> 標記，未來只需替換 filter</span>
+          </div>
+        </div>
+        <div class="project-date" data-i18n="j1_date">Spec-Driven Microservice · v1.1.0</div>
+      </div>
+    </div>
+
+    <!-- Secondary 4: Mid-tier .NET projects -->
+    <div class="projects-secondary">
+
+      <div class="project-mini">
+        <p class="project-mini-num" data-i18n="d3_num">Dual-Target · WinForms / Linux Docker</p>
+        <h3 class="project-mini-title" data-i18n="d3_title">雙平台佇列消費者<br />Tray × Docker Worker</h3>
+        <p class="project-mini-body" data-i18n="d3_body">
+          同一份 codebase 同時產出 <strong>Windows 系統匣常駐程式</strong>與
+          <strong>Linux Docker Worker</strong>。<code>TargetFrameworks</code> 條件性
+          <code>&lt;Compile&gt;</code>，<code>#if WINDOWS</code> + <code>Environment.UserInteractive</code>
+          在 Tray / Windows Service / Linux 三模式自動分流。
+          <strong>Self-Contained Single-File</strong> ~60MB 單檔 EXE 免裝 .NET；
+          樹狀資料 post-order 攤平為 <strong>SQL TVP</strong> 一次寫入。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">.NET 10</span>
+          <span class="tech-tag">WinForms</span>
+          <span class="tech-tag">SQL TVP</span>
+          <span class="tech-tag">Windows Service</span>
+          <span class="tech-tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="project-mini">
+        <p class="project-mini-num" data-i18n="d4_num">Bridge · SQL → Blob → Queue</p>
+        <h3 class="project-mini-title" data-i18n="d4_title">訊息與資料來源橋接<br />Service Bus Middleware</h3>
+        <p class="project-mini-body" data-i18n="d4_body">
+          兩個 Service Bus 佇列之間的中介：把 SQL Server 的 10+ 張設定表整理為單一 JSON 上傳到 Blob，
+          再轉送下游佇列。<strong>Pipeline 拆分清晰</strong>：
+          <code>Worker → MessageProcessing → DataFetcher → BlobStorage → PayloadBuilder → MessageSender</code>，
+          每個服務只做一件事；Blob 以業務識別碼分層 + <code>{SHA256}.json</code> 結尾，
+          相同設定不會重複上傳。附獨立 TestSender console。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">.NET 10</span>
+          <span class="tech-tag">SQL Server</span>
+          <span class="tech-tag">Azure Service Bus</span>
+          <span class="tech-tag">Azure Blob</span>
+          <span class="tech-tag">Content-Addressed</span>
+        </div>
+      </div>
+
+      <div class="project-mini">
+        <p class="project-mini-num" data-i18n="d5_num">REST API · ASP.NET Core 10</p>
+        <h3 class="project-mini-title" data-i18n="d5_title">Prompt 管理 REST API<br />Gateway × JWT</h3>
+        <p class="project-mini-body" data-i18n="d5_body">
+          對外的「Agent / Prompt 管理」RESTful Gateway，支援多環境（路由帶 <code>{env}</code>）。
+          <strong>JWT Bearer</strong> 自訂 <code>OnAuthenticationFailed</code> / <code>OnChallenge</code> 做結構化記錄；
+          <code>CORS_ORIGINS</code> 逗號分隔讀取，<code>*</code> 退回 <code>AllowAnyOrigin</code>；
+          自訂 <code>SqlServerHealthCheck</code> 提供 <code>/health</code>；
+          無 ORM，<code>Microsoft.Data.SqlClient</code> 直接控 SQL；
+          <code>Program</code> 設 partial 以支援 <code>WebApplicationFactory</code> 整合測試。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">ASP.NET Core 10</span>
+          <span class="tech-tag">JWT Bearer</span>
+          <span class="tech-tag">Minimal Hosting</span>
+          <span class="tech-tag">HealthChecks</span>
+          <span class="tech-tag">Docker</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tech Experiments (one-liners) -->
+    <div class="tech-experiments">
+      <div class="tech-experiment">
+        <strong data-i18n="te1_title">WebView2 + HMAC API 測試器</strong>
+        <span data-i18n="te1_body">FixedRuntime / Evergreen 自動偵測 · X-Timestamp + payload HMAC-SHA256 簽章 · 依 returnType 分流注入或 NavigateToString。</span>
+      </div>
+      <div class="tech-experiment">
+        <strong data-i18n="te2_title">WebView2 雙向通訊 PoC</strong>
+        <span data-i18n="te2_body">.NET 6+ / .NET Framework 雙相容 · <code>#if NET6_0_OR_GREATER</code> 在 <code>System.Text.Json</code> 與 <code>Newtonsoft.Json</code> 之間切換解析器。</span>
+      </div>
+      <div class="tech-experiment">
+        <strong data-i18n="te3_title">ASP.NET Core REST 起手樣板</strong>
+        <span data-i18n="te3_body">.NET 10 Web API · Swagger · Dockerfile · <code>test-api.http</code> · ProductDto 驗證範例與起手樣板。</span>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────── -->
+    <!-- Sub-section: Side Projects (自主開發 / 個人作品) -->
+    <!-- ─────────────────────────────────────────────────── -->
+    <div class="subsection-header">
+      <h3 data-i18n="sec_side">Side Projects</h3>
+      <span class="subsection-rule"></span>
+      <span class="issue-tag" data-i18n="sec_side_tag">Independent Works · 個人作品</span>
+    </div>
+    <p class="subsection-lede" data-i18n="sec_side_lede">
+      工作之外自主開發的個人作品，橫跨 <strong>iOS 原生 App、全端 Web、語音 AI 雲服務、知識管理、Agentic AI 與桌面工具</strong>，
+      技術棧涵蓋 Swift / Java / TypeScript / Python / Go 等多語言。
+      從題目發想、技術選型、實作到部署上線一人包辦。
+    </p>
+
+    <!-- Featured 2: Vivid Atlas + Pikmin Mushroom Alarm -->
+    <div class="projects-featured">
+
+      <div class="project-featured-card">
+        <p class="project-issue" data-i18n="s1_issue">Cover Feature · Full-Stack Web · Next.js × Spring Boot</p>
+        <h3 class="project-card-title" data-i18n="s1_title">Vivid Atlas / Curator —<br />收藏地點知識圖譜</h3>
+        <p class="project-card-body" data-i18n="s1_body">
+          行動優先的全端 Web App。使用者貼上任意 URL（Instagram / TikTok / Google Maps / 清單型文章），
+          <strong>AI 自動解析地點資訊</strong>，以卡片牆 + 互動知識圖譜呈現。
+          <strong>AI 連結富化管線</strong>：<code>Jsoup OG 擷取 → Claude (claude-sonnet-4-6) 結構化解析 → Redis 快取（SHA-256 key，24h TTL）→ PostgreSQL + Neo4j 雙寫</code>。
+          <strong>互動知識圖譜</strong>：Neo4j 儲存最多 2 跳關係，前端以 vis-network（D3 canvas）渲染，分類色碼節點、點擊即時展開。
+          <strong>AI 推薦引擎</strong>：共同標籤 + 地理位置加權混合推薦；Neo4j 雙寫採 best-effort，失敗不影響主 CRUD。
+          <strong>全端基礎建設</strong>：Flyway 6 migration、JWT HttpOnly Cookie、Nominatim 地理編碼、主題公開分享連結、Docker Compose 一鍵啟動 5 個服務。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">Next.js 14</span>
+          <span class="tech-tag">Spring Boot 3.4</span>
+          <span class="tech-tag">PostgreSQL · Flyway</span>
+          <span class="tech-tag">Neo4j</span>
+          <span class="tech-tag">Redis</span>
+          <span class="tech-tag">Claude (Azure AI Foundry)</span>
+          <span class="tech-tag">vis-network · D3</span>
+          <span class="tech-tag">Tailwind CSS</span>
+          <span class="tech-tag">JWT HttpOnly</span>
+        </div>
+        <div class="project-date" data-i18n="s1_date">Self-Initiated · 5-Service Docker Compose</div>
+      </div>
+
+      <div class="project-featured-card">
+        <p class="project-issue" data-i18n="s2_issue">Cover Feature · Native iOS · SwiftUI + Vision OCR</p>
+        <h3 class="project-card-title" data-i18n="s2_title">Pikmin Mushroom Alarm —<br />原生 iOS 蘑菇鬧鐘</h3>
+        <p class="project-card-body" data-i18n="s2_body">
+          原生 iOS App，<strong>完全離線、無後端</strong>。從 Pikmin Bloom 截圖自動辨識蘑菇剩餘時間，在最佳挖掘時機推播提醒。
+          <strong>離線 OCR 自動辨識</strong>：Apple Vision Framework 解析「剩下 X 小時 Y 分 Z 秒」三種時間格式；
+          地點 / 蘑菇類型依 <code>boundingBox</code> 由上到下排序，不依賴關鍵字判斷。
+          <strong>遞增式通知節奏</strong>：T+0 / +3:00 / +4:00 / +4:30 / +4:50 / +5:00，最後兩次標記 time-sensitive 突破靜音模式。
+          <strong>三 Target 整合</strong>：主 App + Share Extension（相簿直接觸發建鬧鐘）+ Widgets（小/中/鎖屏 Accessory），透過 App Group 共享 SwiftData。
+          <strong>Live Activity + Dynamic Island</strong>、watchOS 通知附「打開 Pikmin Bloom / 再提醒 1 分鐘」動作按鈕。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">SwiftUI</span>
+          <span class="tech-tag">SwiftData</span>
+          <span class="tech-tag">Apple Vision OCR</span>
+          <span class="tech-tag">ActivityKit</span>
+          <span class="tech-tag">WidgetKit</span>
+          <span class="tech-tag">Dynamic Island</span>
+          <span class="tech-tag">watchOS</span>
+          <span class="tech-tag">App Group</span>
+        </div>
+        <div class="project-date" data-i18n="s2_date">Self-Initiated · iOS 17+ · Cross-Platform Dev</div>
+      </div>
+
+    </div>
+
+    <div class="projects-secondary">
+
+      <div class="project-mini">
+        <p class="project-mini-num" data-i18n="s3_num">Cloud Run · Speech AI</p>
+        <h3 class="project-mini-title" data-i18n="s3_title">Faster-Whisper API —<br />中文語音辨識 Cloud Run</h3>
+        <p class="project-mini-body" data-i18n="s3_body">
+          基於 <strong>SYSTRAN/faster-whisper</strong> 封裝的 REST API，部署到 GCP Cloud Run（<code>asia-east1</code>），針對中文語音優化。
+          <code>POST /transcribe</code> 接受 multipart 音檔，回傳語言、信心度、時間戳分段。
+          <strong>int8 量化 + BatchedInferencePipeline</strong>，比原版 <code>openai/whisper</code> 快 4 倍以上；
+          PyAV 內建 FFmpeg，容器零系統依賴；環境變數驅動（<code>MODEL_SIZE</code> / <code>COMPUTE_TYPE</code> / <code>USE_BATCHED</code>）。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">Python 3.9+</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">CTranslate2</span>
+          <span class="tech-tag">Google Cloud Run</span>
+          <span class="tech-tag">PyAV (FFmpeg)</span>
+          <span class="tech-tag">Multi-stage Docker</span>
+        </div>
+      </div>
+
+      <div class="project-mini">
+        <p class="project-mini-num" data-i18n="s4_num">Quartz v4 · Digital Garden</p>
+        <h3 class="project-mini-title" data-i18n="s4_title">dayi-knowledge-base —<br />個人數位花園</h3>
+        <p class="project-mini-body" data-i18n="s4_body">
+          把 Obsidian 風格的 Markdown 筆記發布為可搜尋的靜態網站，目前涵蓋「高等人工智慧」課程筆記與「露營」生活筆記。
+          支援 <code>[[wikilink]]</code> 雙向連結與自動反向連結；
+          <strong>D3 互動知識圖譜</strong>視覺化筆記關聯，hover 即時 popover 預覽；
+          flexsearch 客戶端全文搜尋（SPA 無需後端）、Shiki / KaTeX / Typst 排版、unified · remark · rehype 內容管線、esbuild 打包。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">Quartz v4.5</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Preact SSR</span>
+          <span class="tech-tag">D3.js</span>
+          <span class="tech-tag">flexsearch</span>
+          <span class="tech-tag">Cloudflare Pages</span>
+        </div>
+      </div>
+
+      <div class="project-mini">
+        <p class="project-mini-num" data-i18n="s5_num">Java 21 · Playwright Automation</p>
+        <h3 class="project-mini-title" data-i18n="s5_title">Business Analysis Report —<br />Playwright 截圖服務</h3>
+        <p class="project-mini-body" data-i18n="s5_body">
+          Java 21 + <strong>Spring Boot 4</strong> 的 REST API 骨架專案，
+          核心為網頁自動化截圖（<code>ScreenshotController</code> 接 URL 參數，可截全頁或指定 CSS class 區塊），
+          作為後續商業分析報告自動化的基礎建設。
+          Spring Data JPA + H2 記憶體資料庫、DDL auto-update、H2 console 方便除錯；
+          Docker Compose 就緒，預留 Entity / Repository 結構供業務邏輯擴展。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">Java 21</span>
+          <span class="tech-tag">Spring Boot 4</span>
+          <span class="tech-tag">Microsoft Playwright</span>
+          <span class="tech-tag">Spring Data JPA</span>
+          <span class="tech-tag">H2</span>
+          <span class="tech-tag">Maven · Docker</span>
+        </div>
+      </div>
+
       <div class="project-mini">
         <p class="project-mini-num" data-i18n="p5_num">Report · 2025/9 – 進行中</p>
         <h3 class="project-mini-title" data-i18n="p5_title">農業小幫手 —<br />生成式 AI 農業決策 Agent</h3>
@@ -805,7 +1251,27 @@
         </a>
       </div>
 
+      <div class="project-mini">
+        <p class="project-mini-num" data-i18n="d6_num">Self-Initiated · WinForms Desktop</p>
+        <h3 class="project-mini-title" data-i18n="d6_title">Crawler —<br />儀表板擷取與資料還原</h3>
+        <p class="project-mini-body" data-i18n="d6_body">
+          自主開發桌面工具，自動爬取公開的資料儀表板圖表與排行榜。
+          <strong>2× 高解析度元素截圖</strong>，截圖前確認子 <code>&lt;img&gt;</code> 全部載入完成避免空白；
+          直接從頁面 JS 物件讀 <strong>Highcharts 資料點</strong>（名稱 + 數值）疊在截圖下方輸出。
+          <code>dotnet publish -p:PublishProfile=SingleFile</code> 單一 EXE 自包含，
+          首次執行自動下載 Chromium，支援批次模式一鍵匯出 PNG。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">.NET 10</span>
+          <span class="tech-tag">WinForms</span>
+          <span class="tech-tag">PuppeteerSharp 21</span>
+          <span class="tech-tag">Highcharts</span>
+          <span class="tech-tag">Single-File</span>
+        </div>
+      </div>
+
     </div>
+
   </div>
 </div>
 
@@ -822,46 +1288,54 @@
         <div class="skill-col-icon">⚙️</div>
         <div class="skill-col-title" data-i18n="sk_be">Backend</div>
         <ul class="skill-list">
-          <li>Python · FastAPI · Django</li>
-          <li>Java · Spring Boot</li>
-          <li>C# · ASP.NET Core</li>
+          <li>Python · FastAPI · Django · Quartz</li>
+          <li>Java 17/21 · Spring Boot 3/4 · Spring Data JPA</li>
+          <li>C# 14 · .NET 10 · ASP.NET Core</li>
           <li>Go / Gin</li>
-          <li>RESTful API · Microservices</li>
-          <li>Azure Service Bus · Redis</li>
-          <li>MS SQL · PostgreSQL</li>
+          <li>RESTful · Microservices · JWT</li>
+          <li>PostgreSQL · Neo4j · Redis</li>
+          <li data-i18n="sk_sqltvp">MS SQL · TVP / SP · SimpleJdbcCall</li>
+          <li data-i18n="sk_test">xUnit · JUnit 5 · MockMvc · Testcontainers</li>
         </ul>
       </div>
       <div class="skill-col">
         <div class="skill-col-icon">🤖</div>
         <div class="skill-col-title" data-i18n="sk_ai">AI / ML</div>
         <ul class="skill-list">
-          <li>Azure OpenAI · LLM</li>
-          <li>LangChain · RAG</li>
-          <li>Agentic Workflow</li>
+          <li>Azure OpenAI · Anthropic Claude</li>
+          <li>LangChain · RAG · Agentic Workflow</li>
+          <li>Structured Outputs · Tool Use</li>
+          <li>vLLM · Faster-Whisper · CTranslate2</li>
+          <li>Apple Vision · OCR</li>
           <li>U-Net · YOLOv4</li>
           <li data-i18n="sk_tf">TensorFlow · 強化學習</li>
-          <li>vLLM · Prompt Engineering</li>
         </ul>
       </div>
       <div class="skill-col">
         <div class="skill-col-icon">☁️</div>
         <div class="skill-col-title" data-i18n="sk_cloud">Cloud & DevOps</div>
         <ul class="skill-list">
-          <li>Azure（App Service / OpenAI）</li>
+          <li>Azure Container Apps · ACR · Harbor</li>
+          <li>Google Cloud Run · Cloudflare Pages</li>
           <li>AWS EC2 / S3</li>
-          <li>Docker · Docker Swarm</li>
-          <li>Nginx · Reverse Proxy</li>
+          <li>Docker · multi-stage · compose · Swarm</li>
+          <li>App Insights · OpenTelemetry · MDC</li>
           <li data-i18n="sk_grafana">Grafana · Loki · 監控告警</li>
+          <li data-i18n="sk_publish">Self-Contained Single-File · Win Service</li>
+          <li>Maven 3.9 · GitHub Spec Kit</li>
           <li>GitHub Actions · CI/CD</li>
         </ul>
       </div>
       <div class="skill-col">
         <div class="skill-col-icon">🌏</div>
-        <div class="skill-col-title" data-i18n="sk_fe">Frontend & Language</div>
+        <div class="skill-col-title" data-i18n="sk_fe">Mobile · Frontend · Language</div>
         <ul class="skill-list">
-          <li>Vue.js · JavaScript ES6+</li>
-          <li>HTML5 / CSS3</li>
-          <li data-i18n="sk_react">React（基礎）</li>
+          <li>Swift · SwiftUI · SwiftData</li>
+          <li>WidgetKit · ActivityKit · watchOS</li>
+          <li>Next.js 14 · TypeScript · React</li>
+          <li>Vue.js · Tailwind · Preact SSR</li>
+          <li>vis-network · D3.js · Playwright</li>
+          <li>WebView2 · PuppeteerSharp</li>
           <li data-i18n="sk_jp">日文 JLPT N2</li>
           <li data-i18n="sk_en">英文 TOEIC 800</li>
         </ul>
@@ -1079,8 +1553,7 @@ const i18n = {
     sk_tf: "TensorFlow · Reinforcement Learning",
     sk_cloud: "Cloud & DevOps",
     sk_grafana: "Grafana · Loki · Monitoring & Alerting",
-    sk_fe: "Frontend & Language",
-    sk_react: "React (basic)",
+    sk_fe: "Mobile · Frontend · Language",
     sk_jp: "Japanese JLPT N2",
     sk_en: "English TOEIC 800",
     // projects
@@ -1108,6 +1581,79 @@ const i18n = {
     p7_num: "Side Project · Go / Gin",
     p7_title: "SnapLink —<br />高效能短網址服務",
     p7_body: "以 Go + Gin 打造的高吞吐量短網址服務，支援自訂短碼、跳轉統計與 TTL 過期機制，充分發揮 Go 的並發優勢，Docker 容器化部署於 Zeabur，已上線對外服務。",
+    // skills extra
+    sk_sqltvp: "MS SQL · TVP / Stored Procedure",
+    sk_test: "xUnit · Moq · BenchmarkDotNet",
+    sk_publish: "Self-Contained Single-File · Win Service",
+    // Sub-section headers
+    sec_medical: "Medical AI Platform",
+    sec_medical_tag: "中山醫附院人工智慧中心 · 主力專案",
+    sec_medical_lede: "於<strong>中山醫學大學附設醫院人工智慧中心</strong>主導與全端開發的臨床 AI 系統，自需求分析、後端架構、AI 整合到雲端部署一條龍負責。",
+    sec_dotnet: "Backend · Cloud Architecture",
+    sec_dotnet_tag: ".NET 10 · Spring Boot 4 · Azure · LLM Integration",
+    sec_dotnet_lede: "涵蓋雲端微服務、LLM Agent 平台、Web API、Java/Spring 微服務改寫、桌面工具與爬蟲，跨 <strong>.NET 10 / C# 14</strong> 與 <strong>Java 17 / Spring Boot 4</strong> 兩大後端生態，強調冪等性、可觀測性與整條鏈路工程化。",
+    sec_side: "Side Projects",
+    sec_side_tag: "Independent Works · 個人作品",
+    sec_side_lede: "工作之外自主開發的個人作品，橫跨 <strong>iOS 原生 App、全端 Web、語音 AI 雲服務、知識管理、Agentic AI 與桌面工具</strong>，技術棧涵蓋 Swift / Java / TypeScript / Python / Go 等多語言。從題目發想、技術選型、實作到部署上線一人包辦。",
+    // .NET projects
+    d1_issue: "Cover Feature · .NET 10 Worker Service",
+    d1_title: "LLM Agent 執行引擎<br />Multi-LLM × Service Bus",
+    d1_body: "從 <strong>Azure Service Bus</strong> 接收 Agent 任務，下載 Blob 設定與資料，呼叫 LLM 產生「對話樹（ConversationTree）」並寫回 Blob 與輸出佇列。<strong>多 LLM 動態切換</strong>（Azure OpenAI / vLLM 自架端點 / Anthropic Claude），Claude 端把 Structured Output 自動轉成 Tool Use 格式；<strong>5 次重試 + 模型降級 + 指數退避</strong>，<code>json_schema</code> 不支援時自動退回 <code>json_object</code>；<code>TreeBuilder</code> 以 memoization 避免重複 LLM 呼叫。完整工程化：xUnit、BenchmarkDotNet、Dockerfile、ACR Pipeline、App Insights / OpenTelemetry。",
+    d1_date: "Strategy Pattern · Memoized Tree Builder",
+    d2_issue: "Feature · Data Pipeline",
+    d2_title: "資料過濾管線<br />Rule Engine × Idempotent Blob",
+    d2_body: "訊息佇列之間的資料過濾中介，合併多個 Blob 設定與資料後依規則過濾並寫回輸出佇列。<strong>30+ 種 FilterType</strong>（時間相對範圍、班別區間、字串包含、數值比較…），規則以 <code>blockSerial</code> 分組，<strong>組內 OR、組間 AND</strong>；自訂 helper 支援 <code>Items.[*].Timestamp</code> 萬用字元路徑攤平比對；<strong>內容定址</strong>輸出 Blob 以 SHA256 命名（<code>{hash}.json</code>），重送天然冪等；<code>traceId</code> 由 messageId + 業務識別碼 + 時間戳組成，整條管線 log 可串聯。",
+    d2_date: "End-to-End Integration Tests",
+    d3_num: "Dual-Target · WinForms / Linux Docker",
+    d3_title: "雙平台佇列消費者<br />Tray × Docker Worker",
+    d3_body: "同一份 codebase 同時產出 <strong>Windows 系統匣常駐程式</strong>與<strong>Linux Docker Worker</strong>。<code>TargetFrameworks</code> 條件性 <code>&lt;Compile&gt;</code>，<code>#if WINDOWS</code> + <code>Environment.UserInteractive</code> 在 Tray / Windows Service / Linux 三模式自動分流。<strong>Self-Contained Single-File</strong> ~60MB 單檔 EXE 免裝 .NET；樹狀資料 post-order 攤平為 <strong>SQL TVP</strong> 一次寫入。",
+    d4_num: "Bridge · SQL → Blob → Queue",
+    d4_title: "訊息與資料來源橋接<br />Service Bus Middleware",
+    d4_body: "兩個 Service Bus 佇列之間的中介：把 SQL Server 的 10+ 張設定表整理為單一 JSON 上傳到 Blob，再轉送下游佇列。<strong>Pipeline 拆分清晰</strong>：<code>Worker → MessageProcessing → DataFetcher → BlobStorage → PayloadBuilder → MessageSender</code>，每個服務只做一件事；Blob 以業務識別碼分層 + <code>{SHA256}.json</code> 結尾，相同設定不會重複上傳。附獨立 TestSender console。",
+    d5_num: "REST API · ASP.NET Core 10",
+    d5_title: "Prompt 管理 REST API<br />Gateway × JWT",
+    d5_body: "對外的「Agent / Prompt 管理」RESTful Gateway，支援多環境（路由帶 <code>{env}</code>）。<strong>JWT Bearer</strong> 自訂 <code>OnAuthenticationFailed</code> / <code>OnChallenge</code> 做結構化記錄；<code>CORS_ORIGINS</code> 逗號分隔讀取，<code>*</code> 退回 <code>AllowAnyOrigin</code>；自訂 <code>SqlServerHealthCheck</code> 提供 <code>/health</code>；無 ORM，<code>Microsoft.Data.SqlClient</code> 直接控 SQL；<code>Program</code> 設 partial 以支援 <code>WebApplicationFactory</code> 整合測試。",
+    d6_num: "Self-Initiated · WinForms Desktop",
+    d6_title: "Crawler —<br />儀表板擷取與資料還原",
+    d6_body: "自主開發桌面工具，自動爬取公開的資料儀表板圖表與排行榜。<strong>2× 高解析度元素截圖</strong>，截圖前確認子 <code>&lt;img&gt;</code> 全部載入完成避免空白;直接從頁面 JS 物件讀 <strong>Highcharts 資料點</strong>（名稱 + 數值）疊在截圖下方輸出。<code>dotnet publish -p:PublishProfile=SingleFile</code> 單一 EXE 自包含，首次執行自動下載 Chromium，支援批次模式一鍵匯出 PNG。",
+    te1_title: "WebView2 + HMAC API 測試器",
+    te1_body: "FixedRuntime / Evergreen 自動偵測 · X-Timestamp + payload HMAC-SHA256 簽章 · 依 returnType 分流注入或 NavigateToString。",
+    te2_title: "WebView2 雙向通訊 PoC",
+    te2_body: ".NET 6+ / .NET Framework 雙相容 · <code>#if NET6_0_OR_GREATER</code> 在 <code>System.Text.Json</code> 與 <code>Newtonsoft.Json</code> 之間切換解析器。",
+    te3_title: "ASP.NET Core REST 起手樣板",
+    te3_body: ".NET 10 Web API · Swagger · Dockerfile · <code>test-api.http</code> · ProductDto 驗證範例與起手樣板。",
+    // Spec-Driven Microservice (Java / Spring Boot 4)
+    j1_issue: "Cover Feature · Spec-Driven Dev · 2026",
+    j1_title: "規格驅動微服務 —<br />Spec Kit × Spring Boot 4",
+    j1_body: "以 <strong>GitHub Spec Kit</strong>（<code>specify → plan → tasks → implement</code>）規格驅動工作流，把一支既有的 <strong>FastAPI</strong> 路由重寫為 <strong>Spring Boot 4 / Java 17</strong> 可獨立部署、可獨立測試的微服務。<code>.specify/memory/constitution.md</code> 為 ratified 專案憲章 v1.0.0，內含 5 條 principles；每個 plan 階段都必須通過 constitution check 才能進入下一階段。<code>before_*</code> / <code>after_*</code> hook 在每階段自動 commit 到 feature branch，<strong>spec → plan → tasks → code 完整可追溯</strong>。",
+    j1_highlights: "<strong>無 ORM SP 呼叫</strong>：<code>SimpleJdbcCall</code> 顯式宣告所有參數、停用 column metadata，避開 hardened DB account 沒有 metadata 讀取權限的雷區（這是 plan 階段就被 constitution 攔下的決策）。<br /><br /><strong>凍結錯誤封套</strong>：<code>@RestControllerAdvice</code> 統一回傳同一份中文錯誤 envelope；<code>SQLState</code> / 根因 <code>SQLException</code> 只進 log、不洩漏到回應 — 是和前端的合約，spec 中明確 lock 住。<br /><br /><strong>MDC 結構化日誌</strong>：請求識別碼推入 MDC，<code>finally</code> 才移除，例外情況下後續 log 都帶得到追蹤 ID；長欄位 log 時截斷至 200 字元防灌爆。<br /><br /><strong>分層測試（CI 友善）</strong>：MockMvc Slice + Logging Test（把日誌格式當契約 lock 住）+ Repository H2 + Testcontainers <code>mssqlserver</code> 整合；CI 預設只跑單元，整合測試以 <code>-Pintegration</code> 顯式觸發。",
+    j1_meta1: "Spec Kit Workflow",
+    j1_meta2: "Constitution",
+    j1_meta2_val: "v1.0.0 ratified · 5 principles · 每個 plan 階段必過 constitution check",
+    j1_meta3: "Endpoints",
+    j1_meta4: "Container",
+    j1_meta4_val: "Multi-stage Dockerfile（Temurin 25）· 非 root USER 1001 · UTF-8 直通 · 內部 Harbor Registry",
+    j1_meta5: "Auth Boundary",
+    j1_meta5_val: "v1 <code>permitAll()</code>、SecurityFilterChain 已就位 · <code>TODO(AUTH_BOUNDARY)</code> 標記，未來只需替換 filter",
+    j1_date: "Spec-Driven Microservice · v1.1.0",
+    // Side projects (s1-s5)
+    s1_issue: "Cover Feature · Full-Stack Web · Next.js × Spring Boot",
+    s1_title: "Vivid Atlas / Curator —<br />收藏地點知識圖譜",
+    s1_body: "行動優先的全端 Web App。使用者貼上任意 URL（Instagram / TikTok / Google Maps / 清單型文章），<strong>AI 自動解析地點資訊</strong>，以卡片牆 + 互動知識圖譜呈現。<strong>AI 連結富化管線</strong>：<code>Jsoup OG 擷取 → Claude (claude-sonnet-4-6) 結構化解析 → Redis 快取（SHA-256 key，24h TTL）→ PostgreSQL + Neo4j 雙寫</code>。<strong>互動知識圖譜</strong>：Neo4j 儲存最多 2 跳關係，前端以 vis-network（D3 canvas）渲染，分類色碼節點、點擊即時展開。<strong>AI 推薦引擎</strong>：共同標籤 + 地理位置加權混合推薦；Neo4j 雙寫採 best-effort，失敗不影響主 CRUD。<strong>全端基礎建設</strong>：Flyway 6 migration、JWT HttpOnly Cookie、Nominatim 地理編碼、主題公開分享連結、Docker Compose 一鍵啟動 5 個服務。",
+    s1_date: "Self-Initiated · 5-Service Docker Compose",
+    s2_issue: "Cover Feature · Native iOS · SwiftUI + Vision OCR",
+    s2_title: "Pikmin Mushroom Alarm —<br />原生 iOS 蘑菇鬧鐘",
+    s2_body: "原生 iOS App，<strong>完全離線、無後端</strong>。從 Pikmin Bloom 截圖自動辨識蘑菇剩餘時間，在最佳挖掘時機推播提醒。<strong>離線 OCR 自動辨識</strong>：Apple Vision Framework 解析「剩下 X 小時 Y 分 Z 秒」三種時間格式；地點 / 蘑菇類型依 <code>boundingBox</code> 由上到下排序，不依賴關鍵字判斷。<strong>遞增式通知節奏</strong>：T+0 / +3:00 / +4:00 / +4:30 / +4:50 / +5:00，最後兩次標記 time-sensitive 突破靜音模式。<strong>三 Target 整合</strong>：主 App + Share Extension（相簿直接觸發建鬧鐘）+ Widgets（小/中/鎖屏 Accessory），透過 App Group 共享 SwiftData。<strong>Live Activity + Dynamic Island</strong>、watchOS 通知附「打開 Pikmin Bloom / 再提醒 1 分鐘」動作按鈕。",
+    s2_date: "Self-Initiated · iOS 17+ · Cross-Platform Dev",
+    s3_num: "Cloud Run · Speech AI",
+    s3_title: "Faster-Whisper API —<br />中文語音辨識 Cloud Run",
+    s3_body: "基於 <strong>SYSTRAN/faster-whisper</strong> 封裝的 REST API，部署到 GCP Cloud Run（<code>asia-east1</code>），針對中文語音優化。<code>POST /transcribe</code> 接受 multipart 音檔，回傳語言、信心度、時間戳分段。<strong>int8 量化 + BatchedInferencePipeline</strong>，比原版 <code>openai/whisper</code> 快 4 倍以上；PyAV 內建 FFmpeg，容器零系統依賴；環境變數驅動（<code>MODEL_SIZE</code> / <code>COMPUTE_TYPE</code> / <code>USE_BATCHED</code>）。",
+    s4_num: "Quartz v4 · Digital Garden",
+    s4_title: "dayi-knowledge-base —<br />個人數位花園",
+    s4_body: "把 Obsidian 風格的 Markdown 筆記發布為可搜尋的靜態網站，目前涵蓋「高等人工智慧」課程筆記與「露營」生活筆記。支援 <code>[[wikilink]]</code> 雙向連結與自動反向連結；<strong>D3 互動知識圖譜</strong>視覺化筆記關聯，hover 即時 popover 預覽；flexsearch 客戶端全文搜尋（SPA 無需後端）、Shiki / KaTeX / Typst 排版、unified · remark · rehype 內容管線、esbuild 打包。",
+    s5_num: "Java 21 · Playwright Automation",
+    s5_title: "Business Analysis Report —<br />Playwright 截圖服務",
+    s5_body: "Java 21 + <strong>Spring Boot 4</strong> 的 REST API 骨架專案，核心為網頁自動化截圖（<code>ScreenshotController</code> 接 URL 參數，可截全頁或指定 CSS class 區塊），作為後續商業分析報告自動化的基礎建設。Spring Data JPA + H2 記憶體資料庫、DDL auto-update、H2 console 方便除錯；Docker Compose 就緒，預留 Entity / Repository 結構供業務邏輯擴展。",
   },
   en: {
     nav_projects: "Projects",
@@ -1209,6 +1755,87 @@ const i18n = {
     p7_num: "Side Project · Go / Gin",
     p7_title: "SnapLink —<br />High-Performance URL Shortener",
     p7_body: "A high-throughput URL shortening service built with Go + Gin, supporting custom short codes, redirect analytics, and TTL expiration. Fully leverages Go's concurrency advantages, Dockerized and deployed on Zeabur.",
+    // skills
+    sk_be: "Backend",
+    sk_ai: "AI / ML",
+    sk_tf: "TensorFlow · Reinforcement Learning",
+    sk_cloud: "Cloud & DevOps",
+    sk_grafana: "Grafana · Loki · Monitoring & Alerting",
+    sk_fe: "Mobile · Frontend · Language",
+    sk_jp: "Japanese JLPT N2",
+    sk_en: "English TOEIC 800",
+    sk_sqltvp: "MS SQL · TVP / Stored Procedure",
+    sk_test: "xUnit · Moq · BenchmarkDotNet",
+    sk_publish: "Self-Contained Single-File · Win Service",
+    // Sub-section headers
+    sec_medical: "Medical AI Platform",
+    sec_medical_tag: "CSMU Hospital AI Center · Core Projects",
+    sec_medical_lede: "Clinical AI systems I led and full-stack developed at the <strong>Chung Shan Medical University Hospital AI Center</strong> — owning the full chain from requirements and backend architecture to AI integration and cloud deployment.",
+    sec_dotnet: "Backend · Cloud Architecture",
+    sec_dotnet_tag: ".NET 10 · Spring Boot 4 · Azure · LLM Integration",
+    sec_dotnet_lede: "Cloud microservices, LLM agent platforms, web APIs, a Java/Spring rewrite, desktop tools and crawlers — spanning both the <strong>.NET 10 / C# 14</strong> and <strong>Java 17 / Spring Boot 4</strong> ecosystems, with idempotency, observability and end-to-end engineering at the core.",
+    sec_side: "Side Projects",
+    sec_side_tag: "Independent Works",
+    sec_side_lede: "Personal projects built outside of work, spanning <strong>native iOS apps, full-stack Web, voice AI cloud services, knowledge management, agentic AI and desktop tools</strong> — across Swift / Java / TypeScript / Python / Go. End-to-end one-person delivery, from ideation and tech-stack choice to production deployment.",
+    // .NET projects
+    d1_issue: "Cover Feature · .NET 10 Worker Service",
+    d1_title: "LLM Agent Engine<br />Multi-LLM × Service Bus",
+    d1_body: "Consumes agent tasks from <strong>Azure Service Bus</strong>, fetches blob configs/data, calls LLMs to produce a ConversationTree, and writes results back to blob and the output queue. <strong>Dynamic multi-LLM switching</strong> across Azure OpenAI, vLLM (self-hosted, OpenAI SDK), and Anthropic Claude — Claude path auto-translates Structured Outputs into Tool Use format. <strong>5× retries + model fallback + exponential backoff</strong>; auto-downgrade from <code>json_schema</code> to <code>json_object</code> when unsupported. <code>TreeBuilder</code> uses memoization to skip duplicate LLM calls. Fully engineered: xUnit, BenchmarkDotNet, Dockerfile, ACR Pipeline, App Insights / OpenTelemetry.",
+    d1_date: "Strategy Pattern · Memoized Tree Builder",
+    d2_issue: "Feature · Data Pipeline",
+    d2_title: "Data Filtering Pipeline<br />Rule Engine × Idempotent Blob",
+    d2_body: "Middleware between two queues — merges multiple blob configs and data, applies rule-based filtering, writes to the output queue. <strong>30+ FilterTypes</strong> (relative time ranges, shift windows, string contains, numeric comparison…); rules grouped by <code>blockSerial</code> — <strong>OR within group, AND across groups</strong>. Custom helper flattens nested paths like <code>Items.[*].Timestamp</code>. <strong>Content-addressed</strong> output: blobs named <code>{sha256}.json</code> for natural idempotency on retry. <code>traceId</code> composed from messageId + business key + timestamp threads logs across the entire pipeline.",
+    d2_date: "End-to-End Integration Tests",
+    d3_num: "Dual-Target · WinForms / Linux Docker",
+    d3_title: "Dual-Platform Queue Consumer<br />Tray × Docker Worker",
+    d3_body: "One codebase, two binaries: a <strong>Windows tray daemon</strong> and a <strong>Linux Docker worker</strong>. <code>TargetFrameworks</code> + conditional <code>&lt;Compile&gt;</code>, with <code>#if WINDOWS</code> and <code>Environment.UserInteractive</code> routing between Tray / Windows Service / Linux at startup. <strong>Self-Contained Single-File</strong> publish ships a ~60MB EXE with no .NET prerequisite. Tree data is post-order flattened into a <strong>SQL TVP</strong> for single-call bulk insert.",
+    d4_num: "Bridge · SQL → Blob → Queue",
+    d4_title: "Source-to-Queue Bridge<br />Service Bus Middleware",
+    d4_body: "Sits between two Service Bus queues — consolidates 10+ SQL Server config tables into one JSON document uploaded to blob, then forwards to the downstream queue. <strong>Clean pipeline split</strong>: <code>Worker → MessageProcessing → DataFetcher → BlobStorage → PayloadBuilder → MessageSender</code>, each service doing one thing. Blob paths layered by business key with <code>{sha256}.json</code> suffix — identical configs are never re-uploaded. Ships with a standalone TestSender console.",
+    d5_num: "REST API · ASP.NET Core 10",
+    d5_title: "Prompt Management REST API<br />Gateway × JWT",
+    d5_body: "Public RESTful gateway for agent / prompt management, multi-environment via a <code>{env}</code> route parameter. <strong>JWT Bearer</strong> with custom <code>OnAuthenticationFailed</code> / <code>OnChallenge</code> for structured logging. <code>CORS_ORIGINS</code> comma-parsed, <code>*</code> falls back to <code>AllowAnyOrigin</code>. Custom <code>SqlServerHealthCheck</code> exposed at <code>/health</code>. No ORM — <code>Microsoft.Data.SqlClient</code> direct, with TVP / stored procs. <code>Program</code> declared partial to enable <code>WebApplicationFactory</code>-based integration tests.",
+    d6_num: "Self-Initiated · WinForms Desktop",
+    d6_title: "Crawler —<br />Dashboard Capture & Reconstruct",
+    d6_body: "Self-initiated desktop tool that crawls public dashboards for chart images and ranking data. <strong>2× high-DPI element screenshots</strong>, with explicit waits ensuring every child <code>&lt;img&gt;</code> finishes loading before capture. Directly extracts <strong>Highcharts data points</strong> (label + value) from the page's JS objects and overlays them under the screenshot. <code>dotnet publish -p:PublishProfile=SingleFile</code> ships a self-contained EXE — Chromium auto-downloads on first run; batch mode exports PNG in one click.",
+    te1_title: "WebView2 + HMAC API Tester",
+    te1_body: "FixedRuntime / Evergreen auto-detection · X-Timestamp + payload HMAC-SHA256 signing · routes between postMessage injection and NavigateToString based on response returnType.",
+    te2_title: "WebView2 Two-Way Comm PoC",
+    te2_body: ".NET 6+ / .NET Framework cross-compatible · <code>#if NET6_0_OR_GREATER</code> toggles between <code>System.Text.Json</code> and <code>Newtonsoft.Json</code>.",
+    te3_title: "ASP.NET Core REST Starter",
+    te3_body: ".NET 10 Web API · Swagger · Dockerfile · <code>test-api.http</code> · ProductDto validation as a reusable starter template.",
+    // Spec-Driven Microservice (Java / Spring Boot 4)
+    j1_issue: "Cover Feature · Spec-Driven Dev · 2026",
+    j1_title: "Spec-Driven Microservice —<br />Spec Kit × Spring Boot 4",
+    j1_body: "Built a <strong>spec-first</strong> microservice using <strong>GitHub Spec Kit</strong> (<code>specify → plan → tasks → implement</code>) to rewrite an existing <strong>FastAPI</strong> route as an independently-deployable, independently-testable service on <strong>Spring Boot 4 / Java 17</strong>. The project ships a ratified <code>constitution.md</code> v1.0.0 with 5 principles — every plan phase must pass a constitution check before advancing. <code>before_*</code> / <code>after_*</code> hooks auto-commit each phase to a feature branch, making the entire <strong>spec → plan → tasks → code</strong> chain fully auditable.",
+    j1_highlights: "<strong>No-ORM SP call</strong>: <code>SimpleJdbcCall</code> with all params explicitly declared and column metadata disabled — sidesteps the trap where the hardened DB account has no metadata-read permission. (A decision caught and locked in at the plan/constitution phase.)<br /><br /><strong>Frozen error envelope</strong>: <code>@RestControllerAdvice</code> returns one uniform envelope on any exception. Root-cause <code>SQLException</code> and <code>SQLState</code> are logged for DBAs but never leak to the response — a contract with the frontend, explicitly locked by spec.<br /><br /><strong>MDC structured logging</strong>: request identifiers pushed into MDC at controller entry, removed only in <code>finally</code> — exception logs still carry trace IDs. Long user-supplied fields truncated to 200 chars to prevent log flooding.<br /><br /><strong>Layered testing (CI-friendly)</strong>: MockMvc slice + a Logging Test that locks log format as a contract + H2 repository test + Testcontainers <code>mssqlserver</code> integration. CI runs unit by default; integration is explicitly triggered via <code>-Pintegration</code>.",
+    j1_meta1: "Spec Kit Workflow",
+    j1_meta2: "Constitution",
+    j1_meta2_val: "v1.0.0 ratified · 5 principles · every plan phase must pass constitution check",
+    j1_meta3: "Endpoints",
+    j1_meta4: "Container",
+    j1_meta4_val: "Multi-stage Dockerfile (Temurin 25) · non-root USER 1001 · UTF-8 throughout · internal Harbor registry",
+    j1_meta5: "Auth Boundary",
+    j1_meta5_val: "v1 uses <code>permitAll()</code>; <code>SecurityFilterChain</code> already wired. <code>TODO(AUTH_BOUNDARY)</code> markers — future auth contract only requires swapping the filter.",
+    j1_date: "Spec-Driven Microservice · v1.1.0",
+    // Side projects (s1-s5)
+    s1_issue: "Cover Feature · Full-Stack Web · Next.js × Spring Boot",
+    s1_title: "Vivid Atlas / Curator —<br />Saved Places Knowledge Graph",
+    s1_body: "A mobile-first full-stack web app. Users paste any URL (Instagram / TikTok / Google Maps / listicle articles) and <strong>AI auto-extracts place information</strong>, rendered as a card wall + interactive knowledge graph. <strong>AI link enrichment pipeline</strong>: <code>Jsoup OG extract → Claude (claude-sonnet-4-6) structured parse → Redis cache (SHA-256 key, 24h TTL) → PostgreSQL + Neo4j dual-write</code>. <strong>Interactive knowledge graph</strong>: Neo4j stores up to 2-hop relations, vis-network (D3 canvas) renders color-coded nodes with click-to-expand. <strong>AI recommendation engine</strong>: hybrid scoring of shared tags + geo-distance; Neo4j dual-write is best-effort and never blocks the main CRUD path. <strong>Full-stack infrastructure</strong>: Flyway 6 migrations, JWT HttpOnly Cookie, Nominatim geocoding, public collection share links, Docker Compose for 5 services in one command.",
+    s1_date: "Self-Initiated · 5-Service Docker Compose",
+    s2_issue: "Cover Feature · Native iOS · SwiftUI + Vision OCR",
+    s2_title: "Pikmin Mushroom Alarm —<br />Native iOS Mushroom Timer",
+    s2_body: "A native iOS app that is <strong>fully offline, no backend</strong>. Reads remaining mushroom time from Pikmin Bloom screenshots and pushes notifications at the optimal harvest moment. <strong>Offline OCR</strong>: Apple Vision Framework parses three time formats (\"X hours Y minutes Z seconds left\"); location / mushroom type are sorted top-to-bottom by <code>boundingBox</code>, not by keyword matching. <strong>Progressive notification cadence</strong>: T+0 / +3:00 / +4:00 / +4:30 / +4:50 / +5:00, with the last two flagged as time-sensitive to bypass silent mode. <strong>Three-target integration</strong>: main app + Share Extension (creates alarms directly from Photos) + Widgets (small/medium/lock-screen Accessory), sharing SwiftData via App Group. <strong>Live Activity + Dynamic Island</strong>, watchOS notification with \"Open Pikmin Bloom / Remind me in 1 min\" actions.",
+    s2_date: "Self-Initiated · iOS 17+ · Cross-Platform Dev",
+    s3_num: "Cloud Run · Speech AI",
+    s3_title: "Faster-Whisper API —<br />Chinese Speech-to-Text on Cloud Run",
+    s3_body: "A REST API wrapping <strong>SYSTRAN/faster-whisper</strong>, deployed to GCP Cloud Run (<code>asia-east1</code>) and tuned for Chinese speech. <code>POST /transcribe</code> accepts multipart audio and returns language, confidence and timestamped segments. <strong>int8 quantization + BatchedInferencePipeline</strong> — 4× faster than vanilla <code>openai/whisper</code>; PyAV ships FFmpeg so the container has zero system dependencies. Fully env-driven (<code>MODEL_SIZE</code> / <code>COMPUTE_TYPE</code> / <code>USE_BATCHED</code>).",
+    s4_num: "Quartz v4 · Digital Garden",
+    s4_title: "dayi-knowledge-base —<br />Personal Digital Garden",
+    s4_body: "Publishes Obsidian-style Markdown notes as a searchable static site, currently covering an \"Advanced AI\" course and \"Camping\" life notes. Supports <code>[[wikilink]]</code> backlinks with auto reverse-link generation; <strong>D3 interactive knowledge graph</strong> visualizes note relations with hover popover previews; flexsearch client-side full-text search (SPA, no backend), Shiki / KaTeX / Typst typesetting, unified · remark · rehype content pipeline, esbuild bundling.",
+    s5_num: "Java 21 · Playwright Automation",
+    s5_title: "Business Analysis Report —<br />Playwright Screenshot Service",
+    s5_body: "A Java 21 + <strong>Spring Boot 4</strong> REST API skeleton. Core feature is web-page automation screenshots (<code>ScreenshotController</code> accepts URL params, captures full page or specific CSS class regions) — groundwork for a business-analysis-report automation pipeline. Spring Data JPA + H2 in-memory DB, DDL auto-update, H2 console for debugging; Docker Compose ready, with Entity / Repository skeletons reserved for future business logic.",
   },
   ja: {
     nav_projects: "プロジェクト",
@@ -1291,8 +1918,7 @@ const i18n = {
     sk_tf: "TensorFlow · 強化学習",
     sk_cloud: "クラウド & DevOps",
     sk_grafana: "Grafana · Loki · 監視・アラート",
-    sk_fe: "フロントエンド & 言語",
-    sk_react: "React（基礎）",
+    sk_fe: "モバイル · フロントエンド · 言語",
     sk_jp: "日本語 JLPT N2",
     sk_en: "英語 TOEIC 800",
     // projects
@@ -1320,6 +1946,79 @@ const i18n = {
     p7_num: "Side Project · Go / Gin",
     p7_title: "SnapLink —<br />高スループット URL 短縮サービス",
     p7_body: "Go + Gin 製の高スループット URL 短縮サービス。カスタムコード・リダイレクト統計・TTL 有効期限をサポート。Go の並行処理を活かし、Docker コンテナ化して Zeabur にデプロイ済。",
+    // skills extra
+    sk_sqltvp: "MS SQL · TVP / ストアドプロシージャ",
+    sk_test: "xUnit · Moq · BenchmarkDotNet",
+    sk_publish: "Self-Contained 単一ファイル · Windows Service",
+    // Sub-section headers
+    sec_medical: "医療 AI プラットフォーム",
+    sec_medical_tag: "中山医大附属病院 AI センター · コアプロジェクト",
+    sec_medical_lede: "<strong>中山医学大学附属病院 AI センター</strong>で主導・フルスタック開発した臨床 AI システム群。要件分析・バックエンド設計・AI 統合・クラウドデプロイまで一気通貫で担当。",
+    sec_dotnet: "バックエンド · クラウドアーキテクチャ",
+    sec_dotnet_tag: ".NET 10 · Spring Boot 4 · Azure · LLM 統合",
+    sec_dotnet_lede: "クラウドマイクロサービス、LLM Agent プラットフォーム、Web API、Java/Spring 移植、デスクトップツール、クローラーまでカバー。<strong>.NET 10 / C# 14</strong> と <strong>Java 17 / Spring Boot 4</strong> の2大バックエンドエコシステムを横断し、冪等性・可観測性・一気通貫のエンジニアリングを重視。",
+    sec_side: "サイドプロジェクト",
+    sec_side_tag: "Independent Works · 個人作品",
+    sec_side_lede: "業務外で自主開発した個人プロジェクト群。<strong>ネイティブ iOS アプリ・フルスタック Web・音声 AI クラウド・ナレッジ管理・Agentic AI・デスクトップツール</strong>まで、Swift / Java / TypeScript / Python / Go を横断。企画から技術選定・実装・本番デプロイまで一人で担当。",
+    // .NET projects
+    d1_issue: "Cover Feature · .NET 10 Worker Service",
+    d1_title: "LLM Agent 実行エンジン<br />Multi-LLM × Service Bus",
+    d1_body: "<strong>Azure Service Bus</strong> から Agent タスクを受信、Blob から設定とデータを取得し、LLM を呼び出して「対話ツリー（ConversationTree）」を生成、Blob と出力キューに書き戻す。<strong>マルチ LLM 動的切替</strong>（Azure OpenAI / vLLM 自前エンドポイント / Anthropic Claude）、Claude では Structured Output を自動で Tool Use 形式へ変換。<strong>5回リトライ + モデルフォールバック + 指数バックオフ</strong>、<code>json_schema</code> 未対応時は <code>json_object</code> へ自動降格。<code>TreeBuilder</code> はメモ化で LLM の重複呼び出しを回避。フルエンジニアリング：xUnit / BenchmarkDotNet / Dockerfile / ACR Pipeline / App Insights / OpenTelemetry。",
+    d1_date: "Strategy Pattern · Memoized Tree Builder",
+    d2_issue: "Feature · Data Pipeline",
+    d2_title: "データフィルタリングパイプライン<br />ルールエンジン × 冪等 Blob",
+    d2_body: "メッセージキュー間のデータフィルタ中継。複数の Blob 設定とデータをマージし、ルールでフィルタリングして出力キューに書き出す。<strong>30種類以上の FilterType</strong>（相対時間範囲・シフト時間帯・文字列含む・数値比較…）、ルールは <code>blockSerial</code> でグループ化し<strong>グループ内 OR・グループ間 AND</strong>。カスタムヘルパーで <code>Items.[*].Timestamp</code> のワイルドカードパスをフラット化してマッチング。<strong>コンテンツアドレッシング</strong>で出力 Blob は SHA256 命名（<code>{hash}.json</code>）、再送でも自然に冪等。<code>traceId</code> は messageId + ビジネスキー + タイムスタンプで構成し、パイプライン全体のログを串刺し可能。",
+    d2_date: "End-to-End Integration Tests",
+    d3_num: "Dual-Target · WinForms / Linux Docker",
+    d3_title: "デュアルプラットフォーム<br />キューコンシューマー",
+    d3_body: "同一コードベースから <strong>Windows タスクトレイ常駐</strong>と <strong>Linux Docker Worker</strong>の二種類のバイナリを生成。<code>TargetFrameworks</code> と条件付き <code>&lt;Compile&gt;</code>、<code>#if WINDOWS</code> + <code>Environment.UserInteractive</code> で Tray / Windows Service / Linux の3モードを起動時に自動振り分け。<strong>Self-Contained Single-File</strong> 発行で ~60MB の単一 EXE、.NET 不要。ツリー状データを post-order でフラット化し <strong>SQL TVP</strong> へ一括書き込み。",
+    d4_num: "Bridge · SQL → Blob → Queue",
+    d4_title: "ソース統合ブリッジ<br />Service Bus Middleware",
+    d4_body: "2つの Service Bus キュー間の中継：SQL Server の 10+ 個の設定テーブルを単一 JSON にまとめて Blob にアップロードし、下流キューへ転送。<strong>明確なパイプライン分割</strong>：<code>Worker → MessageProcessing → DataFetcher → BlobStorage → PayloadBuilder → MessageSender</code>、各サービスは一つの責務のみ。Blob はビジネスキーで階層化 + <code>{sha256}.json</code> で命名、同一設定は再アップロードされない。独立した TestSender コンソールも同梱。",
+    d5_num: "REST API · ASP.NET Core 10",
+    d5_title: "Prompt 管理 REST API<br />Gateway × JWT",
+    d5_body: "「Agent / Prompt 管理」を提供する RESTful Gateway。マルチ環境対応（ルートに <code>{env}</code>）。<strong>JWT Bearer</strong> のカスタム <code>OnAuthenticationFailed</code> / <code>OnChallenge</code> で構造化ログ。<code>CORS_ORIGINS</code> はカンマ区切り、<code>*</code> は <code>AllowAnyOrigin</code> にフォールバック。カスタム <code>SqlServerHealthCheck</code> を <code>/health</code> で公開。ORM 不使用、<code>Microsoft.Data.SqlClient</code> で直接 SQL を制御。<code>Program</code> を partial にして <code>WebApplicationFactory</code> による統合テストを実現。",
+    d6_num: "Self-Initiated · WinForms デスクトップ",
+    d6_title: "Crawler —<br />ダッシュボード取得ツール",
+    d6_body: "自主開発のデスクトップツール。公開データダッシュボードのグラフとランキングを自動取得。<strong>2× 高解像度の要素スクリーンショット</strong>、撮影前に子要素 <code>&lt;img&gt;</code> の完全読み込みを確認して空白を防止。ページ JS から <strong>Highcharts データポイント</strong>（ラベル+数値）を直接取得し、スクリーンショットの下に重ねて出力。<code>dotnet publish -p:PublishProfile=SingleFile</code> で自包含 EXE、初回起動時に Chromium を自動ダウンロード、バッチモードで PNG をワンクリック出力。",
+    te1_title: "WebView2 + HMAC API テスター",
+    te1_body: "FixedRuntime / Evergreen 自動検出 · X-Timestamp + payload を HMAC-SHA256 で署名 · returnType に応じて postMessage 注入 / NavigateToString を振り分け。",
+    te2_title: "WebView2 双方向通信 PoC",
+    te2_body: ".NET 6+ / .NET Framework 両対応 · <code>#if NET6_0_OR_GREATER</code> で <code>System.Text.Json</code> と <code>Newtonsoft.Json</code> を切り替え。",
+    te3_title: "ASP.NET Core REST スターター",
+    te3_body: ".NET 10 Web API · Swagger · Dockerfile · <code>test-api.http</code> · ProductDto バリデーション付きの起手雛形。",
+    // Spec-Driven Microservice (Java / Spring Boot 4)
+    j1_issue: "Cover Feature · Spec-Driven Dev · 2026",
+    j1_title: "スペック駆動マイクロサービス —<br />Spec Kit × Spring Boot 4",
+    j1_body: "<strong>GitHub Spec Kit</strong>（<code>specify → plan → tasks → implement</code>）による仕様駆動ワークフローで、既存の <strong>FastAPI</strong> ルートを <strong>Spring Boot 4 / Java 17</strong> による独立デプロイ・独立テスト可能なマイクロサービスへ刷新。<code>.specify/memory/constitution.md</code> は批准済みプロジェクト憲章 v1.0.0、5 つの principles を含み、各 plan フェーズは constitution check 通過必須。<code>before_*</code> / <code>after_*</code> hook が各フェーズを feature branch に自動コミット、<strong>spec → plan → tasks → code が完全に追跡可能</strong>。",
+    j1_highlights: "<strong>ORM なし SP 呼び出し</strong>：<code>SimpleJdbcCall</code> で全パラメータを明示宣言し column metadata を停止。hardened DB アカウントが metadata 読み取り権限を持たない罠を回避（plan/constitution フェーズで lock された決定）。<br /><br /><strong>凍結されたエラー封筒</strong>：<code>@RestControllerAdvice</code> で全例外を統一封筒に返却。根因 <code>SQLException</code> と <code>SQLState</code> は log にのみ記録、レスポンスには漏らさない — フロントエンドとの契約として spec で明示的に lock。<br /><br /><strong>MDC 構造化ログ</strong>：リクエスト識別子を MDC へ push、<code>finally</code> でのみ除去 — 例外時も後続ログに trace ID が付帯。長いユーザー入力は 200 文字で切り捨て、log 肥大化を防止。<br /><br /><strong>階層化テスト（CI フレンドリー）</strong>：MockMvc Slice + Logging Test（ログフォーマットを契約として lock）+ Repository H2 + Testcontainers <code>mssqlserver</code> 統合。CI は単体のみ、統合は <code>-Pintegration</code> で明示的に起動。",
+    j1_meta1: "Spec Kit ワークフロー",
+    j1_meta2: "Constitution",
+    j1_meta2_val: "v1.0.0 批准 · 5 principles · 各 plan フェーズで check 必須",
+    j1_meta3: "エンドポイント",
+    j1_meta4: "コンテナ",
+    j1_meta4_val: "マルチステージ Dockerfile（Temurin 25）· 非 root USER 1001 · UTF-8 一貫 · 内部 Harbor Registry",
+    j1_meta5: "認証境界",
+    j1_meta5_val: "v1 は <code>permitAll()</code>。SecurityFilterChain は配線済み · <code>TODO(AUTH_BOUNDARY)</code> マーカーで将来は filter 差し替えのみ。",
+    j1_date: "Spec-Driven Microservice · v1.1.0",
+    // Side projects (s1-s5)
+    s1_issue: "Cover Feature · フルスタック Web · Next.js × Spring Boot",
+    s1_title: "Vivid Atlas / Curator —<br />お気に入りスポット ナレッジグラフ",
+    s1_body: "モバイルファーストのフルスタック Web アプリ。任意の URL（Instagram / TikTok / Google Maps / リスト記事）を貼り付けると、<strong>AI が自動で場所情報を解析</strong>し、カードウォール + インタラクティブなナレッジグラフで表示。<strong>AI リンク富化パイプライン</strong>：<code>Jsoup OG 抽出 → Claude (claude-sonnet-4-6) 構造化解析 → Redis キャッシュ（SHA-256 key、24h TTL）→ PostgreSQL + Neo4j デュアルライト</code>。<strong>インタラクティブ・ナレッジグラフ</strong>：Neo4j に最大 2 ホップの関係を保存、vis-network（D3 canvas）でカテゴリ色分けノードをレンダリング、クリックで即時展開。<strong>AI レコメンデーション</strong>：共通タグ + 地理位置加重のハイブリッド推薦。Neo4j デュアルライトは best-effort で、失敗してもメイン CRUD には影響しない。<strong>フルスタック基盤</strong>：Flyway 6 マイグレーション、JWT HttpOnly Cookie、Nominatim ジオコーディング、公開シェアリンク、Docker Compose で 5 サービスを一括起動。",
+    s1_date: "Self-Initiated · 5-Service Docker Compose",
+    s2_issue: "Cover Feature · ネイティブ iOS · SwiftUI + Vision OCR",
+    s2_title: "Pikmin Mushroom Alarm —<br />ネイティブ iOS キノコタイマー",
+    s2_body: "ネイティブ iOS アプリ、<strong>完全オフライン・バックエンドなし</strong>。Pikmin Bloom のスクリーンショットからキノコの残り時間を自動認識し、最適な収穫タイミングで通知。<strong>オフライン OCR 自動認識</strong>：Apple Vision Framework で「残り X 時間 Y 分 Z 秒」3 種類の時間フォーマットを解析。場所・キノコ種別は <code>boundingBox</code> で上から順にソートし、キーワード判定に依存しない。<strong>段階的通知</strong>：T+0 / +3:00 / +4:00 / +4:30 / +4:50 / +5:00、最後 2 回は time-sensitive でサイレントモードを突破。<strong>3 ターゲット統合</strong>：本体アプリ + Share Extension（写真から直接アラーム作成）+ Widgets（小/中/ロック画面 Accessory）、App Group で SwiftData を共有。<strong>Live Activity + Dynamic Island</strong>、watchOS 通知に「Pikmin Bloom を開く / 1 分後に再通知」アクション付き。",
+    s2_date: "Self-Initiated · iOS 17+ · Cross-Platform Dev",
+    s3_num: "Cloud Run · 音声 AI",
+    s3_title: "Faster-Whisper API —<br />中国語音声認識 Cloud Run",
+    s3_body: "<strong>SYSTRAN/faster-whisper</strong> をラップした REST API、GCP Cloud Run（<code>asia-east1</code>）にデプロイ、中国語音声に最適化。<code>POST /transcribe</code> は multipart 音声ファイルを受け取り、言語・信頼度・タイムスタンプ付きセグメントを返却。<strong>int8 量子化 + BatchedInferencePipeline</strong>、本家 <code>openai/whisper</code> より 4 倍以上高速。PyAV が FFmpeg を内包し、コンテナはシステム依存ゼロ。環境変数駆動（<code>MODEL_SIZE</code> / <code>COMPUTE_TYPE</code> / <code>USE_BATCHED</code>）。",
+    s4_num: "Quartz v4 · デジタルガーデン",
+    s4_title: "dayi-knowledge-base —<br />個人デジタルガーデン",
+    s4_body: "Obsidian スタイルの Markdown ノートを検索可能な静的サイトとして公開。現在は「高度な人工知能」講義ノートと「キャンプ」ライフノートを収録。<code>[[wikilink]]</code> 双方向リンクと自動バックリンク生成をサポート。<strong>D3 インタラクティブ・ナレッジグラフ</strong>でノート関連を可視化、hover で即時 popover プレビュー。flexsearch によるクライアントサイド全文検索（SPA、バックエンド不要）、Shiki / KaTeX / Typst 組版、unified · remark · rehype コンテンツパイプライン、esbuild バンドリング。",
+    s5_num: "Java 21 · Playwright 自動化",
+    s5_title: "Business Analysis Report —<br />Playwright スクリーンショットサービス",
+    s5_body: "Java 21 + <strong>Spring Boot 4</strong> の REST API スケルトン。コアは Web ページ自動スクリーンショット（<code>ScreenshotController</code> が URL パラメータを受け取り、フルページまたは特定 CSS class エリアをキャプチャ）、後続のビジネス分析レポート自動化の基盤。Spring Data JPA + H2 インメモリ DB、DDL auto-update、デバッグ用 H2 console 開放。Docker Compose 対応、Entity / Repository スケルトンを将来のビジネスロジック拡張用に予約。",
   }
 };
 
