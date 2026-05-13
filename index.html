@@ -159,6 +159,21 @@
     .btn-filled:hover { background: #333; }
 
     .hero-right { padding-left: 40px; }
+    .project-links a.project-link {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent, #e8c547);
+      border: 1px solid rgba(232,197,71,0.3);
+      border-radius: 4px;
+      padding: 2px 10px;
+      margin-right: 6px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .project-links a.project-link:hover {
+      background: rgba(232,197,71,0.1);
+    }
     .project-impact {
       font-size: 0.75rem;
       font-weight: 600;
@@ -1102,6 +1117,26 @@
     <!-- Featured 2: Vivid Atlas + Pikmin Mushroom Alarm -->
     <div class="projects-featured">
 
+      <!-- s0: PPO + SMC Quant Trading System -->
+      <div class="project-featured-card" style="grid-column: 1 / -1;">
+        <p class="project-issue" data-i18n="s0_issue">Cover Feature · Research-Grade · Python × Java × React</p>
+        <h3 class="project-card-title" data-i18n="s0_title">PPO + SMC 多資產動態配置 —<br />微服務量化交易戰情室</h3>
+        <p class="project-impact" data-i18n="s0_impact">論文級規模 · 端到端 RL 系統含完整 SMC 特徵量化引擎</p>
+        <p class="project-card-body" data-i18n="s0_body"></p>
+        <div class="tech-row">
+          <span class="tech-tag">Python 3.11</span>
+          <span class="tech-tag">PPO / Stable-Baselines3</span>
+          <span class="tech-tag">Gymnasium</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">Spring Boot 3</span>
+          <span class="tech-tag">React 18 + Vite</span>
+          <span class="tech-tag">Redis</span>
+          <span class="tech-tag">Docker Compose</span>
+        </div>
+        <div class="project-links" style="margin-top:0.6rem;" data-i18n="s0_links"></div>
+        <div class="project-date" data-i18n="s0_date">Self-Initiated · SDD · 10-Feature Research-Grade System</div>
+      </div>
+
       <div class="project-featured-card">
         <p class="project-issue" data-i18n="s1_issue">Cover Feature · Full-Stack Web · Next.js × Spring Boot</p>
         <h3 class="project-card-title" data-i18n="s1_title">Vivid Atlas / Curator —<br />收藏地點知識圖譜</h3>
@@ -1666,6 +1701,13 @@ const i18n = {
     // Side projects (s1-s5)
     s1_issue: "Cover Feature · Full-Stack Web · Next.js × Spring Boot",
     s1_title: "Vivid Atlas / Curator —<br />收藏地點知識圖譜",
+    // s0: PPO + SMC 量化交易系統
+    s0_issue: "Cover Feature · 研究級 · Python × Java × React",
+    s0_title: "PPO + SMC 多資產動態配置 —<br />微服務量化交易戰情室",
+    s0_impact: "論文級規模 · 端到端 RL 系統含完整 SMC 特徵量化引擎",
+    s0_body: "整合<strong>近端策略最佳化（PPO）</strong>與<strong>聰明錢概念（SMC）</strong>的多資產動態配置框架，涵蓋資料管線、特徵工程、RL 訓練、推理服務、API 閘道與互動式戰情室前端的完整端到端系統。<strong>PPO 強化學習代理人</strong>：訓練於 Gymnasium 多資產組合配置環境，輸出 7 維 simplex（NVDA / AMD / TSM / MU / GLD / TLT + CASH）連續權重；reward 函數含最大回撤懲罰與 turnover 滑價懲罰，將風險控管直接寫進目標函數。<strong>SMC 特徵量化引擎</strong>：將 BOS / CHoCH 結構訊號、FVG 距離百分比、OB 觸碰與距離比首度整合進 RL 觀測空間，三平台（Linux / macOS / Windows）CI 驗證輸出 ≤ 1e-9 位元組一致。<strong>三層微服務戰情室</strong>：FastAPI 推理服務 ↔ Spring Boot Gateway（Redis pub/sub、SSE 廣播、MDC 串聯）↔ React 18 + Vite 互動 dashboard（Recharts + lightweight-charts）。<strong>Live Tracking（feature 010）</strong>：每日預測追蹤，手動觸發 daily pipeline（fetch OHLCV → PPO inference → NAV / drawdown 推進 → SMC overlay 全段重算 → atomic write），OOS 回測段與 Live 預測段以 daily-return ratio 接續顯示為連續時間軸。採 Spec-Driven Development（10 個 feature 各自有 spec / plan / contracts / tasks），test-first 紅綠循環，contract test 守 schema drift。",
+    s0_date: "Self-Initiated · SDD · 10-Feature Research-Grade System",
+    s0_links: '<a href="https://www.youtube.com/watch?v=0eg7N7yPJR4" target="_blank" class="project-link">▶ YouTube Demo</a> <a href="https://docs.google.com/presentation/d/1TU4X4ZUnunU1NLg83RluyfNbQz_qsY_O/edit?usp=sharing" target="_blank" class="project-link">📊 Design Slides</a>',
     s1_impact: "貼上 URL 即自動建立知識圖譜，手動整理時間降為零",
     s1_body: "行動優先的全端 Web App。使用者貼上任意 URL（Instagram / TikTok / Google Maps / 清單型文章），<strong>AI 自動解析地點資訊</strong>，以卡片牆 + 互動知識圖譜呈現。<strong>AI 連結富化管線</strong>：<code>Jsoup OG 擷取 → Claude (claude-sonnet-4-6) 結構化解析 → Redis 快取（SHA-256 key，24h TTL）→ PostgreSQL + Neo4j 雙寫</code>。<strong>互動知識圖譜</strong>：Neo4j 儲存最多 2 跳關係，前端以 vis-network（D3 canvas）渲染，分類色碼節點、點擊即時展開。<strong>AI 推薦引擎</strong>：共同標籤 + 地理位置加權混合推薦；Neo4j 雙寫採 best-effort，失敗不影響主 CRUD。<strong>全端基礎建設</strong>：Flyway 6 migration、JWT HttpOnly Cookie、Nominatim 地理編碼、主題公開分享連結、Docker Compose 一鍵啟動 5 個服務。",
     s1_date: "Self-Initiated · 5-Service Docker Compose",
@@ -1853,6 +1895,13 @@ const i18n = {
     // Side projects (s1-s5)
     s1_issue: "Cover Feature · Full-Stack Web · Next.js × Spring Boot",
     s1_title: "Vivid Atlas / Curator —<br />Saved Places Knowledge Graph",
+    // s0: PPO + SMC Quant Trading System
+    s0_issue: "Cover Feature · Research-Grade · Python × Java × React",
+    s0_title: "PPO + SMC Multi-Asset Allocation —<br />Microservice Quant Dashboard",
+    s0_impact: "Research-grade end-to-end RL system with full SMC feature quantification engine",
+    s0_body: "An end-to-end multi-asset dynamic allocation framework integrating <strong>Proximal Policy Optimization (PPO)</strong> and <strong>Smart Money Concepts (SMC)</strong>, covering data pipeline, feature engineering, RL training, inference service, API gateway, and interactive dashboard frontend. <strong>PPO RL Agent</strong>: trained on a Gymnasium multi-asset portfolio environment, outputs 7-dim simplex weights (NVDA / AMD / TSM / MU / GLD / TLT + CASH); reward = log return − max drawdown penalty − turnover slippage, embedding risk control directly into the objective. <strong>SMC Feature Engine</strong>: first integration of BOS / CHoCH signals, FVG distance %, OB touch & distance ratio into RL observation space; CI matrix (Linux / macOS / Windows) validates output ≤ 1e-9 byte-identical. <strong>3-Tier Microservice Dashboard</strong>: FastAPI inference service ↔ Spring Boot Gateway (Redis pub/sub, SSE broadcast, MDC tracing) ↔ React 18 + Vite interactive dashboard (Recharts + lightweight-charts). <strong>Live Tracking (feature 010)</strong>: daily prediction tracking with manual-trigger pipeline (fetch OHLCV → PPO inference → NAV/drawdown step → SMC overlay full-recalc → atomic write); OOS backtest and live prediction segments rendered as a continuous timeline via daily-return ratio. Built with Spec-Driven Development (10 features, each with spec / plan / contracts / tasks), test-first TDD, contract tests guarding schema drift.",
+    s0_date: "Self-Initiated · SDD · 10-Feature Research-Grade System",
+    s0_links: '<a href="https://www.youtube.com/watch?v=0eg7N7yPJR4" target="_blank" class="project-link">▶ YouTube Demo</a> <a href="https://docs.google.com/presentation/d/1TU4X4ZUnunU1NLg83RluyfNbQz_qsY_O/edit?usp=sharing" target="_blank" class="project-link">📊 Design Slides</a>',
     s1_impact: "Turns any URL into a searchable knowledge graph—zero manual tagging",
     s1_body: "A mobile-first full-stack web app. Users paste any URL (Instagram / TikTok / Google Maps / listicle articles) and <strong>AI auto-extracts place information</strong>, rendered as a card wall + interactive knowledge graph. <strong>AI link enrichment pipeline</strong>: <code>Jsoup OG extract → Claude (claude-sonnet-4-6) structured parse → Redis cache (SHA-256 key, 24h TTL) → PostgreSQL + Neo4j dual-write</code>. <strong>Interactive knowledge graph</strong>: Neo4j stores up to 2-hop relations, vis-network (D3 canvas) renders color-coded nodes with click-to-expand. <strong>AI recommendation engine</strong>: hybrid scoring of shared tags + geo-distance; Neo4j dual-write is best-effort and never blocks the main CRUD path. <strong>Full-stack infrastructure</strong>: Flyway 6 migrations, JWT HttpOnly Cookie, Nominatim geocoding, public collection share links, Docker Compose for 5 services in one command.",
     s1_date: "Self-Initiated · 5-Service Docker Compose",
@@ -2047,6 +2096,13 @@ const i18n = {
     // Side projects (s1-s5)
     s1_issue: "Cover Feature · フルスタック Web · Next.js × Spring Boot",
     s1_title: "Vivid Atlas / Curator —<br />お気に入りスポット ナレッジグラフ",
+    // s0: PPO + SMC クオンツ取引システム
+    s0_issue: "Cover Feature · 研究レベル · Python × Java × React",
+    s0_title: "PPO + SMC マルチアセット動的配分 —<br />マイクロサービス・クオンツ戦略室",
+    s0_impact: "論文レベルの規模 · フルエンドツーエンド RL システム + SMC 特徴量化エンジン",
+    s0_body: "<strong>近端策略最適化（PPO）</strong>と<strong>スマートマネーコンセプト（SMC）</strong>を統合したマルチアセット動的配分フレームワーク。データパイプライン・特徴エンジニアリング・RL 訓練・推論サービス・API ゲートウェイ・インタラクティブ戦略室フロントエンドまでの完全エンドツーエンドシステム。<strong>PPO RL エージェント</strong>：Gymnasium マルチアセットポートフォリオ環境で訓練、7 次元 simplex（NVDA / AMD / TSM / MU / GLD / TLT + CASH）の連続重みを出力；報酬関数に最大ドローダウンペナルティと turnover スリッページを内包し、リスク管理を目的関数に直接組み込む。<strong>SMC 特徴量化エンジン</strong>：BOS / CHoCH 構造シグナル、FVG 距離パーセンタイル、OB タッチ・距離比を RL 観測空間へ初めて統合；CI 三プラットフォーム（Linux / macOS / Windows）で ≤ 1e-9 バイト一致を検証。<strong>三層マイクロサービス</strong>：FastAPI 推論サービス ↔ Spring Boot Gateway（Redis pub/sub、SSE ブロードキャスト、MDC トレーシング）↔ React 18 + Vite ダッシュボード。<strong>Live Tracking（feature 010）</strong>：毎日予測追跡、手動トリガーパイプライン（OHLCV 取得 → PPO 推論 → NAV/ドローダウン更新 → SMC オーバーレイ全再計算 → アトミック書き込み）。Spec-Driven Development（10 フィーチャー各自 spec / plan / contracts / tasks）採用、テストファースト TDD。",
+    s0_date: "Self-Initiated · SDD · 10-Feature Research-Grade System",
+    s0_links: '<a href="https://www.youtube.com/watch?v=0eg7N7yPJR4" target="_blank" class="project-link">▶ YouTube Demo</a> <a href="https://docs.google.com/presentation/d/1TU4X4ZUnunU1NLg83RluyfNbQz_qsY_O/edit?usp=sharing" target="_blank" class="project-link">📊 Design Slides</a>',
     s1_impact: "URL を貼るだけで知識グラフに変換—手動整理ゼロ",
     s1_body: "モバイルファーストのフルスタック Web アプリ。任意の URL（Instagram / TikTok / Google Maps / リスト記事）を貼り付けると、<strong>AI が自動で場所情報を解析</strong>し、カードウォール + インタラクティブなナレッジグラフで表示。<strong>AI リンク富化パイプライン</strong>：<code>Jsoup OG 抽出 → Claude (claude-sonnet-4-6) 構造化解析 → Redis キャッシュ（SHA-256 key、24h TTL）→ PostgreSQL + Neo4j デュアルライト</code>。<strong>インタラクティブ・ナレッジグラフ</strong>：Neo4j に最大 2 ホップの関係を保存、vis-network（D3 canvas）でカテゴリ色分けノードをレンダリング、クリックで即時展開。<strong>AI レコメンデーション</strong>：共通タグ + 地理位置加重のハイブリッド推薦。Neo4j デュアルライトは best-effort で、失敗してもメイン CRUD には影響しない。<strong>フルスタック基盤</strong>：Flyway 6 マイグレーション、JWT HttpOnly Cookie、Nominatim ジオコーディング、公開シェアリンク、Docker Compose で 5 サービスを一括起動。",
     s1_date: "Self-Initiated · 5-Service Docker Compose",
