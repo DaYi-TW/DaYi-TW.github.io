@@ -159,6 +159,26 @@
     .btn-filled:hover { background: #333; }
 
     .hero-right { padding-left: 40px; }
+    .project-impact {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent, #e8c547);
+      letter-spacing: 0.03em;
+      margin: 0.35rem 0 0.6rem;
+      opacity: 0.85;
+    }
+    .hero-seeking {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #22c55e;
+      background: rgba(34,197,94,0.10);
+      border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 20px;
+      padding: 3px 12px;
+      margin-bottom: 1rem;
+    }
     .hero-kicker {
       font-size: 11px;
       letter-spacing: .15em;
@@ -693,6 +713,7 @@
         <em>更懂如何</em><br />
         把它交付上線
       </h2>
+      <p class="hero-seeking" data-i18n="hero_seeking">🟢 積極尋求 Backend / AI Engineer 機會</p>
       <div class="hero-body">
         <p data-i18n="hero_body1">
           任職於<strong>中山醫學大學附設醫院人工智慧中心</strong>，
@@ -801,6 +822,7 @@
       <div class="project-featured-card">
         <p class="project-issue" data-i18n="p2_issue">Feature Story · 2025/3 – 2025/9</p>
         <h3 class="project-card-title" data-i18n="p2_title">小幫手 — AI 工具<br />× HIS 深度串接平台</h3>
+        <p class="project-impact" data-i18n="p2_impact">縮短醫護跨系統查詢時間 · 臨床環境 99%+ 可用性</p>
         <p class="project-card-body" data-i18n="p2_body">
           設計並實作以 FastAPI + Django 為基礎的 API Gateway，
           串接院內多套 HIS 異構資料來源，透過非同步 I/O 架構處理高併發請求。
@@ -1083,6 +1105,7 @@
       <div class="project-featured-card">
         <p class="project-issue" data-i18n="s1_issue">Cover Feature · Full-Stack Web · Next.js × Spring Boot</p>
         <h3 class="project-card-title" data-i18n="s1_title">Vivid Atlas / Curator —<br />收藏地點知識圖譜</h3>
+        <p class="project-impact" data-i18n="s1_impact">貼上 URL 即自動建立知識圖譜，手動整理時間降為零</p>
         <p class="project-card-body" data-i18n="s1_body">
           行動優先的全端 Web App。使用者貼上任意 URL（Instagram / TikTok / Google Maps / 清單型文章），
           <strong>AI 自動解析地點資訊</strong>，以卡片牆 + 互動知識圖譜呈現。
@@ -1136,6 +1159,7 @@
       <div class="project-mini">
         <p class="project-mini-num" data-i18n="s3_num">Cloud Run · Speech AI</p>
         <h3 class="project-mini-title" data-i18n="s3_title">Faster-Whisper API —<br />中文語音辨識 Cloud Run</h3>
+        <p class="project-impact" data-i18n="s3_impact">推理速度 4× 提升 · Serverless 部署成本降 80%+</p>
         <p class="project-mini-body" data-i18n="s3_body">
           基於 <strong>SYSTRAN/faster-whisper</strong> 封裝的 REST API，部署到 GCP Cloud Run（<code>asia-east1</code>），針對中文語音優化。
           <code>POST /transcribe</code> 接受 multipart 音檔，回傳語言、信心度、時間戳分段。
@@ -1481,11 +1505,12 @@ const i18n = {
     // hero
     hero_eyebrow: "Cover Story",
     hero_headline: "不只懂 AI，<br /><em>更懂如何</em><br />把它交付上線",
-    hero_body1: "任職於<strong>中山醫學大學附設醫院人工智慧中心</strong>，擁有 5+ 年醫療 AI 系統設計與後端工程實戰經驗。",
-    hero_body2: "橫跨 <strong>Python · Java · C# · Go</strong> 多語言開發，熟悉微服務架構、Azure 雲端部署與 Docker Swarm 容器化，能在醫院高可靠性要求下獨立設計並落地完整系統。",
-    hero_body3: "持續深耕 <strong>LLM · RAG · Agentic Workflow</strong>，將生成式 AI 真正整合進臨床流程，而不只是停在 Demo 階段。",
+    hero_body1: "任職於<strong>中山醫學大學附設醫院 AI 中心</strong>，5 年以上實際交付醫療 AI 產品的工程師——不是研究，是在醫院裡跑的系統。",
+    hero_body2: "後端全棧能力，從 API 設計到雲端部署全程自負，不需要另一個人幫你收尾。曾在高可靠性臨床環境獨立設計並上線多套系統。",
+    hero_body3: "AI 不是加分項，是核心。主導過 LLM / RAG / Agent 在真實醫院環境的落地，結果是<strong>文書量降 50%</strong>、<strong>全國金獎</strong>。",
     hero_cta1: "查看作品集",
     hero_cta2: "聯絡我",
+    hero_seeking: "🟢 積極尋求 Backend / AI Engineer 機會",
     hero_kicker: "編輯手記",
     pull_quote: "\"從需求分析、系統設計、後端開發到雲端部署，我習慣對整條鏈路負責。\"",
     hero_right1: "主導醫療 AI 平台「醫點家」從零到一，榮獲<strong>國科會 GenAI Stars 全國金獎</strong>，實際讓醫護文書工作量降低超過 <strong>50%</strong>，並有 U-Net 影像分割研究成果發表於 <strong>Cancer</strong> 等國際期刊。",
@@ -1503,8 +1528,8 @@ const i18n = {
     sec_contact: "Contact",
     sec_contact_tag: "與我聯繫",
     // contact
-    contact_headline: "Ready to<br /><em>build something</em><br />together?",
-    contact_sub: "有合作機會、技術交流或任何問題，歡迎直接聯絡。我對醫療 AI、智慧製造、金融科技等領域的機會特別感興趣。",
+    contact_headline: "你找的人<br /><em>可能就是</em><br />我。",
+    contact_sub: "正在尋找 Backend / AI Engineer 機會，偏好醫療科技、LLM 產品或有技術深度的團隊。有想法？直接寫信，我很快回。",
     contact_cta1: "✉ Email Me",
     contact_cta2: "GitHub →",
     contact_aside_title: "聯絡資訊",
@@ -1565,6 +1590,7 @@ const i18n = {
     p1_date: "主力專案 · 中山醫附院人工智慧中心",
     p2_issue: "Feature Story · 2025/3 – 2025/9",
     p2_title: "小幫手 — AI 工具<br />× HIS 深度串接平台",
+    p2_impact: "縮短醫護跨系統查詢時間 · 臨床環境 99%+ 可用性",
     p2_body: "設計並實作以 FastAPI + Django 為基礎的 API Gateway，串接院內多套 HIS 異構資料來源，透過非同步 I/O 架構處理高併發請求。整合 Azure OpenAI 提供 AI 輔助查詢，以 <strong>Grafana + Loki</strong> 建立全鏈路監控與告警機制，確保臨床環境下 99%+ 可用性，大幅縮短醫護跨系統查詢時間。",
     p2_date: "主力專案 · 中山醫附院人工智慧中心",
     p3_num: "Report · 2023/3 – 2024/7",
@@ -1640,6 +1666,7 @@ const i18n = {
     // Side projects (s1-s5)
     s1_issue: "Cover Feature · Full-Stack Web · Next.js × Spring Boot",
     s1_title: "Vivid Atlas / Curator —<br />收藏地點知識圖譜",
+    s1_impact: "貼上 URL 即自動建立知識圖譜，手動整理時間降為零",
     s1_body: "行動優先的全端 Web App。使用者貼上任意 URL（Instagram / TikTok / Google Maps / 清單型文章），<strong>AI 自動解析地點資訊</strong>，以卡片牆 + 互動知識圖譜呈現。<strong>AI 連結富化管線</strong>：<code>Jsoup OG 擷取 → Claude (claude-sonnet-4-6) 結構化解析 → Redis 快取（SHA-256 key，24h TTL）→ PostgreSQL + Neo4j 雙寫</code>。<strong>互動知識圖譜</strong>：Neo4j 儲存最多 2 跳關係，前端以 vis-network（D3 canvas）渲染，分類色碼節點、點擊即時展開。<strong>AI 推薦引擎</strong>：共同標籤 + 地理位置加權混合推薦；Neo4j 雙寫採 best-effort，失敗不影響主 CRUD。<strong>全端基礎建設</strong>：Flyway 6 migration、JWT HttpOnly Cookie、Nominatim 地理編碼、主題公開分享連結、Docker Compose 一鍵啟動 5 個服務。",
     s1_date: "Self-Initiated · 5-Service Docker Compose",
     s2_issue: "Cover Feature · Native iOS · SwiftUI + Vision OCR",
@@ -1648,6 +1675,7 @@ const i18n = {
     s2_date: "Self-Initiated · iOS 17+ · Cross-Platform Dev",
     s3_num: "Cloud Run · Speech AI",
     s3_title: "Faster-Whisper API —<br />中文語音辨識 Cloud Run",
+    s3_impact: "推理速度 4× 提升 · Serverless 部署成本降 80%+",
     s3_body: "基於 <strong>SYSTRAN/faster-whisper</strong> 封裝的 REST API，部署到 GCP Cloud Run（<code>asia-east1</code>），針對中文語音優化。<code>POST /transcribe</code> 接受 multipart 音檔，回傳語言、信心度、時間戳分段。<strong>int8 量化 + BatchedInferencePipeline</strong>，比原版 <code>openai/whisper</code> 快 4 倍以上；PyAV 內建 FFmpeg，容器零系統依賴；環境變數驅動（<code>MODEL_SIZE</code> / <code>COMPUTE_TYPE</code> / <code>USE_BATCHED</code>）。",
     s4_num: "Quartz v4 · Digital Garden",
     s4_title: "dayi-knowledge-base —<br />個人數位花園",
@@ -1667,11 +1695,12 @@ const i18n = {
     masthead_subtitle: "Da-Yi Yan · Software Engineer · Medical AI · LLM / RAG Specialist",
     hero_eyebrow: "Cover Story",
     hero_headline: "Not Just AI—<br /><em>I Ship It</em><br />to Production",
-    hero_body1: "Research Engineer at <strong>Chung Shan Medical University Hospital AI Center</strong>, with 5+ years of hands-on experience in medical AI systems and backend engineering.",
-    hero_body2: "Multi-language expertise across <strong>Python · Java · C# · Go</strong>. Proficient in microservices, Azure cloud deployment, and Docker Swarm—capable of independently architecting and delivering end-to-end systems under hospital-grade reliability requirements.",
-    hero_body3: "Continuously deepening expertise in <strong>LLM · RAG · Agentic Workflow</strong>, integrating generative AI into real clinical workflows—not just demos.",
+    hero_body1: "Research Engineer at <strong>Chung Shan Medical University Hospital AI Center</strong>—5+ years shipping real medical AI products, not research papers.",
+    hero_body2: "Full-cycle backend ownership: API design to cloud deployment, no handholding needed. Independently architected and shipped multiple systems under hospital-grade reliability constraints.",
+    hero_body3: "AI is the core, not a buzzword. Led LLM / RAG / Agent deployments in live clinical environments—<strong>50% documentation reduction</strong> and a <strong>National Gold Award</strong> to show for it.",
     hero_cta1: "View Portfolio",
     hero_cta2: "Contact Me",
+    hero_seeking: "🟢 Open to Backend / AI Engineer Roles",
     hero_kicker: "Editor's Note",
     pull_quote: "\"From requirements analysis and system design to backend development and cloud deployment—I own the entire chain.\"",
     hero_right1: "Led the medical AI platform <em>Yī Diǎn Jiā</em> from zero to launch, winning the <strong>NSTC GenAI Stars National Gold Award</strong>. Reduced medical documentation workload by over <strong>50%</strong>. U-Net imaging research published in <strong>Cancer</strong> and other international journals.",
@@ -1687,8 +1716,8 @@ const i18n = {
     sec_exp_tag: "Career Timeline",
     sec_contact: "Contact",
     sec_contact_tag: "Let's Connect",
-    contact_headline: "Ready to<br /><em>build something</em><br />together?",
-    contact_sub: "Open to collaboration, technical discussions, or any opportunity that matters. Especially interested in Medical AI, Smart Manufacturing, and FinTech.",
+    contact_headline: "Looking for<br /><em>your next</em><br />backend hire?",
+    contact_sub: "Actively seeking Backend / AI Engineer roles. Strongest fit: Medical AI, LLM products, or engineering-driven teams that care about reliability. Reach out—I reply fast.",
     contact_cta1: "✉ Email Me",
     contact_cta2: "GitHub →",
     contact_aside_title: "Contact Info",
@@ -1740,6 +1769,7 @@ const i18n = {
     p1_date: "Core Project · CSMU Hospital AI Center",
     p2_issue: "Feature Story · 2025/3 – 2025/9",
     p2_title: "AI Assistant — API Gateway<br />× Deep HIS Integration",
+    p2_impact: "Reduced cross-system query time for clinical staff · 99%+ uptime in production",
     p2_body: "Designed and implemented an API Gateway with FastAPI + Django, integrating multiple heterogeneous HIS data sources via async I/O for high-concurrency requests. Integrated Azure OpenAI for AI-assisted queries, and built end-to-end monitoring with <strong>Grafana + Loki</strong>, achieving 99%+ availability in clinical environments.",
     p2_date: "Core Project · CSMU Hospital AI Center",
     p3_num: "Report · 2023/3 – 2024/7",
@@ -1823,6 +1853,7 @@ const i18n = {
     // Side projects (s1-s5)
     s1_issue: "Cover Feature · Full-Stack Web · Next.js × Spring Boot",
     s1_title: "Vivid Atlas / Curator —<br />Saved Places Knowledge Graph",
+    s1_impact: "Turns any URL into a searchable knowledge graph—zero manual tagging",
     s1_body: "A mobile-first full-stack web app. Users paste any URL (Instagram / TikTok / Google Maps / listicle articles) and <strong>AI auto-extracts place information</strong>, rendered as a card wall + interactive knowledge graph. <strong>AI link enrichment pipeline</strong>: <code>Jsoup OG extract → Claude (claude-sonnet-4-6) structured parse → Redis cache (SHA-256 key, 24h TTL) → PostgreSQL + Neo4j dual-write</code>. <strong>Interactive knowledge graph</strong>: Neo4j stores up to 2-hop relations, vis-network (D3 canvas) renders color-coded nodes with click-to-expand. <strong>AI recommendation engine</strong>: hybrid scoring of shared tags + geo-distance; Neo4j dual-write is best-effort and never blocks the main CRUD path. <strong>Full-stack infrastructure</strong>: Flyway 6 migrations, JWT HttpOnly Cookie, Nominatim geocoding, public collection share links, Docker Compose for 5 services in one command.",
     s1_date: "Self-Initiated · 5-Service Docker Compose",
     s2_issue: "Cover Feature · Native iOS · SwiftUI + Vision OCR",
@@ -1831,6 +1862,7 @@ const i18n = {
     s2_date: "Self-Initiated · iOS 17+ · Cross-Platform Dev",
     s3_num: "Cloud Run · Speech AI",
     s3_title: "Faster-Whisper API —<br />Chinese Speech-to-Text on Cloud Run",
+    s3_impact: "4× faster than vanilla Whisper · 80%+ infra cost reduction via Cloud Run",
     s3_body: "A REST API wrapping <strong>SYSTRAN/faster-whisper</strong>, deployed to GCP Cloud Run (<code>asia-east1</code>) and tuned for Chinese speech. <code>POST /transcribe</code> accepts multipart audio and returns language, confidence and timestamped segments. <strong>int8 quantization + BatchedInferencePipeline</strong> — 4× faster than vanilla <code>openai/whisper</code>; PyAV ships FFmpeg so the container has zero system dependencies. Fully env-driven (<code>MODEL_SIZE</code> / <code>COMPUTE_TYPE</code> / <code>USE_BATCHED</code>).",
     s4_num: "Quartz v4 · Digital Garden",
     s4_title: "dayi-knowledge-base —<br />Personal Digital Garden",
@@ -1850,11 +1882,12 @@ const i18n = {
     masthead_subtitle: "嚴大益（Yan Da-Yi） · ソフトウェアエンジニア · 医療AI · LLM / RAGスペシャリスト",
     hero_eyebrow: "Cover Story",
     hero_headline: "AIを作るだけでなく、<br /><em>本番環境へ</em><br />届ける力を持つ",
-    hero_body1: "<strong>中山医学大学附属病院・AI センター</strong>に在籍し、5年以上の医療 AI システム設計とバックエンドエンジニアリングの実務経験を持つ。",
-    hero_body2: "<strong>Python · Java · C# · Go</strong> の多言語開発に精通。マイクロサービス設計、Azure クラウド、Docker Swarm コンテナ化を活用し、病院レベルの高可用性要件のもとでシステムを一人で設計・リリースできる。",
-    hero_body3: "<strong>LLM · RAG · Agentic Workflow</strong> を継続的に深化させ、生成 AI を実際の臨床フローに統合。デモで終わらせない実装力が強み。",
+    hero_body1: "<strong>中山医学大学附属病院・AI センター</strong>在籍。5年以上、研究ではなく実際に稼働する医療 AI を届けてきたエンジニア。",
+    hero_body2: "API 設計からクラウドデプロイまで、一人で完結できるバックエンド力。病院グレードの高可用性要件のもと、複数のシステムを独力で設計・本番リリース。",
+    hero_body3: "AI はバズワードではなくコア。実際の臨床環境で LLM / RAG / Agent を本番導入——<strong>文書作業 50% 削減</strong>・<strong>全国金賞</strong>という成果で証明済み。",
     hero_cta1: "作品集を見る",
     hero_cta2: "お問い合わせ",
+    hero_seeking: "🟢 Backend / AI エンジニアポジションを積極的に探しています",
     hero_kicker: "編集ノート",
     pull_quote: "「要件分析からシステム設計、バックエンド開発、クラウドデプロイまで――一気通貫で責任を持つ。」",
     hero_right1: "医療 AI プラットフォーム「醫點家」をゼロから主導し、<strong>国科会 GenAI Stars 全国金賞</strong>を受賞。医療文書の作業量を <strong>50% 以上</strong>削減。U-Net 画像分割研究が <strong>Cancer</strong> 誌などの国際ジャーナルに掲載。",
@@ -1870,8 +1903,8 @@ const i18n = {
     sec_exp_tag: "Career Timeline",
     sec_contact: "連絡先",
     sec_contact_tag: "Let's Connect",
-    contact_headline: "一緒に<br /><em>何かを作り</em><br />ませんか？",
-    contact_sub: "コラボレーション、技術交流、またはご質問があればお気軽にどうぞ。医療 AI・スマートマニュファクチャリング・FinTech 分野のご縁を歓迎します。",
+    contact_headline: "次の<br /><em>バックエンド</em><br />エンジニアを探していますか？",
+    contact_sub: "Backend / AI エンジニアポジションを積極的に探しています。医療 AI・LLM プロダクト・技術力を重視するチームに特に関心があります。お気軽にご連絡を。",
     contact_cta1: "✉ メールを送る",
     contact_cta2: "GitHub →",
     contact_aside_title: "基本情報",
@@ -1935,6 +1968,7 @@ const i18n = {
     p1_date: "コアプロジェクト · 中山医大附属病院 AI センター",
     p2_issue: "Feature Story · 2025/3 – 2025/9",
     p2_title: "AI アシスタント — API Gateway<br />× HIS 深度連携プラットフォーム",
+    p2_impact: "医療スタッフのクロスシステム検索時間を短縮 · 臨床環境で 99%+ の可用性",
     p2_body: "FastAPI + Django ベースの API Gateway を設計・実装し、院内複数の異構 HIS データソースを非同期 I/O で高並列処理。Azure OpenAI を統合した AI アシスト検索を提供し、<strong>Grafana + Loki</strong> で全経路モニタリングを構築。臨床環境で 99%+ の可用性を確保。",
     p2_date: "コアプロジェクト · 中山医大附属病院 AI センター",
     p3_num: "Report · 2023/3 – 2024/7",
@@ -2013,6 +2047,7 @@ const i18n = {
     // Side projects (s1-s5)
     s1_issue: "Cover Feature · フルスタック Web · Next.js × Spring Boot",
     s1_title: "Vivid Atlas / Curator —<br />お気に入りスポット ナレッジグラフ",
+    s1_impact: "URL を貼るだけで知識グラフに変換—手動整理ゼロ",
     s1_body: "モバイルファーストのフルスタック Web アプリ。任意の URL（Instagram / TikTok / Google Maps / リスト記事）を貼り付けると、<strong>AI が自動で場所情報を解析</strong>し、カードウォール + インタラクティブなナレッジグラフで表示。<strong>AI リンク富化パイプライン</strong>：<code>Jsoup OG 抽出 → Claude (claude-sonnet-4-6) 構造化解析 → Redis キャッシュ（SHA-256 key、24h TTL）→ PostgreSQL + Neo4j デュアルライト</code>。<strong>インタラクティブ・ナレッジグラフ</strong>：Neo4j に最大 2 ホップの関係を保存、vis-network（D3 canvas）でカテゴリ色分けノードをレンダリング、クリックで即時展開。<strong>AI レコメンデーション</strong>：共通タグ + 地理位置加重のハイブリッド推薦。Neo4j デュアルライトは best-effort で、失敗してもメイン CRUD には影響しない。<strong>フルスタック基盤</strong>：Flyway 6 マイグレーション、JWT HttpOnly Cookie、Nominatim ジオコーディング、公開シェアリンク、Docker Compose で 5 サービスを一括起動。",
     s1_date: "Self-Initiated · 5-Service Docker Compose",
     s2_issue: "Cover Feature · ネイティブ iOS · SwiftUI + Vision OCR",
@@ -2021,6 +2056,7 @@ const i18n = {
     s2_date: "Self-Initiated · iOS 17+ · Cross-Platform Dev",
     s3_num: "Cloud Run · 音声 AI",
     s3_title: "Faster-Whisper API —<br />中国語音声認識 Cloud Run",
+    s3_impact: "Whisper 比 4× 高速 · Cloud Run でインフラコスト 80%+ 削減",
     s3_body: "<strong>SYSTRAN/faster-whisper</strong> をラップした REST API、GCP Cloud Run（<code>asia-east1</code>）にデプロイ、中国語音声に最適化。<code>POST /transcribe</code> は multipart 音声ファイルを受け取り、言語・信頼度・タイムスタンプ付きセグメントを返却。<strong>int8 量子化 + BatchedInferencePipeline</strong>、本家 <code>openai/whisper</code> より 4 倍以上高速。PyAV が FFmpeg を内包し、コンテナはシステム依存ゼロ。環境変数駆動（<code>MODEL_SIZE</code> / <code>COMPUTE_TYPE</code> / <code>USE_BATCHED</code>）。",
     s4_num: "Quartz v4 · デジタルガーデン",
     s4_title: "dayi-knowledge-base —<br />個人デジタルガーデン",
