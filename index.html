@@ -669,7 +669,7 @@
         <button class="lang-btn" onclick="setLang('en')">EN</button>
         <button class="lang-btn" onclick="setLang('ja')">日</button>
       </div>
-      <span class="masthead-award">🏆 GenAI Stars 全國金獎</span>
+      <span class="masthead-award" data-i18n="masthead_award">🏆 GenAI Stars 全國金獎</span>
     </div>
   </div>
   <div class="masthead-title">
@@ -1432,7 +1432,7 @@
         </div>
       </div>
       <div class="contact-aside">
-        <h3 class="contact-aside-title" data-i18n="contact_aside_title">Quick Info</h3>
+        <h3 class="contact-aside-title" data-i18n="contact_aside_title">聯絡資訊</h3>
         <ul class="contact-info-list">
           <li>
             <strong data-i18n="ci_email_label">Email</strong>
@@ -1486,7 +1486,7 @@ const i18n = {
     hero_body3: "持續深耕 <strong>LLM · RAG · Agentic Workflow</strong>，將生成式 AI 真正整合進臨床流程，而不只是停在 Demo 階段。",
     hero_cta1: "查看作品集",
     hero_cta2: "聯絡我",
-    hero_kicker: "Editor's Note",
+    hero_kicker: "編輯手記",
     pull_quote: "\"從需求分析、系統設計、後端開發到雲端部署，我習慣對整條鏈路負責。\"",
     hero_right1: "主導醫療 AI 平台「醫點家」從零到一，榮獲<strong>國科會 GenAI Stars 全國金獎</strong>，實際讓醫護文書工作量降低超過 <strong>50%</strong>，並有 U-Net 影像分割研究成果發表於 <strong>Cancer</strong> 等國際期刊。",
     hero_right2: "曾於<strong>國立臺中科技大學</strong>碩士期間，以強化學習方法優化分子分類特徵選取流程，將時間成本改善達 <strong>83.9%</strong>，成果獲 TSC 崇越論文大賞優良論文獎，並於國際研討會 ICBBB 發表。目前就讀<strong>國立中興大學資工碩士在職專班</strong>，持續深化 AI 系統研究能量。",
@@ -1495,26 +1495,27 @@ const i18n = {
     stat3_label: "論文特徵選取<br />時間改善",
     // sections
     sec_projects: "Projects",
-    sec_projects_tag: "Selected Works",
+    sec_projects_tag: "精選作品",
     sec_skills: "Skills",
-    sec_skills_tag: "Technical Expertise",
+    sec_skills_tag: "技術專長",
     sec_exp: "Experience",
-    sec_exp_tag: "Career Timeline",
+    sec_exp_tag: "職涯時間軸",
     sec_contact: "Contact",
-    sec_contact_tag: "Let's Connect",
+    sec_contact_tag: "與我聯繫",
     // contact
     contact_headline: "Ready to<br /><em>build something</em><br />together?",
     contact_sub: "有合作機會、技術交流或任何問題，歡迎直接聯絡。我對醫療 AI、智慧製造、金融科技等領域的機會特別感興趣。",
     contact_cta1: "✉ Email Me",
     contact_cta2: "GitHub →",
-    contact_aside_title: "Quick Info",
-    ci_email_label: "Email",
+    contact_aside_title: "聯絡資訊",
+    ci_email_label: "信箱",
     ci_gh_label: "GitHub",
-    ci_loc_label: "Location",
-    ci_loc_val: "Taichung, Taiwan",
-    ci_lang_label: "Languages",
+    ci_loc_label: "所在地",
+    ci_loc_val: "台灣・台中",
+    ci_lang_label: "語言能力",
     ci_lang_val: "中文（母語）· 日文 N2 · 英文 TOEIC 800",
     ci_side_label: "Side Project",
+    masthead_award: "🏆 GenAI Stars 全國金獎",
     footer_txt: "© 2025 嚴大益 Da-Yi Yan · Backend Engineer · Medical AI · Built with ♥",
     // experience
     exp1_role: "研發工程師",
@@ -1687,10 +1688,10 @@ const i18n = {
     sec_contact: "Contact",
     sec_contact_tag: "Let's Connect",
     contact_headline: "Ready to<br /><em>build something</em><br />together?",
-    contact_sub: "Open to collaboration, technical exchange, or any opportunity. Especially interested in Medical AI, Smart Manufacturing, and FinTech.",
+    contact_sub: "Open to collaboration, technical discussions, or any opportunity that matters. Especially interested in Medical AI, Smart Manufacturing, and FinTech.",
     contact_cta1: "✉ Email Me",
     contact_cta2: "GitHub →",
-    contact_aside_title: "Quick Info",
+    contact_aside_title: "Contact Info",
     ci_email_label: "Email",
     ci_gh_label: "GitHub",
     ci_loc_label: "Location",
@@ -1698,6 +1699,7 @@ const i18n = {
     ci_lang_label: "Languages",
     ci_lang_val: "Chinese (Native) · Japanese N2 · English TOEIC 800",
     ci_side_label: "Side Project",
+    masthead_award: "🏆 GenAI Stars National Gold Award",
     footer_txt: "© 2025 Da-Yi Yan · Backend Engineer · Medical AI · Built with ♥",
     // experience
     exp1_role: "R&D Engineer",
@@ -1853,7 +1855,7 @@ const i18n = {
     hero_body3: "<strong>LLM · RAG · Agentic Workflow</strong> を継続的に深化させ、生成 AI を実際の臨床フローに統合。デモで終わらせない実装力が強み。",
     hero_cta1: "作品集を見る",
     hero_cta2: "お問い合わせ",
-    hero_kicker: "Editor's Note",
+    hero_kicker: "編集ノート",
     pull_quote: "「要件分析からシステム設計、バックエンド開発、クラウドデプロイまで――一気通貫で責任を持つ。」",
     hero_right1: "医療 AI プラットフォーム「醫點家」をゼロから主導し、<strong>国科会 GenAI Stars 全国金賞</strong>を受賞。医療文書の作業量を <strong>50% 以上</strong>削減。U-Net 画像分割研究が <strong>Cancer</strong> 誌などの国際ジャーナルに掲載。",
     hero_right2: "<strong>台中科技大学</strong>の修士課程では強化学習により分子分類の特徴選択を最適化し、時間コストを <strong>83.9% 改善</strong>。TSC 優良論文賞・ICBBB 発表。現在は<strong>中興大学 情報工学修士（在学中）</strong>。",
@@ -1880,6 +1882,7 @@ const i18n = {
     ci_lang_label: "言語",
     ci_lang_val: "中国語（母語）・日本語 N2 ・英語 TOEIC 800",
     ci_side_label: "サイドプロジェクト",
+    masthead_award: "🏆 GenAI Stars 全国金賞",
     footer_txt: "© 2025 嚴大益 Da-Yi Yan · Backend Engineer · Medical AI · Built with ♥",
     // experience
     exp1_role: "研究開発エンジニア",
@@ -1921,6 +1924,9 @@ const i18n = {
     sk_fe: "モバイル · フロントエンド · 言語",
     sk_jp: "日本語 JLPT N2",
     sk_en: "英語 TOEIC 800",
+    sk_sqltvp: "MS SQL · TVP / ストアドプロシージャ",
+    sk_test: "xUnit · Moq · BenchmarkDotNet",
+    sk_publish: "Self-Contained 単一ファイル · Windows Service",
     // projects
     p1_issue: "Feature Story · 2024/4 – 2024/10",
     p1_award: "🏆 GenAI Stars 全国金賞",
@@ -1977,6 +1983,9 @@ const i18n = {
     d4_body: "2つの Service Bus キュー間の中継：SQL Server の 10+ 個の設定テーブルを単一 JSON にまとめて Blob にアップロードし、下流キューへ転送。<strong>明確なパイプライン分割</strong>：<code>Worker → MessageProcessing → DataFetcher → BlobStorage → PayloadBuilder → MessageSender</code>、各サービスは一つの責務のみ。Blob はビジネスキーで階層化 + <code>{sha256}.json</code> で命名、同一設定は再アップロードされない。独立した TestSender コンソールも同梱。",
     d5_num: "REST API · ASP.NET Core 10",
     d5_title: "Prompt 管理 REST API<br />Gateway × JWT",
+    d6_num: "Self-Initiated · WinForms デスクトップ",
+    d6_title: "Crawler —<br />ダッシュボード取得ツール",
+    d6_body: "自主開発のデスクトップツール。公開データダッシュボードのグラフとランキングを自動取得。<strong>2× 高解像度の要素スクリーンショット</strong>、撮影前に子要素 <code>&lt;img&gt;</code> の完全読み込みを確認して空白を防止。ページ JS から <strong>Highcharts データポイント</strong>（ラベル+数値）を直接取得し、スクリーンショットの下に重ねて出力。<code>dotnet publish -p:PublishProfile=SingleFile</code> で自包含 EXE、初回起動時に Chromium を自動ダウンロード、バッチモードで PNG をワンクリック出力。",
     d5_body: "「Agent / Prompt 管理」を提供する RESTful Gateway。マルチ環境対応（ルートに <code>{env}</code>）。<strong>JWT Bearer</strong> のカスタム <code>OnAuthenticationFailed</code> / <code>OnChallenge</code> で構造化ログ。<code>CORS_ORIGINS</code> はカンマ区切り、<code>*</code> は <code>AllowAnyOrigin</code> にフォールバック。カスタム <code>SqlServerHealthCheck</code> を <code>/health</code> で公開。ORM 不使用、<code>Microsoft.Data.SqlClient</code> で直接 SQL を制御。<code>Program</code> を partial にして <code>WebApplicationFactory</code> による統合テストを実現。",
     d6_num: "Self-Initiated · WinForms デスクトップ",
     d6_title: "Crawler —<br />ダッシュボード取得ツール",
