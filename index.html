@@ -1322,8 +1322,10 @@
           <span class="tech-tag">SwiftUI</span>
           <span class="tech-tag">SwiftData</span>
           <span class="tech-tag">Swift Charts</span>
+          <span class="tech-tag">URLSession</span>
           <span class="tech-tag">Keychain</span>
-          <span class="tech-tag">Face ID</span>
+          <span class="tech-tag">LocalAuthentication</span>
+          <span class="tech-tag">Spec Kit (SDD)</span>
         </div>
       </div>
 
@@ -1662,7 +1664,7 @@ const i18n = {
     p7_body: "以 Go + Gin 打造的高吞吐量短網址服務，支援自訂短碼、跳轉統計與 TTL 過期機制，充分發揮 Go 的並發優勢，Docker 容器化部署於 Zeabur，已上線對外服務。",
     p8_num: "Side Project · SwiftUI / iOS",
     p8_title: "AgriPrice 農價通 —<br />台灣農產拍賣行情 App",
-    p8_body: "為親朋好友打造的 iOS 農產批發市場行情查詢 App，直呼 MOA Open Data API，on-device first 無後端。整合 Keychain + 生物辨識 (Face ID / Touch ID) 保護供應商帳密，Swift Charts 趨勢曲線 + SwiftData 快取，完整 state machine 單元測試覆蓋。",
+    p8_body: "為親朋好友（≤80 TestFlight 名額）打造的台灣農產批發行情查詢 App，完全 on-device first——本 repo 不含後端程式碼，iOS 直接呼叫上游公開 API。四個分頁：首頁 / 行情 / 成交 / 趨勢。<br><br>直接呼叫 MOA Open Data API，iOS 處理 ROC 民國年 ↔ ISO 日期轉換、CropCode 大小寫敏感、<code>{Data: []}</code> 視為友善空狀態。供應商成交查詢（feature 002）密碼僅存 Keychain，SecAccessControl + .biometryCurrentSet 鎖定生物辨識讀取；UserDefaults / SwiftData / log 一律禁止出現密碼字串（SC-003）。<br><br>憲法治理 + Spec Kit：.specify/memory/constitution.md 七大原則（On-Device First / No Backend Code / Keychain-Only Credentials / Spec-Driven / iOS 17 stack only / Friendly Error States / Simplicity）。每個 feature 走 specify → plan → tasks → implement，違反非協商原則的 PR 直接拒。<br><br>Swift Charts 趨勢：LineMark 均價曲線 + BarMark 成交量，SwiftData 快取 miss 才打 MOA。完整單元測試：MOAClient 七種回應、MarketViewModel + VendorViewModel 全 state machine，in-memory ModelContainer + stub protocols。",
     p8_links: "",
     // skills extra
     sk_sqltvp: "MS SQL · TVP / Stored Procedure",
@@ -1852,7 +1854,7 @@ const i18n = {
     p7_body: "A high-throughput URL shortening service built with Go + Gin, supporting custom short codes, redirect analytics, and TTL expiration. Fully leverages Go's concurrency advantages, Dockerized and deployed on Zeabur.",
     p8_num: "Side Project · SwiftUI / iOS",
     p8_title: "AgriPrice —<br />TW Agricultural Price App",
-    p8_body: "An iOS app for querying Taiwan wholesale agricultural market prices — built for friends and family, on-device first with no backend. Integrates Keychain + biometric auth (Face ID / Touch ID) for vendor credentials. Swift Charts trend curves, SwiftData caching, and full state machine unit test coverage.",
+    p8_body: "iOS market data app for Taiwan's wholesale produce auctions, built for ≤80 TestFlight friends &amp; family. Fully on-device — no backend in this repo, iOS calls MOA Open Data API directly. Four tabs: Home / Market / Vendor / Trends.<br><br>Highlights: ROC calendar ↔ ISO date conversion, biometric-gated Keychain credential storage (SecAccessControl + .biometryCurrentSet), constitutional governance with 7 non-negotiable principles enforced at PR level, and full unit test coverage with stub protocols &amp; in-memory ModelContainer.",
     p8_links: "",
     // skills
     sk_be: "Backend",
@@ -2062,7 +2064,7 @@ const i18n = {
     p7_body: "Go + Gin 製の高スループット URL 短縮サービス。カスタムコード・リダイレクト統計・TTL 有効期限をサポート。Go の並行処理を活かし、Docker コンテナ化して Zeabur にデプロイ済。",
     p8_num: "個人プロジェクト · SwiftUI / iOS",
     p8_title: "AgriPrice 農価通 —<br />台湾農産物市場価格 App",
-    p8_body: "家族・友人向けに作った台湾卸売農産物市場の価格照会 iOS App。MOA Open Data API を直接呼び出し、バックエンドなしの on-device first 設計。Keychain + 生体認証 (Face ID / Touch ID) で仕入先アカウントを保護。Swift Charts トレンドチャート・SwiftData キャッシュ・state machine の完全なユニットテストカバレッジ。",
+    p8_body: "台湾農産物卸売市場の相場照会 iOS App。最大 80 名の TestFlight 配布用。完全オンデバイス設計——このリポジトリにバックエンドコードなし、iOS から MOA Open Data API を直接呼び出す。4 タブ構成：ホーム / 相場 / 成約 / トレンド。<br><br>主な特徴：ROC 民国暦 ↔ ISO 日付変換、SecAccessControl + .biometryCurrentSet による生体認証 Keychain 保護（パスワード文字列は UserDefaults/SwiftData/ログに一切禁止）。7 大原則による憲法統治 + Spec Kit（feature ごとに specify → plan → tasks → implement）。Swift Charts トレンド・SwiftData キャッシュ・stub プロトコルと in-memory ModelContainer による完全ユニットテスト。",
     p8_links: "",
     // skills extra
     sk_sqltvp: "MS SQL · TVP / ストアドプロシージャ",
