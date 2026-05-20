@@ -1330,6 +1330,28 @@
       </div>
 
       <div class="project-mini">
+        <p class="project-mini-num" data-i18n="p9_num">Side Project · Go / Python / React</p>
+        <h3 class="project-mini-title" data-i18n="p9_title">Javis —<br />自架式 AgentOS Runtime</h3>
+        <p class="project-mini-body" data-i18n="p9_body">
+          以事件匯流排為核心的 AI Agent 執行平台，具備任務規劃、工具調用、記憶管理、權限治理與可觀測性。
+          Planner 拆解任務、Worker 執行 ReAct 推理迴圈、Reviewer 評審品質，
+          高風險操作暫停等待人工批准。整合 Browser Agent、Shell Sandbox、Workspace Isolation，
+          支援 CLI / Web UI / Telegram / Discord 多入口。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">Go</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">Redis Stream</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Playwright</span>
+          <span class="tech-tag">Prometheus</span>
+          <span class="tech-tag">Docker Compose</span>
+        </div>
+      </div>
+
+      <div class="project-mini">
         <p class="project-mini-num" data-i18n="d6_num">Self-Initiated · WinForms Desktop</p>
         <h3 class="project-mini-title" data-i18n="d6_title">Crawler —<br />儀表板擷取與資料還原</h3>
         <p class="project-mini-body" data-i18n="d6_body">
@@ -1665,6 +1687,9 @@ const i18n = {
     p8_num: "Side Project · SwiftUI · SwiftData · Swift Charts · Keychain + LocalAuthentication · Spec Kit (SDD)",
     p8_body: "為親朋好友打造的台灣農產批發市場行情查詢 iOS App（≤80 TestFlight 名額），完全 <strong>on-device first</strong>，直接呼叫 MOA Open Data API，不含任何後端程式碼。四個分頁：首頁 / 行情 / 成交 / 趨勢，內建 Swift Charts 均價曲線 + 成交量圖表，搭配 SwiftData 本地快取。供應商成交查詢整合 Keychain + 生物辨識（Face ID / Touch ID）保護帳密，嚴格遵守七大憲法原則（Spec-Driven 開發流程），違反原則的 PR 直接拒絕。",
     p8_links: "",
+    p9_num: "個人專案 · Go / Python / React",
+    p9_title: "Javis —<br />自架式 AgentOS Runtime",
+    p9_body: "以事件匯流排為核心的 AI Agent 執行平台，具備任務規劃、工具調用、記憶管理、權限治理與可觀測性。Planner 拆解任務、Worker 執行 ReAct 推理迴圈、Reviewer 評審品質，高風險操作暫停等待人工批准。整合 Browser Agent、Shell Sandbox、Workspace Isolation，支援 CLI / Web UI / Telegram / Discord 多入口。v1 至 v14 完整演進，從 MVP 推進至完整 AgentOS Runtime。",
     // skills extra
     sk_sqltvp: "MS SQL · TVP / Stored Procedure",
     sk_test: "xUnit · Moq · BenchmarkDotNet",
@@ -1855,6 +1880,12 @@ const i18n = {
     p8_title: "AgriPrice —<br />TW Agricultural Price iOS App",
     p8_body: "iOS app for Taiwan's wholesale produce auction data, built for ≤80 TestFlight friends &amp; family. Fully <strong>on-device first</strong> — no backend code in this repo; iOS calls MOA Open Data API directly. Four tabs: Home / Market / Vendor / Trends, with Swift Charts avg-price curves + volume bars and SwiftData local cache. Vendor query secured by Keychain + biometrics (Face ID / Touch ID), governed by seven constitutional principles (Spec-Driven workflow) — PRs violating principles are rejected.",
     p8_links: "",
+    p9_num: "個人プロジェクト · Go / Python / React",
+    p9_title: "Javis —<br />セルフホスト型 AgentOS Runtime",
+    p9_body: "イベントバスを中核とした AI Agent 実行プラットフォーム。タスク計画・ツール呼び出し・記憶管理・権限ガバナンス・可観測性を備える。Planner がタスクを分解し、Worker が ReAct ループで実行、Reviewer が品質審査。高リスク操作は人間の承認待ちで停止。Browser Agent・Shell Sandbox・Workspace Isolation を統合し、CLI / Web UI / Telegram / Discord マルチ入口対応。v1〜v14 で MVP から完全な AgentOS Runtime へ進化。",
+    p9_num: "Personal Project · Go / Python / React",
+    p9_title: "Javis —<br />Self-Hosted AgentOS Runtime",
+    p9_body: "An event-bus-driven AI Agent runtime with task planning, tool invocation, memory management, permission governance, and observability. Planner decomposes tasks, Worker runs a ReAct loop, Reviewer audits quality — high-risk actions pause for human approval. Integrates Browser Agent, Shell Sandbox, and Workspace Isolation. Multi-entry: CLI / Web UI / Telegram / Discord. Evolved from MVP to full AgentOS Runtime across v1–v14.",
     // skills
     sk_be: "Backend",
     sk_ai: "AI / ML",
