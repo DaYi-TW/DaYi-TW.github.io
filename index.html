@@ -840,7 +840,7 @@
         <p class="project-impact" data-i18n="p2_impact">縮短醫護跨系統查詢時間 · 臨床環境 99%+ 可用性</p>
         <p class="project-card-body" data-i18n="p2_body">
           設計並實作以 FastAPI + Django 為基礎的 API Gateway，
-          串接院內多套 HIS 異構資料來源，透過非同步 I/O 架構處理高併發請求。
+          主導開發中介模組，將「醫點家」AI 工具與醫院 HIS、FHIR 等多套系統對接。
           整合 Azure OpenAI 提供 AI 輔助查詢，以 <strong>Grafana + Loki</strong>
           建立全鏈路監控與告警機制，確保臨床環境下 99%+ 可用性，
           大幅縮短醫護跨系統查詢時間。
@@ -1094,10 +1094,7 @@
         <strong data-i18n="te2_title">WebView2 雙向通訊 PoC</strong>
         <span data-i18n="te2_body">.NET 6+ / .NET Framework 雙相容 · <code>#if NET6_0_OR_GREATER</code> 在 <code>System.Text.Json</code> 與 <code>Newtonsoft.Json</code> 之間切換解析器。</span>
       </div>
-      <div class="tech-experiment">
-        <strong data-i18n="te3_title">ASP.NET Core REST 起手樣板</strong>
-        <span data-i18n="te3_body">.NET 10 Web API · Swagger · Dockerfile · <code>test-api.http</code> · ProductDto 驗證範例與起手樣板。</span>
-      </div>
+
     </div>
 
     <!-- ─────────────────────────────────────────────────── -->
@@ -1459,7 +1456,7 @@
 
         <p style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin:14px 0 8px;" data-i18n="exp1_sec1">核心技術與職責</p>
         <ul class="exp-bullets">
-          <li data-i18n="exp1_b1">全端開發：Django / FastAPI / Go · MS SQL · Vue.js / jQuery</li>
+          <li data-i18n="exp1_b1">全端開發：Django / FastAPI / Go · Java Spring Boot · ASP.NET Core · MS SQL · Vue.js / jQuery</li>
           <li data-i18n="exp1_b2">系統建置：Docker Swarm 容器化、Nginx 反向代理、CI/CD 部署維運</li>
           <li data-i18n="exp1_b3">資料整合：醫療資料 ETL、FHIR / HIS 資料串接與標準化</li>
           <li data-i18n="exp1_b4">跨部門需求分析、規劃交付，主導多個臨床系統從零到上線</li>
@@ -1621,7 +1618,7 @@ const i18n = {
     exp1_role: "研發工程師",
     exp1_company: "中山醫學大學附設醫院 · 人工智慧中心",
     exp1_sec1: "核心技術與職責",
-    exp1_b1: "全端開發：Django / FastAPI / Go · MS SQL · Vue.js / jQuery",
+    exp1_b1: "全端開發：Django / FastAPI / Go · Java Spring Boot · ASP.NET Core · MS SQL · Vue.js / jQuery",
     exp1_b2: "系統建置：Docker Swarm 容器化、Nginx 反向代理、CI/CD 部署維運",
     exp1_b3: "資料整合：醫療資料 ETL、FHIR / HIS 資料串接與標準化",
     exp1_b4: "跨部門需求分析、規劃交付，主導多個臨床系統從零到上線",
@@ -1666,7 +1663,7 @@ const i18n = {
     p2_issue: "Feature Story · 2025/3 – 2025/9",
     p2_title: "小幫手 — AI 工具<br />× HIS 深度串接平台",
     p2_impact: "縮短醫護跨系統查詢時間 · 臨床環境 99%+ 可用性",
-    p2_body: "設計並實作以 FastAPI + Django 為基礎的 API Gateway，串接院內多套 HIS 異構資料來源，透過非同步 I/O 架構處理高併發請求。整合 Azure OpenAI 提供 AI 輔助查詢，以 <strong>Grafana + Loki</strong> 建立全鏈路監控與告警機制，確保臨床環境下 99%+ 可用性，大幅縮短醫護跨系統查詢時間。",
+    p2_body: "主導開發中介模組，將「醫點家」產出的 AI 工具與醫院 HIS、FHIR 等多套資訊系統對接，達成實際醫療賦能。以 <strong>FastAPI + Django</strong> 設計 API Gateway，採非同步 I/O 與快取策略大幅降低回應時間；整合 <strong>Azure OpenAI</strong> 提供 AI 輔助報告生成與臨床判別；以 <strong>Grafana + Loki</strong> 建立全鏈路監控告警。",
     p2_date: "主力專案 · 中山醫附院人工智慧中心",
     p3_num: "Report · 2023/3 – 2024/7",
     p3_title: "小南阿長 —<br />智能輔助護理資訊平台",
@@ -1824,7 +1821,7 @@ const i18n = {
     exp1_role: "R&D Engineer",
     exp1_company: "Chung Shan Medical University Hospital · AI Center",
     exp1_sec1: "Core Technologies & Responsibilities",
-    exp1_b1: "Full-stack development: Django / FastAPI / Go · MS SQL · Vue.js / jQuery",
+    exp1_b1: "Full-stack development: Django / FastAPI / Go · Java Spring Boot · ASP.NET Core · MS SQL · Vue.js / jQuery",
     exp1_b2: "Infrastructure: Docker Swarm containerization, Nginx reverse proxy, CI/CD pipeline",
     exp1_b3: "Data integration: Medical ETL, FHIR / HIS integration and standardization",
     exp1_b4: "Cross-department requirements analysis and delivery; led multiple clinical systems from zero to production",
@@ -1860,7 +1857,7 @@ const i18n = {
     p2_issue: "Feature Story · 2025/3 – 2025/9",
     p2_title: "AI Assistant — API Gateway<br />× Deep HIS Integration",
     p2_impact: "Reduced cross-system query time for clinical staff · 99%+ uptime in production",
-    p2_body: "Designed and implemented an API Gateway with FastAPI + Django, integrating multiple heterogeneous HIS data sources via async I/O for high-concurrency requests. Integrated Azure OpenAI for AI-assisted queries, and built end-to-end monitoring with <strong>Grafana + Loki</strong>, achieving 99%+ availability in clinical environments.",
+    p2_body: "Led development of the middleware layer connecting AI tools from Yī Diǎn Jiā to hospital HIS, FHIR, and other information systems — bridging AI output to real clinical workflows. Designed an API Gateway with <strong>FastAPI + Django</strong>, using async I/O and caching to cut response time; integrated <strong>Azure OpenAI</strong> for AI-assisted report generation and clinical decision support; built full-chain observability with <strong>Grafana + Loki</strong>.",
     p2_date: "Core Project · CSMU Hospital AI Center",
     p3_num: "Report · 2023/3 – 2024/7",
     p3_title: "Xiao-Nan — AI-Powered<br />Nursing Information Platform",
@@ -2032,7 +2029,7 @@ const i18n = {
     exp1_role: "研究開発エンジニア",
     exp1_company: "中山医科大学附属病院 · AI センター",
     exp1_sec1: "コア技術・職責",
-    exp1_b1: "フルスタック開発：Django / FastAPI / Go · MS SQL · Vue.js / jQuery",
+    exp1_b1: "フルスタック開発：Django / FastAPI / Go · Java Spring Boot · ASP.NET Core · MS SQL · Vue.js / jQuery",
     exp1_b2: "インフラ構築：Docker Swarm コンテナ化、Nginx リバースプロキシ、CI/CD 運用",
     exp1_b3: "データ統合：医療 ETL、FHIR / HIS 連携と標準化",
     exp1_b4: "部門横断の要件分析・デリバリー主導、複数の臨床システムをゼロから本番投入",
@@ -2080,7 +2077,7 @@ const i18n = {
     p2_issue: "Feature Story · 2025/3 – 2025/9",
     p2_title: "AI アシスタント — API Gateway<br />× HIS 深度連携プラットフォーム",
     p2_impact: "医療スタッフのクロスシステム検索時間を短縮 · 臨床環境で 99%+ の可用性",
-    p2_body: "FastAPI + Django ベースの API Gateway を設計・実装し、院内複数の異構 HIS データソースを非同期 I/O で高並列処理。Azure OpenAI を統合した AI アシスト検索を提供し、<strong>Grafana + Loki</strong> で全経路モニタリングを構築。臨床環境で 99%+ の可用性を確保。",
+    p2_body: "「醫點家」の AI ツールと院内 HIS・FHIR 等の情報システムを繋ぐ中介モジュールを主導開発し、実際の医療現場での AI 活用を実現。<strong>FastAPI + Django</strong> で API Gateway を設計し、非同期 I/O とキャッシュ戦略でレスポンスを大幅短縮；<strong>Azure OpenAI</strong> を統合して AI 支援レポート生成・臨床判断をサポート；<strong>Grafana + Loki</strong> で全経路監視アラートを構築。",
     p2_date: "コアプロジェクト · 中山医大附属病院 AI センター",
     p3_num: "Report · 2023/3 – 2024/7",
     p3_title: "小南アシスタント —<br />AI 看護情報プラットフォーム",
