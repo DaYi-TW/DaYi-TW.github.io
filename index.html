@@ -1346,6 +1346,44 @@
         </div>
       </div>
 
+      <div class="project-mini">
+        <p class="project-mini-num" data-i18n="p10_num">Side Project · Three.js · RK4 Physics · WebGL</p>
+        <h3 class="project-mini-title" data-i18n="p10_title">Orbital Atlas 軌道地圖 —<br />互動式深空軌道 3D 視覺化</h3>
+        <p class="project-mini-body" data-i18n="p10_body">
+          基於 Three.js 與 Vite 打造的互動式 WebGL 深空探測軌道模擬器。整合任務控制台 HUD，提供 Artemis II 自由返回軌道與 Voyager 1/2 的 Grand Tour 軌道推演。軌道非手繪，而是透過 RK4 數值積分計算重力模型，Waypoint 錨定 JPL 實際行星位置。純前端運行，地月貼圖由 Canvas 程序化動態生成。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">Three.js</span>
+          <span class="tech-tag">Vite</span>
+          <span class="tech-tag">RK4 Integrator</span>
+          <span class="tech-tag">WebGL</span>
+          <span class="tech-tag">Tailwind CSS</span>
+          <span class="tech-tag">HTML5 Canvas</span>
+        </div>
+        <a href="https://orbital-atlas.zeabur.app" target="_blank" class="project-link">
+          Live Demo →
+        </a>
+      </div>
+
+      <div class="project-mini">
+        <p class="project-mini-num" data-i18n="p11_num">Side Project · Vue 3 · Pinia · Express · SSE</p>
+        <h3 class="project-mini-title" data-i18n="p11_title">物料管理平台 —<br />材質編輯器與 WMS / IoT 看板</h3>
+        <p class="project-mini-body" data-i18n="p11_body">
+          以 Vue 3 + TypeScript 搭配 Node.js (Express + Mongoose) 打造的全端物料管理系統。材質編輯器實現清單、編輯器、BOM 三元件共享 Pinia 單一狀態即時同步，並以 Keyed Debounce 與樂觀更新回滾確保上萬筆資料操作流暢。WMS 看板整合後端 SSE (Server-Sent Events) 實時推播 IoT 庫存異動，免額外套件完美同步多分頁數據。
+        </p>
+        <div class="tech-row">
+          <span class="tech-tag">Vue 3</span>
+          <span class="tech-tag">Pinia</span>
+          <span class="tech-tag">Express</span>
+          <span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">Server-Sent Events</span>
+          <span class="tech-tag">Tailwind CSS</span>
+        </div>
+        <a href="https://material-editor-d1.zeabur.app" target="_blank" class="project-link">
+          Live Demo →
+        </a>
+      </div>
+
 
       <div class="project-mini">
         <p class="project-mini-num" data-i18n="d6_num">Self-Initiated · WinForms Desktop</p>
@@ -1683,6 +1721,12 @@ const i18n = {
     p8_num: "Side Project · SwiftUI · SwiftData · Swift Charts · Keychain + LocalAuthentication · Spec Kit (SDD)",
     p8_body: "為親朋好友打造的台灣農產批發市場行情查詢 iOS App（≤80 TestFlight 名額），完全 <strong>on-device first</strong>，直接呼叫 MOA Open Data API，不含任何後端程式碼。四個分頁：首頁 / 行情 / 成交 / 趨勢，內建 Swift Charts 均價曲線 + 成交量圖表，搭配 SwiftData 本地快取。供應商成交查詢整合 Keychain + 生物辨識（Face ID / Touch ID）保護帳密，嚴格遵守七大憲法原則（Spec-Driven 開發流程），違反原則的 PR 直接拒絕。",
     p8_links: "",
+    p10_num: "Side Project · Three.js · RK4 Physics · WebGL",
+    p10_title: "Orbital Atlas 軌道地圖 —<br />互動式深空軌道 3D 視覺化",
+    p10_body: "基於 Three.js 與 Vite 打造的互動式 WebGL 深空探測軌道模擬器。整合任務控制台 HUD，提供 Artemis II 自由返回軌道與 Voyager 1/2 的 Grand Tour 軌道推演。軌道非手繪，而是透過 RK4 數值積分計算重力模型，Waypoint 錨定 JPL 實際行星位置。純前端運行，地月貼圖由 Canvas 程序化動態生成。",
+    p11_num: "Side Project · Vue 3 · Pinia · Express · SSE",
+    p11_title: "物料管理平台 —<br />材質編輯器與 WMS / IoT 看板",
+    p11_body: "以 Vue 3 + TypeScript 搭配 Node.js (Express + Mongoose) 打造的全端物料管理系統。材質編輯器實現清單、編輯器、BOM 三元件共享 Pinia 單一狀態即時同步，並以 Keyed Debounce 與樂觀更新回滾確保上萬筆資料操作流暢。WMS 看板整合後端 SSE (Server-Sent Events) 實時推播 IoT 庫存異動，免額外套件完美同步多分頁數據。",
     p9_issue: "Cover Feature · Self-Hosted · Go × Python × React",
     p9_title: "Javis —<br />自架式 AgentOS Runtime",
     p9_impact: "從 MVP 到完整 AgentOS · 14 個版本迭代 · 端到端可治理 Agent 平台",
@@ -1878,6 +1922,12 @@ const i18n = {
     p8_title: "AgriPrice —<br />TW Agricultural Price iOS App",
     p8_body: "iOS app for Taiwan's wholesale produce auction data, built for ≤80 TestFlight friends &amp; family. Fully <strong>on-device first</strong> — no backend code in this repo; iOS calls MOA Open Data API directly. Four tabs: Home / Market / Vendor / Trends, with Swift Charts avg-price curves + volume bars and SwiftData local cache. Vendor query secured by Keychain + biometrics (Face ID / Touch ID), governed by seven constitutional principles (Spec-Driven workflow) — PRs violating principles are rejected.",
     p8_links: "",
+    p10_num: "Side Project · Three.js · RK4 Physics · WebGL",
+    p10_title: "Orbital Atlas —<br />Interactive Deep Space Orbit 3D Visualization",
+    p10_body: "An interactive WebGL deep space orbit simulator built with Three.js and Vite. Integrates a Mission Control HUD showing Artemis II free-return trajectory and Voyager 1/2 Grand Tour mission timelines. Orbit projections are mathematically modeled using a 4th-order Runge-Kutta (RK4) integrator rather than static paths, aligning waypoints with true JPL planetary ephemeris. Runs purely client-side with procedural planet textures dynamically generated via HTML5 Canvas.",
+    p11_num: "Side Project · Vue 3 · Pinia · Express · SSE",
+    p11_title: "Material Control Platform —<br />WMS / IoT Dashboard & Editor",
+    p11_body: "A full-stack material management system built with Vue 3, TypeScript, and Node.js (Express + Mongoose). The Material Editor achieves real-time state synchronization across lists, editor, and BOM components using Pinia, coupled with Keyed Debounce and optimistic updates with rollback to ensure smooth operations on tens of thousands of items. WMS dashboard utilizes server-sent events (SSE) for native push notifications of IoT inventory changes, keeping multiple browser tabs perfectly synced without heavy libraries.",
     p9_issue: "Cover Feature · セルフホスト · Go × Python × React",
     p9_title: "Javis —<br />セルフホスト型 AgentOS Runtime",
     p9_impact: "MVP から完全な AgentOS へ · 14 バージョン反復 · エンドツーエンドのガバナブル Agent プラットフォーム",
@@ -2097,6 +2147,12 @@ const i18n = {
     p8_num: "個人プロジェクト · SwiftUI · SwiftData · Swift Charts",
     p8_title: "AgriPrice 農価通 —<br />台湾農産物市場価格 iOS App",
         p8_body: "台湾農産物卸売市場の相場照会 iOS App（最大 80 名 TestFlight 配布）。完全 <strong>オンデバイス設計</strong>、MOA Open Data API を直接呼び出し、バックエンドコードなし。4 タブ：ホーム / 相場 / 成約 / トレンド、Swift Charts 平均価格曲線 + 出来高グラフ、SwiftData キャッシュ搭載。仕入先成約照会は Keychain + 生体認証（Face ID / Touch ID）でパスワードを保護し、7 大憲法原則（Spec-Driven 開発）に従って運営、原則違反の PR は即拒否。",    p8_links: "",
+    p10_num: "Side Project · Three.js · RK4 Physics · WebGL",
+    p10_title: "Orbital Atlas 軌道地図 —<br />インタラクティブ宇宙軌道 3D 可視化",
+    p10_body: "Three.js と Vite をベースに構築された WebGL インタラクティブ深宇宙軌道シミュレーター。Artemis II の自由帰還軌道や Voyager 1/2 の Grand Tour 軌道の推移を表示するミッションコントロール HUD を統合。軌道は手描きではなく、4次ルンゲ＝クッタ（RK4）数値積分を用いた重力モデルで計算され、各ウェイポイントは JPL の実際のエフェメリス（天体暦）データと正確に一致。完全にクライアントサイドで動作し、地表テクスチャは HTML5 Canvas でプロシージャルに動的生成。",
+    p11_num: "Side Project · Vue 3 · Pinia · Express · SSE",
+    p11_title: "資材管理プラットフォーム —<br />マテリアルエディタ & WMS / IoT 看板",
+    p11_body: "Vue 3 + TypeScript と Node.js (Express + Mongoose) で開発されたフルスタック資材管理システム。マテリアルエディタは、Pinia を用いてリスト、エディタ、BOM（部品表）の3つのコンポーネント間でリアルタイムの状態同期を実現し、Keyed Debounce と楽観的アップデート＆ロールバックにより、数万件のアイテム操作でも極めてスムーズな挙動を提供。WMS 看板は、バックエンドの Server-Sent Events (SSE) を活用して IoT 在庫変動をネイティブにプッシュ通知し、軽量にブラウザの複数タブ間で完全な同期を維持。",
     // skills extra
     sk_sqltvp: "MS SQL · TVP / ストアドプロシージャ",
     sk_test: "xUnit · Moq · BenchmarkDotNet",
