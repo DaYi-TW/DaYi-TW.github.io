@@ -1154,6 +1154,26 @@
         <div class="project-date" data-i18n="p9_date">Self-Initiated · 14-Version Iterative Build · Multi-Entry Agent Platform</div>
       </div>
 
+      <!-- smc_a: SMC 股票分析工具 -->
+      <div class="project-featured-card">
+        <p class="project-issue" data-i18n="smc_a_issue">Side Project · Pure Frontend · Vanilla JS × Yahoo Finance API</p>
+        <h3 class="project-card-title" data-i18n="smc_a_title">SMC 股票分析工具 —<br />TradingView 風格即時看板</h3>
+        <p class="project-impact" data-i18n="smc_a_impact">輸入代號即時顯示 BOS / ChoCH / FVG / OB / P-D Zone · 零後端純前端</p>
+        <p class="project-card-body" data-i18n="smc_a_body"></p>
+        <div class="tech-row">
+          <span class="tech-tag">Vanilla JS</span>
+          <span class="tech-tag">Yahoo Finance API</span>
+          <span class="tech-tag">SMC 技術分析</span>
+          <span class="tech-tag">Canvas Chart</span>
+          <span class="tech-tag">GitHub Pages</span>
+        </div>
+        <div class="project-links" style="margin-top:12px;">
+          <a href="https://smc-analyzer.zeabur.app/" target="_blank" class="project-link">🌐 Live Demo</a>
+          <a href="https://github.com/DaYi-TW/smc-analyzer" target="_blank" class="project-link">GitHub</a>
+        </div>
+        <div class="project-date" data-i18n="smc_a_date">Self-Initiated · Pure Frontend · No Backend Required</div>
+      </div>
+
       <div class="project-featured-card">
         <p class="project-issue" data-i18n="s1_issue">Cover Feature · Full-Stack Web · Next.js × Spring Boot</p>
         <h3 class="project-card-title" data-i18n="s1_title">Vivid Atlas / Curator —<br />收藏地點知識圖譜</h3>
@@ -1732,6 +1752,11 @@ const i18n = {
     p9_impact: "從 MVP 到完整 AgentOS · 14 個版本迭代 · 端到端可治理 Agent 平台",
     p9_body: "以 <strong>Redis Stream 事件匯流排</strong>為核心的 AI Agent 執行平台，服務解耦架構讓每個 Agent 獨立演進。<strong>Planner</strong> 使用 LLM 將自然語言任務拆解為多步驟計劃；<strong>Worker</strong> 執行 ReAct 推理迴圈並調用工具；<strong>Reviewer</strong> 評審每個步驟品質，支援 retry / replan。內建 <strong>Permission Policy Engine</strong>，高風險操作（shell 指令、檔案刪除）暫停等待人工批准。整合 <strong>Browser Agent</strong>（Playwright）、Shell Sandbox、Workspace Isolation（git worktree），確保 Agent 在可觀測、可稽核的環境操作真實程式碼庫。<strong>長期記憶系統</strong>依 scope 分層（session / project / user / global），避免每次從零開始。<strong>Skill Library</strong> 將固定工作流存為 Markdown，自動比對注入。Prometheus + Grafana 全程追蹤 token 用量與估算成本。",
     p9_date: "Self-Initiated · 14-Version Iterative Build · Multi-Entry Agent Platform",
+    smc_a_issue: "Side Project · Pure Frontend · Vanilla JS × Yahoo Finance API",
+    smc_a_title: "SMC 股票分析工具 —<br />TradingView 風格即時看板",
+    smc_a_impact: "輸入代號即時顯示 BOS / ChoCH / FVG / OB / P-D Zone · 零後端純前端",
+    smc_a_body: "以<strong>聰明錢概念（SMC）</strong>為核心的純前端股票技術分析工具。輸入任意美股代號，即時從 Yahoo Finance API 抓取 K 線數據，自動計算並標示 <strong>BOS（突破結構）</strong>、<strong>ChoCH（趨勢轉換）</strong>、<strong>FVG（公平價值缺口）</strong>、<strong>OB（Order Block）</strong>、<strong>P-D Zone（供需區）</strong>等關鍵結構。TradingView 深色主題 UI，Canvas 繪圖，完全無後端、零伺服器成本，直接部署於靜態托管平台。",
+    smc_a_date: "Self-Initiated · Pure Frontend · No Backend Required",
     // skills extra
     sk_sqltvp: "MS SQL · TVP / Stored Procedure",
     sk_test: "xUnit · Moq · BenchmarkDotNet",
@@ -1933,11 +1958,21 @@ const i18n = {
     p9_impact: "MVP から完全な AgentOS へ · 14 バージョン反復 · エンドツーエンドのガバナブル Agent プラットフォーム",
     p9_body: "<strong>Redis Stream イベントバス</strong>を中核とした AI Agent 実行プラットフォーム。サービス分離アーキテクチャで各 Agent が独立進化。<strong>Planner</strong> が LLM でタスクをマルチステップ計画に分解；<strong>Worker</strong> が ReAct 推論ループを実行；<strong>Reviewer</strong> が各ステップを審査し retry / replan をサポート。組み込み <strong>Permission Policy Engine</strong> により高リスク操作は人間の承認待ちで一時停止。<strong>Browser Agent</strong>（Playwright）・Shell Sandbox・Workspace Isolation（git worktree）を統合し、実コードベースを観測可能・監査可能な環境で操作。<strong>階層型長期記憶</strong>（session / project / user / global）でコンテキストを持続。<strong>Skill Library</strong> は再利用可能なワークフローを Markdown で管理し自動マッチング注入。Prometheus + Grafana でトークン使用量とコストをリアルタイム追跡。",
     p9_date: "Self-Initiated · 14バージョン反復ビルド · マルチ入口 Agent プラットフォーム",
+    smc_a_issue: "サイドプロジェクト · Pure Frontend · Vanilla JS × Yahoo Finance API",
+    smc_a_title: "SMC 株式分析ツール —<br />TradingView スタイルリアルタイムダッシュボード",
+    smc_a_impact: "ティッカー入力だけで BOS / ChoCH / FVG / OB / P-D Zone をリアルタイム表示 · バックエンド不要",
+    smc_a_body: "<strong>スマートマネーコンセプト（SMC）</strong>を核とした純フロントエンド株式技術分析ツール。任意の米国株ティッカーを入力すると Yahoo Finance API から K ライン データを取得し、<strong>BOS</strong>・<strong>ChoCH</strong>・<strong>FVG</strong>・<strong>OB</strong>・<strong>P-D Zone</strong> などの主要構造を自動計算・描画。TradingView ダークテーマ UI、Canvas レンダリング、完全無サーバー。",
+    smc_a_date: "Self-Initiated · Pure Frontend · No Backend Required",
     p9_issue: "Cover Feature · Self-Hosted · Go × Python × React",
     p9_title: "Javis —<br />Self-Hosted AgentOS Runtime",
     p9_impact: "MVP to full AgentOS · 14 iterative versions · end-to-end governable Agent platform",
     p9_body: "An AI Agent runtime built on a <strong>Redis Stream event bus</strong> — every service decoupled so each Agent evolves independently. <strong>Planner</strong> uses an LLM to decompose natural-language tasks into multi-step plans; <strong>Worker</strong> runs a ReAct reasoning loop and invokes tools; <strong>Reviewer</strong> audits each step with retry / replan support. Built-in <strong>Permission Policy Engine</strong> pauses high-risk operations (shell commands, file deletion) for human approval. Integrates <strong>Browser Agent</strong> (Playwright), Shell Sandbox, and Workspace Isolation (git worktree) so Agents operate real codebases in an observable, auditable environment. <strong>Tiered long-term memory</strong> (session / project / user / global) ensures context persists across runs. <strong>Skill Library</strong> stores reusable workflows as Markdown, auto-matched and injected per task. Prometheus + Grafana track token usage and estimated cost in real time.",
     p9_date: "Self-Initiated · 14-Version Iterative Build · Multi-Entry Agent Platform",
+    smc_a_issue: "Side Project · Pure Frontend · Vanilla JS × Yahoo Finance API",
+    smc_a_title: "SMC Stock Analyzer —<br />TradingView-Style Real-Time Dashboard",
+    smc_a_impact: "Enter any ticker to instantly visualize BOS / ChoCH / FVG / OB / P-D Zone · Zero backend",
+    smc_a_body: "A pure-frontend stock technical analysis tool built around <strong>Smart Money Concepts (SMC)</strong>. Enter any US stock ticker, fetch OHLCV data from Yahoo Finance API, and automatically calculate and render <strong>BOS (Break of Structure)</strong>, <strong>ChoCH (Change of Character)</strong>, <strong>FVG (Fair Value Gap)</strong>, <strong>Order Blocks</strong>, and <strong>P-D Zones (Supply & Demand)</strong>. TradingView dark theme UI, Canvas-based rendering, fully serverless with zero hosting cost.",
+    smc_a_date: "Self-Initiated · Pure Frontend · No Backend Required",
     // skills
     sk_be: "Backend",
     sk_ai: "AI / ML",
